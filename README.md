@@ -40,10 +40,13 @@ cp .env.example .env
 # 5. 마이그레이션
 python manage.py migrate
 
-# 6. (선택) 관리자 계정
+# 6. 카테고리 초기 데이터 (재실행 안전)
+python manage.py load_categories
+
+# 7. (선택) 관리자 계정
 python manage.py createsuperuser
 
-# 7. 서버 실행
+# 8. 서버 실행
 python manage.py runserver
 ```
 
@@ -58,6 +61,17 @@ python manage.py runserver
 | POST   | `/api/accounts/login/refresh/`    | access 토큰 재발급         | refresh  |
 | POST   | `/api/accounts/logout/`           | 로그아웃 (refresh 블랙리스트) | access   |
 | GET    | `/api/accounts/me/`               | 내 정보 조회               | access   |
+| GET    | `/api/categories/`                | 카테고리 목록              | -        |
+| GET    | `/api/stories/`                   | 사연 목록 (페이지네이션)   | -        |
+| POST   | `/api/stories/`                   | 사연 작성                  | access   |
+| GET    | `/api/stories/{id}/`              | 사연 상세 (view_count++)   | -        |
+| PATCH  | `/api/stories/{id}/`              | 사연 수정 (작성자만)       | access   |
+| DELETE | `/api/stories/{id}/`              | 사연 삭제 (soft, 작성자만) | access   |
+
+쿼리 파라미터 (사연 목록):
+- `?category=housing` — 카테고리 slug 필터 (housing/labor/consumer/family/traffic/criminal/realestate/debt/etc)
+- `?ordering=-created_at` (기본) / `?ordering=-view_count`
+- `?page=2` — 페이지네이션 (page_size=10)
 
 ## API 사용 예시
 
@@ -100,6 +114,32 @@ curl -X POST http://localhost:8000/api/accounts/logout/ \
   -d '{"refresh": "<refresh_token>"}'
 ```
 
+### 카테고리 목록
+
+```bash
+curl http://localhost:8000/api/categories/
+```
+
+### 사연 작성
+
+```bash
+curl -X POST http://localhost:8000/api/stories/ \
+  -H "Authorization: Bearer <access_token>" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "title": "전세 보증금 못 받고 있어요",
+    "content": "집주인이 보증금 반환을 미루고 있습니다.",
+    "category": 1,
+    "is_anonymous": false
+  }'
+```
+
+### 사연 목록 (필터/정렬)
+
+```bash
+curl "http://localhost:8000/api/stories/?category=housing&ordering=-view_count&page=1"
+```
+
 ## 프로젝트 구조
 
 ```
@@ -113,7 +153,8 @@ munbeop/
 │   ├── wsgi.py
 │   └── asgi.py
 ├── apps/
-│   └── accounts/       # 사용자 관리, JWT 인증
+│   ├── accounts/       # 사용자 관리, JWT 인증
+│   └── stories/        # 사연 CRUD, Category
 ├── templates/
 ├── static/
 ├── manage.py
