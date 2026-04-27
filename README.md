@@ -71,7 +71,8 @@ python manage.py runserver
 쿼리 파라미터 (사연 목록):
 - `?category=housing` — 카테고리 slug 필터 (housing/labor/consumer/family/traffic/criminal/realestate/debt/etc)
 - `?ordering=-created_at` (기본) / `?ordering=-view_count`
-- `?page=2` — 페이지네이션 (page_size=10)
+- `?page=2` — 페이지네이션 (기본 page_size=10)
+- `?page_size=20` — 페이지 크기 조정 (최대 50, 초과 시 50으로 자동 제한)
 
 ## API 사용 예시
 
@@ -134,9 +135,19 @@ curl -X POST http://localhost:8000/api/stories/ \
   }'
 ```
 
-### 사연 목록 (필터/정렬)
+### 사연 목록 (필터/정렬/페이지네이션)
 
 ```bash
+# 기본 (page_size=10)
+curl http://localhost:8000/api/stories/
+
+# page_size 조정 — 1페이지에 20건
+curl "http://localhost:8000/api/stories/?page=1&page_size=20"
+
+# max_page_size(50) 초과 요청은 자동으로 50건으로 제한됨
+curl "http://localhost:8000/api/stories/?page_size=999"
+
+# 카테고리 필터 + 정렬 + 페이지 조합
 curl "http://localhost:8000/api/stories/?category=housing&ordering=-view_count&page=1"
 ```
 
