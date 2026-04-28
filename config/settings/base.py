@@ -28,6 +28,7 @@ INSTALLED_APPS = [
     # Local
     "apps.accounts",
     "apps.stories",
+    "apps.legal_data",
 ]
 
 MIDDLEWARE = [

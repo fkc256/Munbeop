@@ -1,0 +1,7 @@
+from django.apps import AppConfig
+
+
+class LegalDataConfig(AppConfig):
+    default_auto_field = 'django.db.models.BigAutoField'
+    name = 'apps.legal_data'
+    label = 'legal_data'

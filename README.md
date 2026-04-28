@@ -43,6 +43,9 @@ python manage.py migrate
 # 6. 카테고리 초기 데이터 (재실행 안전)
 python manage.py load_categories
 
+# 6-1. 법령/판례 시연용 최소 데이터 (재실행 안전)
+python manage.py load_sample_data
+
 # 7. (선택) 관리자 계정
 python manage.py createsuperuser
 
@@ -67,6 +70,17 @@ python manage.py runserver
 | GET    | `/api/stories/{id}/`              | 사연 상세 (view_count++)   | -        |
 | PATCH  | `/api/stories/{id}/`              | 사연 수정 (작성자만)       | access   |
 | DELETE | `/api/stories/{id}/`              | 사연 삭제 (soft, 작성자만) | access   |
+| GET    | `/api/laws/`                      | 법령 목록                  | -        |
+| GET    | `/api/laws/{id}/`                 | 법령 상세 (관련 판례 5건)  | -        |
+| GET    | `/api/precedents/`                | 판례 목록                  | -        |
+| GET    | `/api/precedents/{id}/`           | 판례 상세 (관련 법령 M2M)  | -        |
+
+법령/판례 쿼리 파라미터:
+- `?category=housing` — 카테고리 slug
+- `?keyword=보증금` — 법령은 law_name/keywords/content, 판례는 case_name/keywords/summary 부분 일치
+- `?court=대법원` — 판례 법원 정확 일치 (줄임 표기 매칭 X. 정규화는 4차에서 처리)
+- `?result_type=plaintiff_win` — 판례 결과 (plaintiff_win/plaintiff_partial/defendant_win/settled/etc)
+- `?ordering=-judgment_date` — 판례 기본 정렬, `?ordering=law_name`도 가능
 
 쿼리 파라미터 (사연 목록):
 - `?category=housing` — 카테고리 slug 필터 (housing/labor/consumer/family/traffic/criminal/realestate/debt/etc)
@@ -165,7 +179,9 @@ munbeop/
 │   └── asgi.py
 ├── apps/
 │   ├── accounts/       # 사용자 관리, JWT 인증
-│   └── stories/        # 사연 CRUD, Category
+│   ├── stories/        # 사연 CRUD, Category
+│   ├── legal_data/     # 법령(Law), 판례(Precedent) — 구조 검증용 최소 데이터
+│   └── common/         # 공용 페이지네이션 등
 ├── templates/
 ├── static/
 ├── manage.py
@@ -173,6 +189,14 @@ munbeop/
 ├── .env.example
 └── README.md
 ```
+
+## 데이터 적재 정책 (3차 단계)
+
+현재 DB에는 구조 검증용 최소 데이터(법령 5건, 판례 3건)만 입력되어 있습니다.
+
+- 본격적인 법령/판례 데이터는 **STEP 8 이후 별도 단계**에서 적재 예정
+- **4차 단계**에서 [국가법령정보센터 OpenAPI](https://www.law.go.kr/) 연동으로 자동화 예정
+- 현재 시연용 판례의 `case_number` / `judgment_date` / `content`는 임시값이며 `[임시]` 마커가 붙어 있음 — 발표/배포 전 실제 데이터로 교체 필수
 
 ## 면책 고지
 
