@@ -30,6 +30,7 @@ INSTALLED_APPS = [
     "apps.stories",
     "apps.legal_data",
     "apps.search",
+    "apps.interactions",
 ]
 
 MIDDLEWARE = [

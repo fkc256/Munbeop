@@ -76,6 +76,13 @@ python manage.py runserver
 | GET    | `/api/precedents/{id}/`           | 판례 상세 (관련 법령 M2M)  | -        |
 | POST   | `/api/search/`                    | 통합 검색 (법령+판례+사연) | -        |
 | GET    | `/api/search/`                    | 통합 검색 (URL 공유용)     | -        |
+| GET    | `/api/stories/{id}/comments/`     | 댓글 목록 (대댓글 nested)  | -        |
+| POST   | `/api/stories/{id}/comments/`     | 댓글/대댓글 작성           | access   |
+| PATCH  | `/api/comments/{id}/`             | 댓글 수정 (작성자만)       | access   |
+| DELETE | `/api/comments/{id}/`             | 댓글 삭제 (soft, 작성자만) | access   |
+| POST   | `/api/likes/toggle/`              | 좋아요 토글                | access   |
+| POST   | `/api/bookmarks/toggle/`          | 북마크 토글                | access   |
+| GET    | `/api/bookmarks/`                 | 내 북마크 목록 (필터 지원) | access   |
 
 법령/판례 쿼리 파라미터:
 - `?category=housing` — 카테고리 slug
@@ -177,6 +184,45 @@ curl -G --data-urlencode "q=부당해고" http://localhost:8000/api/search/
 ⚠️ **검색 알고리즘 4차 업그레이드 계획**: 현재는 키워드 기반 ILIKE 매칭이며,
 4차에서 임베딩 기반 유사도 검색으로 업그레이드 예정. `apps/search/utils.py`의
 `extract_keywords` 와 `apps/search/services.py`의 `search_*` 함수가 교체 포인트.
+
+### 댓글 / 좋아요 / 북마크
+
+```bash
+# 댓글 작성 (인증 필요)
+curl -X POST http://localhost:8000/api/stories/1/comments/ \
+  -H "Authorization: Bearer <access>" \
+  -H "Content-Type: application/json" \
+  -d '{"content":"공감합니다"}'
+
+# 대댓글 작성 (parent 지정 — 1단계만 허용)
+curl -X POST http://localhost:8000/api/stories/1/comments/ \
+  -H "Authorization: Bearer <access>" \
+  -H "Content-Type: application/json" \
+  -d '{"content":"답변 감사","parent":1}'
+
+# 좋아요 토글 (story 또는 comment)
+curl -X POST http://localhost:8000/api/likes/toggle/ \
+  -H "Authorization: Bearer <access>" \
+  -H "Content-Type: application/json" \
+  -d '{"target_type":"story","target_id":1}'
+# 응답: {"liked": true, "count": 1}
+
+# 북마크 토글 (story / law / precedent)
+curl -X POST http://localhost:8000/api/bookmarks/toggle/ \
+  -H "Authorization: Bearer <access>" \
+  -H "Content-Type: application/json" \
+  -d '{"target_type":"law","target_id":1}'
+
+# 내 북마크 목록 (필터)
+curl -H "Authorization: Bearer <access>" \
+  "http://localhost:8000/api/bookmarks/?target_type=law"
+```
+
+**대댓글 정책**: 댓글에는 1단계 대댓글까지만 허용됩니다. 대댓글에 다시 대댓글을 달면 400을 반환합니다.
+
+**삭제된 댓글 표시**: 작성자가 자기 댓글을 삭제(soft) 했을 때, 그 아래 활성 대댓글이 있으면 부모 자리에 "삭제된 댓글입니다" placeholder를 보여주고 대댓글은 그대로 노출합니다. 활성 대댓글이 없으면 부모는 목록에서 사라집니다.
+
+**Story/Law/Precedent 응답 추가 필드**: 인증 사용자가 호출하면 `is_liked`, `is_bookmarked`, `like_count`, `comment_count` 가 포함됩니다 (Story 한정 — Law/Precedent 상세는 `is_bookmarked`만). 비인증 호출 시 `is_*` 필드는 항상 `false`.
 
 ### 사연 목록 (필터/정렬/페이지네이션)
 

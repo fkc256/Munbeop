@@ -18,7 +18,59 @@ def _author_display(story: Story) -> str:
     return story.user.nickname
 
 
-class StoryListSerializer(serializers.ModelSerializer):
+class _StoryInteractionMixin(serializers.ModelSerializer):
+    """Story 응답에 댓글/좋아요/북마크 필드 추가 (interactions 앱과의 통합)."""
+
+    comment_count = serializers.SerializerMethodField()
+    like_count = serializers.SerializerMethodField()
+    is_liked = serializers.SerializerMethodField()
+    is_bookmarked = serializers.SerializerMethodField()
+
+    def get_comment_count(self, obj: Story) -> int:
+        # 어노테이션 우선, 없으면 직접 카운트 (단일 객체 retrieve 등)
+        cached = getattr(obj, "_comment_count", None)
+        if cached is not None:
+            return cached
+        from apps.interactions.models import Comment
+
+        return Comment.objects.filter(story=obj).count()
+
+    def get_like_count(self, obj: Story) -> int:
+        cached = getattr(obj, "_like_count", None)
+        if cached is not None:
+            return cached
+        from apps.interactions.models import Like
+
+        return Like.objects.filter(target_type="story", target_id=obj.id).count()
+
+    def get_is_liked(self, obj: Story) -> bool:
+        cached = getattr(obj, "_is_liked", None)
+        if cached is not None:
+            return bool(cached)
+        request = self.context.get("request")
+        if not request or not request.user.is_authenticated:
+            return False
+        from apps.interactions.models import Like
+
+        return Like.objects.filter(
+            user=request.user, target_type="story", target_id=obj.id
+        ).exists()
+
+    def get_is_bookmarked(self, obj: Story) -> bool:
+        cached = getattr(obj, "_is_bookmarked", None)
+        if cached is not None:
+            return bool(cached)
+        request = self.context.get("request")
+        if not request or not request.user.is_authenticated:
+            return False
+        from apps.interactions.models import Bookmark
+
+        return Bookmark.objects.filter(
+            user=request.user, target_type="story", target_id=obj.id
+        ).exists()
+
+
+class StoryListSerializer(_StoryInteractionMixin):
     category = CategorySerializer(read_only=True)
     author_display = serializers.SerializerMethodField()
 
@@ -30,6 +82,10 @@ class StoryListSerializer(serializers.ModelSerializer):
             "category",
             "author_display",
             "view_count",
+            "comment_count",
+            "like_count",
+            "is_liked",
+            "is_bookmarked",
             "created_at",
         )
         read_only_fields = fields
@@ -38,7 +94,7 @@ class StoryListSerializer(serializers.ModelSerializer):
         return _author_display(obj)
 
 
-class StoryDetailSerializer(serializers.ModelSerializer):
+class StoryDetailSerializer(_StoryInteractionMixin):
     category = CategorySerializer(read_only=True)
     author_display = serializers.SerializerMethodField()
     is_owner = serializers.SerializerMethodField()
@@ -54,6 +110,10 @@ class StoryDetailSerializer(serializers.ModelSerializer):
             "is_anonymous",
             "is_owner",
             "view_count",
+            "comment_count",
+            "like_count",
+            "is_liked",
+            "is_bookmarked",
             "created_at",
             "updated_at",
         )
