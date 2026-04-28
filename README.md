@@ -74,6 +74,8 @@ python manage.py runserver
 | GET    | `/api/laws/{id}/`                 | 법령 상세 (관련 판례 5건)  | -        |
 | GET    | `/api/precedents/`                | 판례 목록                  | -        |
 | GET    | `/api/precedents/{id}/`           | 판례 상세 (관련 법령 M2M)  | -        |
+| POST   | `/api/search/`                    | 통합 검색 (법령+판례+사연) | -        |
+| GET    | `/api/search/`                    | 통합 검색 (URL 공유용)     | -        |
 
 법령/판례 쿼리 파라미터:
 - `?category=housing` — 카테고리 slug
@@ -149,6 +151,33 @@ curl -X POST http://localhost:8000/api/stories/ \
   }'
 ```
 
+### 통합 검색 (사연 한 줄 입력 → 법령 + 판례 + 유사 사연)
+
+```bash
+# POST 버전 (자연어 입력)
+curl -X POST http://localhost:8000/api/search/ \
+  -H "Content-Type: application/json" \
+  -d '{"query":"전세 보증금을 못 받고 있어요","category":"housing"}'
+
+# GET 버전 (URL 공유용)
+curl -G --data-urlencode "q=부당해고" http://localhost:8000/api/search/
+```
+
+요청 파라미터:
+- `query` (POST) / `q` (GET) — 자연어 입력
+- `category` — 카테고리 slug 필터 (선택)
+- `exclude_story_id` — 사연 상세 페이지에서 자기 사연 제외용 (선택)
+
+응답 구조:
+- `extracted_keywords` — 입력에서 추출한 키워드 (조사 stripping + 불용어 제거 적용)
+- `results.laws` (Top 5) / `results.precedents` (Top 10) / `results.stories` (Top 5)
+- 각 결과 항목에 `matched_keywords`(매칭된 키워드 리스트)와 `score`(매칭 키워드 개수) 포함
+- `disclaimer` — 법률 자문이 아니라는 면책 고지 (모든 응답에 포함)
+
+⚠️ **검색 알고리즘 4차 업그레이드 계획**: 현재는 키워드 기반 ILIKE 매칭이며,
+4차에서 임베딩 기반 유사도 검색으로 업그레이드 예정. `apps/search/utils.py`의
+`extract_keywords` 와 `apps/search/services.py`의 `search_*` 함수가 교체 포인트.
+
 ### 사연 목록 (필터/정렬/페이지네이션)
 
 ```bash
@@ -181,6 +210,7 @@ munbeop/
 │   ├── accounts/       # 사용자 관리, JWT 인증
 │   ├── stories/        # 사연 CRUD, Category
 │   ├── legal_data/     # 법령(Law), 판례(Precedent) — 구조 검증용 최소 데이터
+│   ├── search/         # 통합 검색 (3차 키워드 매칭 → 4차 임베딩으로 교체 예정)
 │   └── common/         # 공용 페이지네이션 등
 ├── templates/
 ├── static/

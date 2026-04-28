@@ -29,6 +29,7 @@ INSTALLED_APPS = [
     "apps.accounts",
     "apps.stories",
     "apps.legal_data",
+    "apps.search",
 ]
 
 MIDDLEWARE = [
