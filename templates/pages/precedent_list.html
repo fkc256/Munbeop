@@ -1,0 +1,122 @@
+{% extends 'base.html' %}
+{% block title %}판례 둘러보기{% endblock %}
+
+{% block content %}
+<div class="container">
+  <h1>판례 둘러보기</h1>
+  <form id="kw-form" class="card form" style="margin:16px 0;">
+    <input type="text" id="keyword" class="form-input" placeholder="키워드 검색 (예: 보증금, 부당해고)">
+    <button type="submit" class="btn-primary btn-sm" style="align-self:flex-end;">검색</button>
+  </form>
+  <div id="category-tabs" class="filter-tabs"></div>
+  <div id="result-tabs" class="filter-tabs">
+    <a class="filter-tab" data-result="" href="#">결과 전체</a>
+    <a class="filter-tab" data-result="plaintiff_win" href="#">원고승</a>
+    <a class="filter-tab" data-result="plaintiff_partial" href="#">원고일부승</a>
+    <a class="filter-tab" data-result="defendant_win" href="#">원고패</a>
+    <a class="filter-tab" data-result="settled" href="#">조정/화해</a>
+  </div>
+  <div id="precedent-list" class="story-list"></div>
+  <div id="pagination" class="pagination"></div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+(function () {
+  const CATEGORY_LABELS = {
+    housing: '전세/월세', labor: '직장/노동', consumer: '소비자',
+    family: '이혼/가족', traffic: '교통사고', criminal: '형사',
+    realestate: '부동산 매매', debt: '채권/채무', etc: '기타',
+  };
+  const CATEGORIES = ['housing','labor','consumer','family','traffic','criminal','realestate','debt','etc'];
+
+  function getParams() {
+    const u = new URL(window.location.href);
+    return {
+      category: u.searchParams.get('category') || '',
+      result_type: u.searchParams.get('result_type') || '',
+      keyword: u.searchParams.get('keyword') || '',
+      page: parseInt(u.searchParams.get('page') || '1', 10),
+    };
+  }
+  function buildUrl(p) {
+    const u = new URL(window.location.origin + '/precedents/');
+    if (p.category) u.searchParams.set('category', p.category);
+    if (p.result_type) u.searchParams.set('result_type', p.result_type);
+    if (p.keyword) u.searchParams.set('keyword', p.keyword);
+    if (p.page > 1) u.searchParams.set('page', p.page);
+    return u.pathname + (u.search ? u.search : '');
+  }
+
+  function renderTabs() {
+    const p = getParams();
+    document.getElementById('keyword').value = p.keyword;
+    document.getElementById('category-tabs').innerHTML =
+      '<a class="filter-tab' + (p.category === '' ? ' active' : '') + '" href="' + buildUrl({...p, category:'', page:1}) + '">전체</a>'
+      + CATEGORIES.map(c => '<a class="filter-tab' + (p.category === c ? ' active' : '') + '" href="' + buildUrl({...p, category:c, page:1}) + '">' + CATEGORY_LABELS[c] + '</a>').join('');
+    document.querySelectorAll('#result-tabs .filter-tab').forEach(t => {
+      const v = t.dataset.result;
+      t.classList.toggle('active', p.result_type === v);
+      t.href = buildUrl({...p, result_type: v, page: 1});
+    });
+  }
+
+  async function load() {
+    const p = getParams();
+    const qs = new URLSearchParams();
+    if (p.category) qs.set('category', p.category);
+    if (p.result_type) qs.set('result_type', p.result_type);
+    if (p.keyword) qs.set('keyword', p.keyword);
+    qs.set('page', String(p.page));
+    const res = await window.api.get('/precedents/?' + qs.toString());
+    if (!res.ok) {
+      document.getElementById('precedent-list').innerHTML = '<div class="empty-state"><p>불러오기 실패</p></div>';
+      return;
+    }
+    const data = await res.json();
+    const list = document.getElementById('precedent-list');
+    if (!data.results.length) {
+      list.innerHTML = '<div class="empty-state"><div class="empty-icon">📭</div><p>매칭된 판례가 없습니다.</p></div>';
+    } else {
+      list.innerHTML = data.results.map(pr => {
+        const cat = (pr.category && pr.category.slug) || '';
+        const catLabel = CATEGORY_LABELS[cat] || cat;
+        return '<a class="story-card" href="/precedents/' + pr.id + '/"><div class="card card-hover">'
+          + '<div class="story-meta">'
+          + (pr.result_type_display ? '<span class="badge badge-accent">' + window.escapeHtml(pr.result_type_display) + '</span>' : '')
+          + (catLabel ? '<span class="badge badge-secondary">' + window.escapeHtml(catLabel) + '</span>' : '')
+          + '<span>' + window.escapeHtml(pr.court || '') + '</span>'
+          + '<span>' + window.escapeHtml(pr.judgment_date || '') + '</span>'
+          + '</div>'
+          + '<h3 class="story-title">' + window.escapeHtml(pr.case_name || '') + '</h3>'
+          + '<p class="story-snippet" style="-webkit-line-clamp:1;color:var(--color-muted);">' + window.escapeHtml(pr.case_number || '') + '</p>'
+          + '</div></a>';
+      }).join('');
+    }
+    renderPagination(data);
+  }
+
+  function renderPagination(data) {
+    const c = document.getElementById('pagination');
+    const p = getParams();
+    const totalPages = Math.max(1, Math.ceil((data.count || 0) / 10));
+    if (totalPages <= 1) { c.innerHTML = ''; return; }
+    let html = '';
+    for (let i = 1; i <= totalPages; i++) {
+      html += '<a class="pagination-item' + (i === p.page ? ' active' : '') + '" href="' + buildUrl({...p, page:i}) + '">' + i + '</a>';
+    }
+    c.innerHTML = html;
+  }
+
+  document.getElementById('kw-form').addEventListener('submit', e => {
+    e.preventDefault();
+    const p = getParams();
+    window.location.href = buildUrl({...p, keyword: document.getElementById('keyword').value.trim(), page: 1});
+  });
+
+  renderTabs();
+  load();
+})();
+</script>
+{% endblock %}

@@ -1,0 +1,129 @@
+{% extends 'base.html' %}
+{% block title %}사연 작성{% endblock %}
+
+{% block content %}
+<div class="container narrow">
+  <h1 id="form-title" style="margin-bottom:24px;">사연 작성</h1>
+  <form id="story-form" class="card form" novalidate>
+    <div class="form-row">
+      <label class="form-label" for="category">카테고리</label>
+      <select id="category" name="category" class="form-select" required></select>
+      <div class="form-error" data-field="category"></div>
+    </div>
+    <div class="form-row">
+      <label class="form-label" for="title">제목 <span style="color:var(--color-muted);font-weight:400;">(5~200자)</span></label>
+      <input type="text" id="title" name="title" class="form-input" required minlength="5" maxlength="200">
+      <div class="form-error" data-field="title"></div>
+    </div>
+    <div class="form-row">
+      <label class="form-label" for="content">내용 <span style="color:var(--color-muted);font-weight:400;">(10자 이상)</span></label>
+      <textarea id="content" name="content" class="form-textarea" required minlength="10" rows="10"
+        placeholder="상황을 자세히 적어주세요. 구체적일수록 관련 법령/판례를 더 잘 찾을 수 있습니다."></textarea>
+      <div class="form-error" data-field="content"></div>
+    </div>
+    <label style="display:flex;gap:8px;align-items:center;cursor:pointer;">
+      <input type="checkbox" id="is_anonymous" name="is_anonymous">
+      <span>익명으로 작성</span>
+    </label>
+    <button type="submit" class="btn-primary btn-lg" id="submit-btn">작성하기</button>
+    <a href="/stories/" class="btn-ghost btn-sm" style="text-align:center;">취소</a>
+  </form>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+(function () {
+  const path = window.location.pathname;
+  const editMatch = path.match(/^\/stories\/(\d+)\/edit\/?$/);
+  const isEdit = !!editMatch;
+  const storyId = isEdit ? parseInt(editMatch[1], 10) : null;
+
+  document.getElementById('form-title').textContent = isEdit ? '사연 수정' : '사연 작성';
+  document.getElementById('submit-btn').textContent = isEdit ? '수정하기' : '작성하기';
+
+  async function ensureAuth() {
+    const user = await window.auth.fetchCurrentUser();
+    if (!user) {
+      window.showToast('로그인이 필요합니다.', 'error');
+      setTimeout(() => window.location.href = '/login/', 800);
+      return null;
+    }
+    return user;
+  }
+
+  async function loadCategories(selectedId) {
+    const res = await window.api.get('/categories/');
+    if (!res.ok) return;
+    const cats = await res.json();
+    const sel = document.getElementById('category');
+    sel.innerHTML = '<option value="">선택하세요</option>' +
+      cats.map(c => '<option value="' + c.id + '"' + (selectedId === c.id ? ' selected' : '') + '>' + window.escapeHtml(c.name) + '</option>').join('');
+  }
+
+  async function prefillForEdit(user) {
+    const res = await window.api.get('/stories/' + storyId + '/');
+    if (!res.ok) {
+      window.showToast('사연을 불러올 수 없습니다.', 'error');
+      setTimeout(() => window.location.href = '/stories/', 800);
+      return;
+    }
+    const s = await res.json();
+    if (!s.is_owner) {
+      window.showToast('수정 권한이 없습니다.', 'error');
+      setTimeout(() => window.location.href = '/stories/' + storyId + '/', 800);
+      return;
+    }
+    document.getElementById('title').value = s.title;
+    document.getElementById('content').value = s.content;
+    document.getElementById('is_anonymous').checked = !!s.is_anonymous;
+    await loadCategories(s.category && s.category.id);
+  }
+
+  document.getElementById('story-form').addEventListener('submit', async function (e) {
+    e.preventDefault();
+    document.querySelectorAll('.form-error').forEach(el => el.textContent = '');
+    const submit = document.getElementById('submit-btn');
+    submit.disabled = true;
+    const form = e.target;
+    const payload = {
+      category: parseInt(form.category.value, 10),
+      title: form.title.value.trim(),
+      content: form.content.value.trim(),
+      is_anonymous: form.is_anonymous.checked,
+    };
+    try {
+      const res = isEdit
+        ? await window.api.patch('/stories/' + storyId + '/', payload)
+        : await window.api.post('/stories/', payload);
+      if (!res.ok) {
+        const errs = await res.json().catch(() => ({}));
+        Object.keys(errs).forEach(field => {
+          const el = document.querySelector('.form-error[data-field="' + field + '"]');
+          if (el) el.textContent = Array.isArray(errs[field]) ? errs[field][0] : String(errs[field]);
+        });
+        if (errs.detail) window.showToast(errs.detail, 'error');
+        return;
+      }
+      const story = await res.json();
+      window.showToast(isEdit ? '수정되었습니다.' : '사연이 등록되었습니다.', 'success');
+      setTimeout(() => window.location.href = '/stories/' + story.id + '/', 600);
+    } catch (_) {
+      window.showToast('요청 실패', 'error');
+    } finally {
+      submit.disabled = false;
+    }
+  });
+
+  (async function init() {
+    const user = await ensureAuth();
+    if (!user) return;
+    if (isEdit) {
+      await prefillForEdit(user);
+    } else {
+      await loadCategories(null);
+    }
+  })();
+})();
+</script>
+{% endblock %}

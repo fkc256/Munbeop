@@ -1,0 +1,88 @@
+{% extends 'base.html' %}
+{% block title %}법령 상세{% endblock %}
+
+{% block content %}
+<div class="container">
+  <div id="law-card" class="card">
+    <div class="skeleton" style="height: 200px;"></div>
+  </div>
+  <section class="section">
+    <h2>관련 판례</h2>
+    <div id="related-precedents" class="story-list"></div>
+  </section>
+  <p class="form-hint" style="text-align:left;color:var(--color-muted);font-size:0.85rem;">
+    본 정보는 참고용이며 법률 자문이 아닙니다.
+  </p>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+(function () {
+  const CATEGORY_LABELS = {
+    housing: '전세/월세', labor: '직장/노동', consumer: '소비자',
+    family: '이혼/가족', traffic: '교통사고', criminal: '형사',
+    realestate: '부동산 매매', debt: '채권/채무', etc: '기타',
+  };
+  const m = window.location.pathname.match(/^\/laws\/(\d+)\/?$/);
+  if (!m) { window.location.href = '/laws/'; return; }
+  const lawId = parseInt(m[1], 10);
+
+  async function load() {
+    const res = await window.api.get('/laws/' + lawId + '/');
+    if (res.status === 404) {
+      document.getElementById('law-card').innerHTML = '<div class="empty-state"><p>존재하지 않는 법령입니다.</p></div>';
+      return;
+    }
+    if (!res.ok) return;
+    const l = await res.json();
+    const cat = l.category && l.category.slug;
+    const catLabel = CATEGORY_LABELS[cat] || cat || '';
+    const kws = (l.keywords || '').split(',').filter(Boolean).map(k => '<span class="keyword-badge">' + window.escapeHtml(k.trim()) + '</span>').join('');
+    document.getElementById('law-card').innerHTML =
+      '<div class="story-meta">'
+      + (catLabel ? '<span class="badge badge-secondary">' + window.escapeHtml(catLabel) + '</span>' : '')
+      + '</div>'
+      + '<h1 style="font-size:1.6rem;margin:8px 0 4px;">' + window.escapeHtml(l.law_name) + ' ' + window.escapeHtml(l.article_number) + '</h1>'
+      + '<p style="color:var(--color-muted);margin-bottom:12px;">' + window.escapeHtml(l.article_title || '') + '</p>'
+      + '<div class="body-text">' + window.escapeHtml(l.content || '') + '</div>'
+      + (kws ? '<div style="margin:12px 0;">' + kws + '</div>' : '')
+      + (l.source_url ? '<p><a href="' + window.escapeHtml(l.source_url) + '" target="_blank" rel="noopener">원문 보기 →</a></p>' : '')
+      + '<div class="action-bar">'
+      +   '<button class="action-btn ' + (l.is_bookmarked ? 'active' : '') + '" id="bookmark-btn" type="button">'
+      +     '<span id="bookmark-icon">' + (l.is_bookmarked ? '🔖' : '🏷') + '</span><span>북마크</span>'
+      +   '</button>'
+      + '</div>';
+    document.getElementById('bookmark-btn').addEventListener('click', toggleBookmark);
+
+    const related = document.getElementById('related-precedents');
+    if (!l.related_precedents || !l.related_precedents.length) {
+      related.innerHTML = '<div class="empty-state" style="padding:16px;"><p>연결된 판례가 없습니다.</p></div>';
+    } else {
+      related.innerHTML = l.related_precedents.map(p =>
+        '<a class="story-card" href="/precedents/' + p.id + '/"><div class="card card-hover">'
+        + '<div class="story-meta">'
+        + (p.result_type_display ? '<span class="badge badge-accent">' + window.escapeHtml(p.result_type_display) + '</span>' : '')
+        + '<span>' + window.escapeHtml(p.court || '') + '</span>'
+        + '<span>' + window.escapeHtml(p.judgment_date || '') + '</span></div>'
+        + '<h3 class="story-title">' + window.escapeHtml(p.case_name || p.case_number || '') + '</h3>'
+        + '</div></a>'
+      ).join('');
+    }
+  }
+
+  async function toggleBookmark() {
+    const user = await window.auth.fetchCurrentUser();
+    if (!user) { window.showToast('로그인이 필요합니다.', 'error'); return; }
+    const res = await window.api.post('/bookmarks/toggle/', { target_type: 'law', target_id: lawId });
+    if (!res.ok) { window.showToast('실패', 'error'); return; }
+    const data = await res.json();
+    document.getElementById('bookmark-btn').classList.toggle('active', data.bookmarked);
+    document.getElementById('bookmark-icon').textContent = data.bookmarked ? '🔖' : '🏷';
+    window.showToast(data.bookmarked ? '북마크에 추가됨' : '북마크 해제됨', 'success');
+  }
+
+  load();
+})();
+</script>
+{% endblock %}

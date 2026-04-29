@@ -1,0 +1,93 @@
+{% extends 'base.html' %}
+{% block title %}판례 상세{% endblock %}
+
+{% block content %}
+<div class="container">
+  <div id="prec-card" class="card">
+    <div class="skeleton" style="height: 200px;"></div>
+  </div>
+  <section class="section">
+    <h2>관련 법령</h2>
+    <div id="related-laws" class="story-list"></div>
+  </section>
+  <p class="form-hint" style="text-align:left;color:var(--color-muted);font-size:0.85rem;">
+    본 정보는 참고용이며 법률 자문이 아닙니다.
+  </p>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+(function () {
+  const CATEGORY_LABELS = {
+    housing: '전세/월세', labor: '직장/노동', consumer: '소비자',
+    family: '이혼/가족', traffic: '교통사고', criminal: '형사',
+    realestate: '부동산 매매', debt: '채권/채무', etc: '기타',
+  };
+  const m = window.location.pathname.match(/^\/precedents\/(\d+)\/?$/);
+  if (!m) { window.location.href = '/precedents/'; return; }
+  const precId = parseInt(m[1], 10);
+
+  async function load() {
+    const res = await window.api.get('/precedents/' + precId + '/');
+    if (res.status === 404) {
+      document.getElementById('prec-card').innerHTML = '<div class="empty-state"><p>존재하지 않는 판례입니다.</p></div>';
+      return;
+    }
+    if (!res.ok) return;
+    const p = await res.json();
+    const cat = p.category && p.category.slug;
+    const catLabel = CATEGORY_LABELS[cat] || cat || '';
+    const kws = (p.keywords || '').split(',').filter(Boolean).map(k => '<span class="keyword-badge">' + window.escapeHtml(k.trim()) + '</span>').join('');
+    document.getElementById('prec-card').innerHTML =
+      '<div class="story-meta">'
+      + (p.result_type_display ? '<span class="badge badge-accent">' + window.escapeHtml(p.result_type_display) + '</span>' : '')
+      + (catLabel ? '<span class="badge badge-secondary">' + window.escapeHtml(catLabel) + '</span>' : '')
+      + '<span>' + window.escapeHtml(p.court || '') + '</span>'
+      + '<span>' + window.escapeHtml(p.judgment_date || '') + '</span>'
+      + '</div>'
+      + '<h1 style="font-size:1.5rem;margin:8px 0 4px;">' + window.escapeHtml(p.case_name || '') + '</h1>'
+      + '<p style="color:var(--color-muted);">' + window.escapeHtml(p.case_number || '') + '</p>'
+      + '<div class="card" style="background-color:var(--color-surface);margin:16px 0;">'
+      +   '<h3 style="font-size:1rem;margin:0 0 6px;">판결 요지</h3>'
+      +   '<div class="body-text" style="margin:0;">' + window.escapeHtml(p.summary || '') + '</div>'
+      + '</div>'
+      + '<h3 style="font-size:1rem;">본문</h3>'
+      + '<div class="body-text">' + window.escapeHtml(p.content || '') + '</div>'
+      + (kws ? '<div style="margin:12px 0;">' + kws + '</div>' : '')
+      + (p.source_url ? '<p><a href="' + window.escapeHtml(p.source_url) + '" target="_blank" rel="noopener">원문 보기 →</a></p>' : '')
+      + '<div class="action-bar">'
+      +   '<button class="action-btn ' + (p.is_bookmarked ? 'active' : '') + '" id="bookmark-btn" type="button">'
+      +     '<span id="bookmark-icon">' + (p.is_bookmarked ? '🔖' : '🏷') + '</span><span>북마크</span>'
+      +   '</button>'
+      + '</div>';
+    document.getElementById('bookmark-btn').addEventListener('click', toggleBookmark);
+
+    const rel = document.getElementById('related-laws');
+    if (!p.related_laws || !p.related_laws.length) {
+      rel.innerHTML = '<div class="empty-state" style="padding:16px;"><p>연결된 법령이 없습니다.</p></div>';
+    } else {
+      rel.innerHTML = p.related_laws.map(l =>
+        '<a class="story-card" href="/laws/' + l.id + '/"><div class="card card-hover">'
+        + '<h3 class="story-title">' + window.escapeHtml(l.law_name) + ' ' + window.escapeHtml(l.article_number) + '</h3>'
+        + '<p class="story-snippet">' + window.escapeHtml(l.article_title || '') + '</p>'
+        + '</div></a>'
+      ).join('');
+    }
+  }
+
+  async function toggleBookmark() {
+    const user = await window.auth.fetchCurrentUser();
+    if (!user) { window.showToast('로그인이 필요합니다.', 'error'); return; }
+    const res = await window.api.post('/bookmarks/toggle/', { target_type: 'precedent', target_id: precId });
+    if (!res.ok) { window.showToast('실패', 'error'); return; }
+    const data = await res.json();
+    document.getElementById('bookmark-btn').classList.toggle('active', data.bookmarked);
+    document.getElementById('bookmark-icon').textContent = data.bookmarked ? '🔖' : '🏷';
+    window.showToast(data.bookmarked ? '북마크 추가됨' : '북마크 해제됨', 'success');
+  }
+
+  load();
+})();
+</script>
+{% endblock %}

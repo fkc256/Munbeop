@@ -40,6 +40,8 @@ class StoryViewSet(viewsets.ModelViewSet):
         category_slug = self.request.query_params.get("category")
         if category_slug:
             qs = qs.filter(category__slug=category_slug)
+        if self.request.query_params.get("author") == "me" and self.request.user.is_authenticated:
+            qs = qs.filter(user=self.request.user)
         # N+1 방지: 댓글/좋아요 카운트, 인증 시 좋아요/북마크 여부 annotate
         from apps.interactions.models import Bookmark, Like
 

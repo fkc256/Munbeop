@@ -1,0 +1,151 @@
+{% extends 'base.html' %}
+{% block title %}마이페이지{% endblock %}
+
+{% block content %}
+<div class="container">
+  <div id="user-card" class="card" style="margin-bottom:16px;">
+    <div class="skeleton" style="height: 60px;"></div>
+  </div>
+
+  <div class="tabs">
+    <button class="tab active" data-tab="stories">내 사연</button>
+    <button class="tab" data-tab="bookmarks">북마크</button>
+  </div>
+
+  <div class="tab-content" id="tab-stories">
+    <div id="my-stories" class="story-list"></div>
+  </div>
+
+  <div class="tab-content" id="tab-bookmarks" style="display:none;">
+    <div class="filter-tabs" id="bookmark-subtabs">
+      <a class="filter-tab active" data-bm="story" href="#">사연</a>
+      <a class="filter-tab" data-bm="law" href="#">법령</a>
+      <a class="filter-tab" data-bm="precedent" href="#">판례</a>
+    </div>
+    <div id="my-bookmarks" class="story-list"></div>
+  </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+(function () {
+  const CATEGORY_LABELS = {
+    housing: '전세/월세', labor: '직장/노동', consumer: '소비자',
+    family: '이혼/가족', traffic: '교통사고', criminal: '형사',
+    realestate: '부동산 매매', debt: '채권/채무', etc: '기타',
+  };
+
+  async function ensureAuth() {
+    const u = await window.auth.fetchCurrentUser();
+    if (!u) {
+      window.showToast('로그인이 필요합니다.', 'error');
+      setTimeout(() => window.location.href = '/login/', 600);
+      return null;
+    }
+    return u;
+  }
+
+  function renderUserCard(u) {
+    document.getElementById('user-card').innerHTML =
+      '<div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;">'
+      + '<div>'
+      +   '<h1 style="margin:0;font-size:1.3rem;">' + window.escapeHtml(u.nickname) + '</h1>'
+      +   '<p style="color:var(--color-muted);margin:4px 0 0;">' + window.escapeHtml(u.email) + ' · @' + window.escapeHtml(u.username) + '</p>'
+      + '</div>'
+      + '<a class="btn-primary btn-sm" href="/stories/new/">사연 작성</a>'
+      + '</div>';
+  }
+
+  async function loadMyStories() {
+    const list = document.getElementById('my-stories');
+    list.innerHTML = '<div class="card"><div class="skeleton" style="height:60px;"></div></div>';
+    const res = await window.api.get('/stories/?author=me&page_size=50');
+    if (!res.ok) { list.innerHTML = '<div class="empty-state"><p>불러오기 실패</p></div>'; return; }
+    const data = await res.json();
+    if (!data.results.length) {
+      list.innerHTML = '<div class="empty-state"><div class="empty-icon">📝</div><p>아직 작성한 사연이 없습니다.</p><a class="btn-primary btn-sm" href="/stories/new/">첫 사연 작성하기</a></div>';
+      return;
+    }
+    list.innerHTML = data.results.map(s => {
+      const cat = (s.category && s.category.slug) || '';
+      const catLabel = CATEGORY_LABELS[cat] || cat;
+      return '<a class="story-card" href="/stories/' + s.id + '/"><div class="card card-hover">'
+        + '<div class="story-meta">'
+        + (catLabel ? '<span class="badge badge-primary">' + window.escapeHtml(catLabel) + '</span>' : '')
+        + '<span>조회 ' + (s.view_count || 0) + '</span>'
+        + '<span>댓글 ' + (s.comment_count || 0) + '</span>'
+        + '<span>좋아요 ' + (s.like_count || 0) + '</span>'
+        + '</div>'
+        + '<h3 class="story-title">' + window.escapeHtml(s.title) + '</h3>'
+        + '</div></a>';
+    }).join('');
+  }
+
+  async function loadBookmarks(targetType) {
+    const list = document.getElementById('my-bookmarks');
+    list.innerHTML = '<div class="card"><div class="skeleton" style="height:60px;"></div></div>';
+    const res = await window.api.get('/bookmarks/?target_type=' + targetType + '&page_size=50');
+    if (!res.ok) { list.innerHTML = '<div class="empty-state"><p>불러오기 실패</p></div>'; return; }
+    const data = await res.json();
+    if (!data.results.length) {
+      list.innerHTML = '<div class="empty-state"><div class="empty-icon">🔖</div><p>북마크가 없습니다.</p></div>';
+      return;
+    }
+    list.innerHTML = data.results.map(b => {
+      const t = b.target_data || {};
+      let href = '#', title = '(삭제됨)', sub = '';
+      if (b.target_type === 'story' && t.id) {
+        href = '/stories/' + t.id + '/';
+        title = t.title || '';
+        sub = CATEGORY_LABELS[t.category] || t.category || '';
+      } else if (b.target_type === 'law' && t.id) {
+        href = '/laws/' + t.id + '/';
+        title = (t.law_name || '') + ' ' + (t.article_number || '');
+        sub = t.article_title || '';
+      } else if (b.target_type === 'precedent' && t.id) {
+        href = '/precedents/' + t.id + '/';
+        title = t.case_name || '';
+        sub = t.case_number || '';
+      }
+      return '<a class="story-card" href="' + href + '"><div class="card card-hover">'
+        + (sub ? '<div class="story-meta"><span>' + window.escapeHtml(sub) + '</span></div>' : '')
+        + '<h3 class="story-title">' + window.escapeHtml(title) + '</h3>'
+        + '</div></a>';
+    }).join('');
+  }
+
+  function setupTabs() {
+    document.querySelectorAll('.tabs .tab').forEach(t => {
+      t.addEventListener('click', () => {
+        document.querySelectorAll('.tabs .tab').forEach(x => x.classList.remove('active'));
+        t.classList.add('active');
+        const id = t.dataset.tab;
+        document.getElementById('tab-stories').style.display = id === 'stories' ? '' : 'none';
+        document.getElementById('tab-bookmarks').style.display = id === 'bookmarks' ? '' : 'none';
+        if (id === 'bookmarks') {
+          const active = document.querySelector('#bookmark-subtabs .filter-tab.active');
+          loadBookmarks(active.dataset.bm);
+        }
+      });
+    });
+    document.querySelectorAll('#bookmark-subtabs .filter-tab').forEach(t => {
+      t.addEventListener('click', e => {
+        e.preventDefault();
+        document.querySelectorAll('#bookmark-subtabs .filter-tab').forEach(x => x.classList.remove('active'));
+        t.classList.add('active');
+        loadBookmarks(t.dataset.bm);
+      });
+    });
+  }
+
+  (async function init() {
+    const u = await ensureAuth();
+    if (!u) return;
+    renderUserCard(u);
+    setupTabs();
+    loadMyStories();
+  })();
+})();
+</script>
+{% endblock %}

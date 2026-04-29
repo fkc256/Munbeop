@@ -1,0 +1,138 @@
+{% extends 'base.html' %}
+{% block title %}사연 둘러보기{% endblock %}
+
+{% block content %}
+<div class="container">
+  <div class="page-header">
+    <h1>사연 둘러보기</h1>
+    <a id="new-story-btn" class="btn-primary" href="/stories/new/">사연 작성</a>
+  </div>
+
+  <div id="category-tabs" class="filter-tabs"></div>
+  <div class="filter-tabs" id="ordering-tabs">
+    <a class="filter-tab" data-ordering="-created_at" href="#">최신순</a>
+    <a class="filter-tab" data-ordering="-view_count" href="#">인기순</a>
+  </div>
+
+  <div id="story-list" class="story-list">
+    <div class="card"><div class="skeleton" style="height: 60px;"></div></div>
+    <div class="card"><div class="skeleton" style="height: 60px;"></div></div>
+  </div>
+
+  <div id="pagination" class="pagination"></div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+(function () {
+  const CATEGORY_LABELS = {
+    housing: '전세/월세', labor: '직장/노동', consumer: '소비자',
+    family: '이혼/가족', traffic: '교통사고', criminal: '형사',
+    realestate: '부동산 매매', debt: '채권/채무', etc: '기타',
+  };
+  const CATEGORIES = ['housing','labor','consumer','family','traffic','criminal','realestate','debt','etc'];
+
+  function getParams() {
+    const u = new URL(window.location.href);
+    return {
+      category: u.searchParams.get('category') || '',
+      ordering: u.searchParams.get('ordering') || '-created_at',
+      page: parseInt(u.searchParams.get('page') || '1', 10),
+    };
+  }
+
+  function buildUrl(params) {
+    const u = new URL(window.location.origin + '/stories/');
+    if (params.category) u.searchParams.set('category', params.category);
+    if (params.ordering && params.ordering !== '-created_at') u.searchParams.set('ordering', params.ordering);
+    if (params.page && params.page > 1) u.searchParams.set('page', params.page);
+    return u.pathname + (u.search ? u.search : '');
+  }
+
+  function renderTabs() {
+    const p = getParams();
+    const tabs = document.getElementById('category-tabs');
+    tabs.innerHTML = '<a class="filter-tab' + (p.category === '' ? ' active' : '') + '" href="' + buildUrl({...p, category:'', page:1}) + '">전체</a>'
+      + CATEGORIES.map(c =>
+        '<a class="filter-tab' + (p.category === c ? ' active' : '') + '" href="' + buildUrl({...p, category:c, page:1}) + '">' + CATEGORY_LABELS[c] + '</a>'
+      ).join('');
+    document.querySelectorAll('#ordering-tabs .filter-tab').forEach(t => {
+      t.classList.toggle('active', t.dataset.ordering === p.ordering);
+      t.href = buildUrl({...p, ordering: t.dataset.ordering, page: 1});
+    });
+  }
+
+  function renderPagination(data) {
+    const container = document.getElementById('pagination');
+    const p = getParams();
+    const pageSize = 10;
+    const totalPages = Math.max(1, Math.ceil((data.count || 0) / pageSize));
+    if (totalPages <= 1) { container.innerHTML = ''; return; }
+    let html = '';
+    html += '<a class="pagination-item' + (p.page <= 1 ? ' disabled' : '') + '" href="' + buildUrl({...p, page: p.page - 1}) + '">‹</a>';
+    for (let i = 1; i <= totalPages; i++) {
+      html += '<a class="pagination-item' + (i === p.page ? ' active' : '') + '" href="' + buildUrl({...p, page: i}) + '">' + i + '</a>';
+    }
+    html += '<a class="pagination-item' + (p.page >= totalPages ? ' disabled' : '') + '" href="' + buildUrl({...p, page: p.page + 1}) + '">›</a>';
+    container.innerHTML = html;
+  }
+
+  function snippet(text, n) {
+    text = text || '';
+    return text.length <= n ? text : text.slice(0, n) + '…';
+  }
+
+  async function load() {
+    const p = getParams();
+    const list = document.getElementById('story-list');
+    const qs = new URLSearchParams();
+    if (p.category) qs.set('category', p.category);
+    qs.set('ordering', p.ordering);
+    qs.set('page', String(p.page));
+    try {
+      const res = await window.api.get('/stories/?' + qs.toString());
+      if (!res.ok) throw new Error('failed');
+      const data = await res.json();
+      if (!data.results.length) {
+        list.innerHTML = '<div class="empty-state"><div class="empty-icon">📭</div><p>아직 등록된 사연이 없습니다.</p></div>';
+      } else {
+        list.innerHTML = data.results.map(s => {
+          const cat = (s.category && s.category.slug) || 'etc';
+          const catName = CATEGORY_LABELS[cat] || cat;
+          return ''
+            + '<a class="story-card" href="/stories/' + s.id + '/">'
+            +   '<div class="card card-hover">'
+            +     '<div class="story-meta">'
+            +       '<span class="badge badge-primary">' + window.escapeHtml(catName) + '</span>'
+            +       '<span>' + window.escapeHtml(s.author_display || '익명') + '</span>'
+            +       '<span>조회 ' + (s.view_count || 0) + '</span>'
+            +       '<span>댓글 ' + (s.comment_count || 0) + '</span>'
+            +       '<span>좋아요 ' + (s.like_count || 0) + '</span>'
+            +     '</div>'
+            +     '<h3 class="story-title">' + window.escapeHtml(s.title) + '</h3>'
+            +   '</div>'
+            + '</a>';
+        }).join('');
+      }
+      renderPagination(data);
+    } catch (_) {
+      list.innerHTML = '<div class="empty-state"><p>불러오기에 실패했습니다.</p></div>';
+    }
+  }
+
+  async function setupAuth() {
+    const u = await window.auth.fetchCurrentUser();
+    const btn = document.getElementById('new-story-btn');
+    if (!u) {
+      btn.textContent = '로그인 후 작성';
+      btn.href = '/login/';
+    }
+  }
+
+  renderTabs();
+  load();
+  setupAuth();
+})();
+</script>
+{% endblock %}

@@ -1,0 +1,326 @@
+{% extends 'base.html' %}
+{% block title %}사연 상세{% endblock %}
+
+{% block content %}
+<div class="container">
+  <div id="story-card" class="card">
+    <div class="skeleton" style="height: 200px;"></div>
+  </div>
+
+  <section class="section">
+    <h2 style="margin-bottom:8px;">이 사연과 관련된 법과 판례</h2>
+    <p class="form-hint" style="text-align:left;color:var(--color-muted);font-size:0.85rem;margin-bottom:12px;">
+      검색 결과는 참고용이며 법률 자문이 아닙니다.
+    </p>
+    <div id="related-laws" class="search-section"></div>
+    <div id="related-precedents" class="search-section"></div>
+    <div id="similar-stories" class="search-section"></div>
+  </section>
+
+  <section class="section" id="comments-section">
+    <h2>댓글 <span id="comment-count" style="color:var(--color-muted);font-weight:400;font-size:0.95rem;"></span></h2>
+    <div id="comment-form-area"></div>
+    <div id="comment-list" class="comment-list"></div>
+    <div id="comment-pagination" class="pagination"></div>
+  </section>
+</div>
+
+<div id="confirm-modal" class="modal-backdrop">
+  <div class="modal">
+    <h3 id="confirm-title">확인</h3>
+    <p id="confirm-message"></p>
+    <div class="modal-actions">
+      <button class="btn-ghost btn-sm" id="confirm-cancel">취소</button>
+      <button class="btn-danger btn-sm" id="confirm-ok">확인</button>
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+(function () {
+  const CATEGORY_LABELS = {
+    housing: '전세/월세', labor: '직장/노동', consumer: '소비자',
+    family: '이혼/가족', traffic: '교통사고', criminal: '형사',
+    realestate: '부동산 매매', debt: '채권/채무', etc: '기타',
+  };
+  const m = window.location.pathname.match(/^\/stories\/(\d+)\/?$/);
+  if (!m) { window.location.href = '/stories/'; return; }
+  const storyId = parseInt(m[1], 10);
+  let currentStory = null;
+  let currentUser = null;
+  let commentPage = 1;
+
+  function showConfirm(message, onOk) {
+    const m = document.getElementById('confirm-modal');
+    document.getElementById('confirm-message').textContent = message;
+    m.classList.add('show');
+    const ok = document.getElementById('confirm-ok');
+    const cancel = document.getElementById('confirm-cancel');
+    function close() { m.classList.remove('show'); ok.removeEventListener('click', okHandler); cancel.removeEventListener('click', close); }
+    function okHandler() { close(); onOk(); }
+    ok.addEventListener('click', okHandler);
+    cancel.addEventListener('click', close);
+  }
+
+  async function loadStory() {
+    const res = await window.api.get('/stories/' + storyId + '/');
+    if (res.status === 404) {
+      document.getElementById('story-card').innerHTML = '<div class="empty-state"><p>존재하지 않거나 삭제된 사연입니다.</p></div>';
+      return null;
+    }
+    if (!res.ok) {
+      document.getElementById('story-card').innerHTML = '<div class="empty-state"><p>불러오기 실패</p></div>';
+      return null;
+    }
+    const s = await res.json();
+    currentStory = s;
+    renderStory(s);
+    return s;
+  }
+
+  function renderStory(s) {
+    const cat = (s.category && s.category.slug) || 'etc';
+    const catName = CATEGORY_LABELS[cat] || cat;
+    const ownerActions = s.is_owner
+      ? '<a class="btn-ghost btn-sm" href="/stories/' + s.id + '/edit/">수정</a>'
+      + '<button class="btn-danger btn-sm" id="delete-story-btn" type="button">삭제</button>'
+      : '';
+    document.getElementById('story-card').innerHTML =
+      '<div class="story-meta">'
+      + '<span class="badge badge-primary">' + window.escapeHtml(catName) + '</span>'
+      + '<span>' + window.escapeHtml(s.author_display || '익명') + '</span>'
+      + '<span>' + new Date(s.created_at).toLocaleDateString('ko-KR') + '</span>'
+      + '<span>조회 ' + (s.view_count || 0) + '</span>'
+      + '</div>'
+      + '<h1 class="story-title" style="font-size:1.5rem;margin:8px 0 12px;">' + window.escapeHtml(s.title) + '</h1>'
+      + '<div class="body-text">' + window.escapeHtml(s.content) + '</div>'
+      + '<div class="action-bar">'
+      +   '<button class="action-btn ' + (s.is_liked ? 'liked' : '') + '" id="like-btn" type="button">'
+      +     '<span>♡</span><span id="like-count">' + (s.like_count || 0) + '</span>'
+      +   '</button>'
+      +   '<button class="action-btn ' + (s.is_bookmarked ? 'active' : '') + '" id="bookmark-btn" type="button">'
+      +     '<span id="bookmark-icon">' + (s.is_bookmarked ? '🔖' : '🏷') + '</span><span>북마크</span>'
+      +   '</button>'
+      +   '<span style="flex:1;"></span>'
+      +   ownerActions
+      + '</div>';
+    document.getElementById('like-btn').addEventListener('click', toggleLike);
+    document.getElementById('bookmark-btn').addEventListener('click', toggleBookmark);
+    if (s.is_owner) {
+      document.getElementById('delete-story-btn').addEventListener('click', () => {
+        showConfirm('이 사연을 삭제하시겠습니까?', deleteStory);
+      });
+    }
+  }
+
+  async function toggleLike() {
+    if (!currentUser) { window.showToast('로그인이 필요합니다.', 'error'); return; }
+    const res = await window.api.post('/likes/toggle/', { target_type: 'story', target_id: storyId });
+    if (!res.ok) { window.showToast('실패', 'error'); return; }
+    const data = await res.json();
+    document.getElementById('like-count').textContent = data.count;
+    document.getElementById('like-btn').classList.toggle('liked', data.liked);
+  }
+
+  async function toggleBookmark() {
+    if (!currentUser) { window.showToast('로그인이 필요합니다.', 'error'); return; }
+    const res = await window.api.post('/bookmarks/toggle/', { target_type: 'story', target_id: storyId });
+    if (!res.ok) { window.showToast('실패', 'error'); return; }
+    const data = await res.json();
+    document.getElementById('bookmark-btn').classList.toggle('active', data.bookmarked);
+    document.getElementById('bookmark-icon').textContent = data.bookmarked ? '🔖' : '🏷';
+    window.showToast(data.bookmarked ? '북마크에 추가했습니다.' : '북마크 해제됨', 'success');
+  }
+
+  async function deleteStory() {
+    const res = await window.api.delete('/stories/' + storyId + '/');
+    if (res.ok) {
+      window.showToast('삭제되었습니다.', 'success');
+      setTimeout(() => window.location.href = '/stories/', 500);
+    } else {
+      window.showToast('삭제 실패', 'error');
+    }
+  }
+
+  // 검색 결과 자동 로드
+  async function loadRelated(s) {
+    try {
+      const res = await fetch('/api/search/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ query: s.content, exclude_story_id: s.id })
+      });
+      if (!res.ok) return;
+      const data = await res.json();
+      renderRelated(data);
+    } catch (_) {}
+  }
+
+  function renderRelated(data) {
+    document.getElementById('related-laws').innerHTML =
+      '<div class="search-section-title"><span class="icon">📖</span><h2>관련 법령</h2><span class="count">(' + data.counts.laws + '건)</span></div>'
+      + (data.results.laws.length === 0
+        ? '<div class="empty-state" style="padding:16px;"><p>매칭된 법령이 없습니다.</p></div>'
+        : '<div class="story-list">' + data.results.laws.map(l =>
+          '<a class="story-card" href="/laws/' + l.id + '/"><div class="card card-hover">'
+          + '<div class="story-meta"><span class="badge badge-secondary">' + window.escapeHtml(CATEGORY_LABELS[l.category] || l.category || '') + '</span>'
+          + '<span class="meta-list">' + (l.matched_keywords || []).map(k => '<span class="keyword-badge">' + window.escapeHtml(k) + '</span>').join('') + '</span></div>'
+          + '<h3 class="story-title">' + window.escapeHtml(l.law_name) + ' ' + window.escapeHtml(l.article_number) + '</h3>'
+          + '<p class="story-snippet">' + window.escapeHtml(l.article_title || '') + '</p>'
+          + '</div></a>'
+        ).join('') + '</div>');
+
+    document.getElementById('related-precedents').innerHTML =
+      '<div class="search-section-title"><span class="icon">⚖️</span><h2>관련 판례</h2><span class="count">(' + data.counts.precedents + '건)</span></div>'
+      + (data.results.precedents.length === 0
+        ? '<div class="empty-state" style="padding:16px;"><p>매칭된 판례가 없습니다.</p></div>'
+        : '<div class="story-list">' + data.results.precedents.map(p =>
+          '<a class="story-card" href="/precedents/' + p.id + '/"><div class="card card-hover">'
+          + '<div class="story-meta">'
+          + '<span class="badge badge-accent">' + window.escapeHtml(p.result_type_display || '') + '</span>'
+          + '<span>' + window.escapeHtml(p.court || '') + '</span>'
+          + '<span>' + window.escapeHtml(p.judgment_date || '') + '</span>'
+          + '</div>'
+          + '<h3 class="story-title">' + window.escapeHtml(p.case_name) + '</h3>'
+          + '<p class="story-snippet">' + window.escapeHtml(p.summary_preview || '') + '</p>'
+          + '</div></a>'
+        ).join('') + '</div>');
+
+    document.getElementById('similar-stories').innerHTML =
+      '<div class="search-section-title"><span class="icon">💬</span><h2>비슷한 사연</h2><span class="count">(' + data.counts.stories + '건)</span></div>'
+      + (data.results.stories.length === 0
+        ? '<div class="empty-state" style="padding:16px;"><p>비슷한 사연이 없습니다.</p></div>'
+        : '<div class="story-list">' + data.results.stories.map(s =>
+          '<a class="story-card" href="/stories/' + s.id + '/"><div class="card card-hover">'
+          + '<div class="story-meta"><span class="badge badge-primary">' + window.escapeHtml(CATEGORY_LABELS[s.category] || s.category || '') + '</span>'
+          + '<span>' + window.escapeHtml(s.author_display || '익명') + '</span>'
+          + '<span>조회 ' + (s.view_count || 0) + '</span></div>'
+          + '<h3 class="story-title">' + window.escapeHtml(s.title) + '</h3>'
+          + '</div></a>'
+        ).join('') + '</div>');
+  }
+
+  // 댓글
+  async function loadComments() {
+    const res = await fetch('/api/stories/' + storyId + '/comments/?page=' + commentPage);
+    if (!res.ok) return;
+    const data = await res.json();
+    document.getElementById('comment-count').textContent = '(' + data.count + ')';
+    renderComments(data);
+  }
+
+  function renderComment(c, isReply) {
+    const ownerBtns = (currentUser && c.user_id === currentUser.id && !c.is_deleted)
+      ? '<button data-action="edit" data-id="' + c.id + '">수정</button>'
+      + '<button data-action="delete" data-id="' + c.id + '">삭제</button>' : '';
+    const replyBtn = (currentUser && !isReply && !c.is_deleted)
+      ? '<button data-action="reply" data-id="' + c.id + '">답글</button>' : '';
+    return '<div class="comment ' + (c.is_deleted ? 'deleted' : '') + '">'
+      + '<div class="comment-meta"><span class="author">' + window.escapeHtml(c.user_nickname || '(익명)') + '</span>'
+      + '<span>' + new Date(c.created_at).toLocaleDateString('ko-KR') + '</span></div>'
+      + '<div>' + window.escapeHtml(c.content) + '</div>'
+      + (c.is_deleted ? '' : '<div class="comment-actions">' + replyBtn + ownerBtns + '</div>')
+      + (c.replies && c.replies.length
+        ? '<div class="replies">' + c.replies.map(r => renderComment(r, true)).join('') + '</div>'
+        : '');
+  }
+
+  function renderComments(data) {
+    const list = document.getElementById('comment-list');
+    if (!data.results.length) {
+      list.innerHTML = '<div class="empty-state" style="padding:24px;"><p>아직 댓글이 없습니다.</p></div>';
+    } else {
+      list.innerHTML = data.results.map(c => renderComment(c, false)).join('');
+    }
+    list.querySelectorAll('button[data-action]').forEach(btn => {
+      btn.addEventListener('click', () => onCommentAction(btn.dataset.action, parseInt(btn.dataset.id, 10)));
+    });
+    renderCommentPagination(data);
+  }
+
+  function renderCommentPagination(data) {
+    const container = document.getElementById('comment-pagination');
+    const totalPages = Math.max(1, Math.ceil((data.count || 0) / 10));
+    if (totalPages <= 1) { container.innerHTML = ''; return; }
+    let html = '';
+    for (let i = 1; i <= totalPages; i++) {
+      html += '<button class="pagination-item' + (i === commentPage ? ' active' : '') + '" data-page="' + i + '">' + i + '</button>';
+    }
+    container.innerHTML = html;
+    container.querySelectorAll('button').forEach(b => b.addEventListener('click', () => {
+      commentPage = parseInt(b.dataset.page, 10); loadComments();
+    }));
+  }
+
+  function renderCommentForm() {
+    const area = document.getElementById('comment-form-area');
+    if (!currentUser) {
+      area.innerHTML = '<div class="card form-hint" style="text-align:center;padding:16px;">댓글을 작성하려면 <a href="/login/">로그인</a>이 필요합니다.</div>';
+      return;
+    }
+    area.innerHTML =
+      '<form id="comment-form" class="card form" style="margin-bottom:16px;">'
+      + '<input type="hidden" id="comment-parent" value="">'
+      + '<div id="reply-indicator" style="display:none;font-size:0.85rem;color:var(--color-muted);margin-bottom:6px;">대댓글 작성 중 — <button type="button" id="cancel-reply" class="action-btn btn-sm">취소</button></div>'
+      + '<textarea class="form-textarea" id="comment-content" required minlength="1" placeholder="댓글을 입력하세요"></textarea>'
+      + '<button type="submit" class="btn-primary btn-sm" style="align-self:flex-end;">등록</button>'
+      + '</form>';
+    document.getElementById('comment-form').addEventListener('submit', submitComment);
+    document.getElementById('cancel-reply').addEventListener('click', () => {
+      document.getElementById('comment-parent').value = '';
+      document.getElementById('reply-indicator').style.display = 'none';
+    });
+  }
+
+  async function submitComment(e) {
+    e.preventDefault();
+    const content = document.getElementById('comment-content').value.trim();
+    const parentRaw = document.getElementById('comment-parent').value;
+    const payload = { content };
+    if (parentRaw) payload.parent = parseInt(parentRaw, 10);
+    const res = await window.api.post('/stories/' + storyId + '/comments/', payload);
+    if (!res.ok) {
+      const err = await res.json().catch(() => ({}));
+      window.showToast((err.parent && err.parent[0]) || (err.content && err.content[0]) || '실패', 'error');
+      return;
+    }
+    document.getElementById('comment-content').value = '';
+    document.getElementById('comment-parent').value = '';
+    document.getElementById('reply-indicator').style.display = 'none';
+    window.showToast('등록되었습니다.', 'success');
+    loadComments();
+  }
+
+  async function onCommentAction(action, commentId) {
+    if (action === 'reply') {
+      document.getElementById('comment-parent').value = String(commentId);
+      document.getElementById('reply-indicator').style.display = 'block';
+      document.getElementById('comment-content').focus();
+    } else if (action === 'edit') {
+      const newContent = prompt('댓글 수정:', '');
+      if (!newContent) return;
+      const res = await window.api.patch('/comments/' + commentId + '/', { content: newContent });
+      if (res.ok) { window.showToast('수정됨', 'success'); loadComments(); }
+      else window.showToast('실패', 'error');
+    } else if (action === 'delete') {
+      showConfirm('이 댓글을 삭제하시겠습니까?', async () => {
+        const res = await window.api.delete('/comments/' + commentId + '/');
+        if (res.ok) { window.showToast('삭제됨', 'success'); loadComments(); }
+        else window.showToast('실패', 'error');
+      });
+    }
+  }
+
+  (async function init() {
+    currentUser = await window.auth.fetchCurrentUser();
+    const s = await loadStory();
+    if (!s) return;
+    renderCommentForm();
+    loadComments();
+    loadRelated(s);
+  })();
+})();
+</script>
+{% endblock %}
