@@ -1,0 +1,57 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% block title %}문법{% endblock %} - 일반인을 위한 법률 정보 플랫폼</title>
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap-grid.min.css">
+  <link rel="stylesheet" href="{% static 'css/base.css' %}">
+  <link rel="stylesheet" href="{% static 'css/components.css' %}">
+
+  {% block extra_css %}{% endblock %}
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="/" class="logo">
+        <span class="logo-icon">⚖️</span>
+        <span class="logo-text">문법</span>
+      </a>
+      <nav class="main-nav" aria-label="주 메뉴">
+        <a href="/stories/">사연 둘러보기</a>
+        <a href="/laws/">법령</a>
+        <a href="/precedents/">판례</a>
+      </nav>
+      <div class="auth-area">
+        <span class="skeleton" style="width: 80px; height: 20px;"></span>
+      </div>
+      <button class="mobile-menu-toggle" type="button" aria-label="메뉴 열기">☰</button>
+    </div>
+  </header>
+
+  <main class="site-main">
+    {% block content %}{% endblock %}
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p class="disclaimer">
+        본 서비스는 법률 정보 제공 목적이며, 법률 자문이 아닙니다.
+        구체적인 법률 자문은 변호사와 상담하시기 바랍니다.
+      </p>
+      <p class="copyright">© 2026 문법 (Munbeop) - 부트캠프 3차 프로젝트</p>
+    </div>
+  </footer>
+
+  <div id="toast-container" aria-live="polite"></div>
+
+  <script src="{% static 'js/api.js' %}"></script>
+  <script src="{% static 'js/auth.js' %}"></script>
+  <script src="{% static 'js/common.js' %}"></script>
+
+  {% block extra_js %}{% endblock %}
+</body>
+</html>

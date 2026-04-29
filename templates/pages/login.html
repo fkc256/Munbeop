@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% block title %}로그인{% endblock %}
+
+{% block content %}
+<div class="container narrow">
+  <h1 style="text-align:center; margin-bottom:24px;">로그인</h1>
+  <form id="login-form" class="card form" novalidate>
+    <div class="form-row">
+      <label class="form-label" for="username">아이디</label>
+      <input type="text" id="username" name="username" class="form-input" required autocomplete="username">
+      <div class="form-error" data-field="username"></div>
+    </div>
+    <div class="form-row">
+      <label class="form-label" for="password">비밀번호</label>
+      <input type="password" id="password" name="password" class="form-input" required autocomplete="current-password">
+      <div class="form-error" data-field="password"></div>
+    </div>
+    <button type="submit" class="btn-primary btn-lg" id="login-submit">로그인</button>
+    <p class="form-hint">아직 회원이 아니신가요? <a href="/signup/">회원가입</a></p>
+  </form>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+document.getElementById('login-form').addEventListener('submit', async function (e) {
+  e.preventDefault();
+  document.querySelectorAll('.form-error').forEach(function (el) { el.textContent = ''; });
+  const form = e.target;
+  const submit = document.getElementById('login-submit');
+  submit.disabled = true;
+  try {
+    await window.auth.login(form.username.value.trim(), form.password.value);
+    window.showToast('로그인 성공', 'success');
+    setTimeout(function () { window.location.href = '/'; }, 500);
+  } catch (err) {
+    window.showToast(err.message || '로그인 실패', 'error');
+  } finally {
+    submit.disabled = false;
+  }
+});
+</script>
+{% endblock %}

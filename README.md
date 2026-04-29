@@ -84,6 +84,16 @@ python manage.py runserver
 | POST   | `/api/bookmarks/toggle/`          | 북마크 토글                | access   |
 | GET    | `/api/bookmarks/`                 | 내 북마크 목록 (필터 지원) | access   |
 
+페이지 라우트:
+
+| Path        | 설명                                                  |
+| ----------- | ----------------------------------------------------- |
+| `/`         | 홈 (히어로 검색 + 카테고리 9개 + 인기 사연 5건)       |
+| `/signup/`  | 회원가입 페이지                                       |
+| `/login/`   | 로그인 페이지                                         |
+
+(STEP 6B에서 `/stories/`, `/stories/{id}/`, `/laws/{id}/`, `/precedents/{id}/`, `/search/`, `/me/` 추가 예정)
+
 법령/판례 쿼리 파라미터:
 - `?category=housing` — 카테고리 slug
 - `?keyword=보증금` — 법령은 law_name/keywords/content, 판례는 case_name/keywords/summary 부분 일치

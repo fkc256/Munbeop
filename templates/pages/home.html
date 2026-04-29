@@ -1,0 +1,153 @@
+{% extends 'base.html' %}
+{% block title %}홈{% endblock %}
+
+{% block content %}
+<section class="hero">
+  <div class="container">
+    <h1>법이 어려워서 망설이고 계신가요?</h1>
+    <p class="hero-sub">내 상황을 그대로 적어보세요. 관련 법령과 판례, 비슷한 사연을 찾아드립니다.</p>
+    <form id="hero-search" class="hero-search">
+      <textarea id="hero-query" name="q" required
+        placeholder="예) 전세 계약이 끝났는데 집주인이 보증금을 돌려주지 않아요..."></textarea>
+      <button type="submit" class="btn-primary btn-lg">검색하기</button>
+    </form>
+  </div>
+</section>
+
+<section class="section container">
+  <h2>카테고리</h2>
+  <div class="category-grid">
+    <a class="category-card" href="/stories/?category=housing">
+      <div class="card card-hover">
+        <span class="category-icon">🏠</span>
+        <div class="category-name">전세/월세</div>
+        <div class="category-desc">임대차, 보증금, 원상복구</div>
+      </div>
+    </a>
+    <a class="category-card" href="/stories/?category=labor">
+      <div class="card card-hover">
+        <span class="category-icon">💼</span>
+        <div class="category-name">직장/노동</div>
+        <div class="category-desc">해고, 임금, 근로조건</div>
+      </div>
+    </a>
+    <a class="category-card" href="/stories/?category=consumer">
+      <div class="card card-hover">
+        <span class="category-icon">🛒</span>
+        <div class="category-name">소비자</div>
+        <div class="category-desc">환불, 결함, 약관</div>
+      </div>
+    </a>
+    <a class="category-card" href="/stories/?category=family">
+      <div class="card card-hover">
+        <span class="category-icon">💔</span>
+        <div class="category-name">이혼/가족</div>
+        <div class="category-desc">양육비, 재산분할, 친권</div>
+      </div>
+    </a>
+    <a class="category-card" href="/stories/?category=traffic">
+      <div class="card card-hover">
+        <span class="category-icon">🚗</span>
+        <div class="category-name">교통사고</div>
+        <div class="category-desc">과실, 보험, 손해배상</div>
+      </div>
+    </a>
+    <a class="category-card" href="/stories/?category=criminal">
+      <div class="card card-hover">
+        <span class="category-icon">⚖️</span>
+        <div class="category-name">형사</div>
+        <div class="category-desc">명예훼손, 폭행, 사기</div>
+      </div>
+    </a>
+    <a class="category-card" href="/stories/?category=realestate">
+      <div class="card card-hover">
+        <span class="category-icon">🏢</span>
+        <div class="category-name">부동산 매매</div>
+        <div class="category-desc">매매, 중개, 등기</div>
+      </div>
+    </a>
+    <a class="category-card" href="/stories/?category=debt">
+      <div class="card card-hover">
+        <span class="category-icon">💰</span>
+        <div class="category-name">채권/채무</div>
+        <div class="category-desc">대여금, 미수금, 가압류</div>
+      </div>
+    </a>
+    <a class="category-card" href="/stories/?category=etc">
+      <div class="card card-hover">
+        <span class="category-icon">📋</span>
+        <div class="category-name">기타</div>
+        <div class="category-desc">기타 분쟁</div>
+      </div>
+    </a>
+  </div>
+</section>
+
+<section class="section container">
+  <h2>지금 사람들이 묻고 있어요 <a href="/stories/" class="section-link">사연 더 보기 →</a></h2>
+  <div id="popular-stories" class="story-list">
+    <div class="card"><div class="skeleton" style="height: 60px;"></div></div>
+    <div class="card"><div class="skeleton" style="height: 60px;"></div></div>
+    <div class="card"><div class="skeleton" style="height: 60px;"></div></div>
+  </div>
+</section>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+(function () {
+  const CATEGORY_LABELS = {
+    housing: '전세/월세', labor: '직장/노동', consumer: '소비자',
+    family: '이혼/가족', traffic: '교통사고', criminal: '형사',
+    realestate: '부동산 매매', debt: '채권/채무', etc: '기타',
+  };
+
+  // 검색창 submit → /search/?q=...
+  document.getElementById('hero-search').addEventListener('submit', function (e) {
+    e.preventDefault();
+    const q = document.getElementById('hero-query').value.trim();
+    if (!q) return;
+    window.location.href = '/search/?q=' + encodeURIComponent(q);
+  });
+
+  function snippet(text, n) {
+    text = text || '';
+    if (text.length <= n) return text;
+    return text.slice(0, n) + '…';
+  }
+
+  async function loadPopular() {
+    const list = document.getElementById('popular-stories');
+    try {
+      const res = await window.api.get('/stories/?ordering=-view_count&page_size=5');
+      if (!res.ok) throw new Error('failed');
+      const data = await res.json();
+      if (!data.results || data.results.length === 0) {
+        list.innerHTML = '<p class="form-hint">아직 등록된 사연이 없습니다.</p>';
+        return;
+      }
+      list.innerHTML = data.results.map(function (s) {
+        const cat = (s.category && s.category.slug) || 'etc';
+        const catName = CATEGORY_LABELS[cat] || cat;
+        return ''
+          + '<a class="story-card" href="/stories/' + s.id + '/">'
+          +   '<div class="card card-hover">'
+          +     '<div class="story-meta">'
+          +       '<span class="badge badge-primary">' + window.escapeHtml(catName) + '</span>'
+          +       '<span>조회 ' + (s.view_count || 0) + '</span>'
+          +       '<span>댓글 ' + (s.comment_count || 0) + '</span>'
+          +       '<span>좋아요 ' + (s.like_count || 0) + '</span>'
+          +     '</div>'
+          +     '<h3 class="story-title">' + window.escapeHtml(s.title) + '</h3>'
+          +   '</div>'
+          + '</a>';
+      }).join('');
+    } catch (_) {
+      list.innerHTML = '<p class="form-hint">사연을 불러오지 못했습니다.</p>';
+    }
+  }
+
+  loadPopular();
+})();
+</script>
+{% endblock %}
