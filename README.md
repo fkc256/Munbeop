@@ -1,13 +1,32 @@
 # 문법 (Munbeop)
 
-일반인을 위한 법률 정보 검색 & 사례 학습 플랫폼 (부트캠프 3차 단계)
+> 법이 어려워서 망설이고 계신가요? 내 상황을 그대로 적으면 관련 법령과 판례, 비슷한 사연을 찾아드립니다.
+
+**일반인을 위한 법률 정보 검색 & 사례 학습 플랫폼**.
+케이스노트·엘박스 같은 변호사용 도구와 다르게 일반인 친화 UX와 자연어 입력에 집중했습니다.
+
+## 주요 기능
+
+- 자연어 사연 입력 → 관련 법령/판례 자동 매칭
+- 통합 검색 (법령 → 판례 → 유사 사연 순서)
+- 커뮤니티 (사연 공유, 댓글/대댓글, 좋아요)
+- 북마크 (사연/법령/판례)
+- 마이페이지 (내 사연/북마크)
+
+## 차별점
+
+- **일반인 친화 UX**: 변호사용 빽빽한 UI 안티패턴 회피, 친근한 톤
+- **법령 먼저, 판례 나중**: 1차 자료부터 보여주는 학습 흐름
+- **자연어 입력**: 키워드가 아니라 사연 그대로 — 조사 stripping + 불용어 처리
+- **단정적 자문 X**: 변호사법 109조 안전선. AI 답변 생성 X. 모든 결과에 면책 고지.
+- **무료 + 광고 + 정부 지원** 비즈니스 모델 (변호사 매칭/광고 ❌)
 
 ## 단계별 범위
 
-- **3차 (현재, 4/27 ~ 5/6)**: 동작하는 웹서비스 MVP. AI 없음. 키워드 검색만.
-- **4차 (예정, 5/8 ~ 6/16)**: AI 임베딩, FastAPI 분리, Celery + Redis, Docker, 모니터링.
+- **3차 (현재, 4/27 ~ 5/6)**: 동작하는 웹서비스 MVP. 키워드 매칭 검색. PostgreSQL.
+- **4차 (예정, 5/8 ~ 6/16)**: AI 임베딩, FastAPI 분리, Celery + Redis, Docker, 외부 API 연동.
 
-3차에서는 의도적으로 다음을 추가하지 않습니다: AI/벡터DB, Docker, Celery, Redis, FastAPI 분리, PostgreSQL 전환.
+3차에서는 의도적으로 다음을 추가하지 않습니다: AI/벡터DB, Docker, Celery, Redis, FastAPI 분리.
 
 ## 기술 스택
 
@@ -340,6 +359,27 @@ munbeop/
 3. 폐지된 법령 처리 → `is_active=False` (API 응답에서 제외)
 4. 카테고리 순서 조정 → list view에서 `order` 직접 편집
 5. 잘못 등록된 데이터 영구 삭제 → `bulk_hard_delete` (확인 메시지 노출)
+
+## 시연용 계정
+
+`fixtures/sample_data.json` loaddata 후 다음 계정 사용 가능:
+
+| username | password | 역할 |
+|----------|----------|------|
+| testuser | testpass1234 | 일반 사용자 (사연 10건 작성자) |
+| testuser2 | testpass1234 | 일반 사용자 (소유권 분리 테스트용) |
+| admin | admin1234 | 관리자 (Django Admin 접근) |
+
+## 산출물 (docs/)
+
+| 문서 | 내용 |
+|------|------|
+| [docs/ERD.md](docs/ERD.md) | 데이터 모델 다이어그램 + 관계 명세 |
+| [docs/API.md](docs/API.md) | 모든 API 엔드포인트 명세 |
+| [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) | 시스템 아키텍처 + 4차 확장 청사진 |
+| [docs/SAMPLE_DATA.md](docs/SAMPLE_DATA.md) | 시연 데이터셋 명세 |
+| [docs/CHECKLIST.md](docs/CHECKLIST.md) | 부트캠프 자가점검 통과 표 |
+| [docs/PITCH.md](docs/PITCH.md) | 발표 가이드 (10분 시간 분배) |
 
 ## 데이터 적재 정책 (3차 단계)
 

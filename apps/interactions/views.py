@@ -1,4 +1,4 @@
-from django.db.models import Count, Exists, Q
+from django.db.models import Count, Q
 from django.shortcuts import get_object_or_404
 from rest_framework import generics, permissions, status
 from rest_framework.exceptions import NotFound
