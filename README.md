@@ -51,6 +51,9 @@ python manage.py createsuperuser
 
 # 8. 서버 실행
 python manage.py runserver
+
+# 9. (운영용) 정적 파일 모으기 — staticfiles/ 에 복사됨 (gitignored)
+python manage.py collectstatic --noinput
 ```
 
 `http://localhost:8000/admin/` — Django 관리자 페이지.
@@ -295,6 +298,27 @@ munbeop/
 ├── .env.example
 └── README.md
 ```
+
+## 관리자 페이지
+
+`http://localhost:8000/admin/` — `createsuperuser`로 만든 계정으로 로그인.
+
+기본 Django 어드민 위에 다음을 커스터마이징:
+
+- **User**: `story_count`(활성 사연 수), `activate/deactivate_users` 액션
+- **Story**: `Story.all_objects` queryset (soft-deleted 포함), `comment_count_display`/`like_count_display`, `bulk_soft_delete`/`bulk_restore`/`bulk_hard_delete` 액션
+- **Category**: `list_editable=order`로 정렬 순서 즉시 변경, `story/law/precedent_count`
+- **Law**: `list_editable=is_active`로 폐지 처리 빠르게, `precedent_count_display`/`bookmark_count_display`, `activate/deactivate_laws` 액션
+- **Precedent**: `filter_horizontal=related_laws`로 M2M 편집, `date_hierarchy=judgment_date`
+- **Comment**: `Comment.all_objects` queryset, `story_link`(클릭 가능), `parent_id_display`, `like_count_display`
+- **Like / Bookmark**: `target_link`로 대상 객체 admin 페이지로 1-클릭 이동
+
+운영자 사용 시나리오:
+1. 신고된 사연·댓글 검토 → 부적절하면 `bulk_soft_delete`
+2. 사용자 계정 차단 → `is_active=False` 액션 (즉시 로그인 차단)
+3. 폐지된 법령 처리 → `is_active=False` (API 응답에서 제외)
+4. 카테고리 순서 조정 → list view에서 `order` 직접 편집
+5. 잘못 등록된 데이터 영구 삭제 → `bulk_hard_delete` (확인 메시지 노출)
 
 ## 데이터 적재 정책 (3차 단계)
 

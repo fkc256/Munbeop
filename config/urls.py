@@ -2,6 +2,11 @@ from django.contrib import admin
 from django.urls import include, path
 from django.views.generic import TemplateView
 
+# Admin 사이트 브랜딩
+admin.site.site_header = "문법 관리자"
+admin.site.site_title = "문법 Admin"
+admin.site.index_title = "문법 운영 관리"
+
 urlpatterns = [
     path("admin/", admin.site.urls),
     # API
