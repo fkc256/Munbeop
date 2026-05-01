@@ -65,3 +65,6 @@ coverage.xml
 .pytest_cache/
 
 # Migrations - keep them tracked (do NOT ignore)
+
+# STEP 7.5 backups (DB dumps, SQLite snapshot)
+/backups/

@@ -14,46 +14,67 @@
 - Python 3.11+
 - Django 5.x + Django REST Framework
 - djangorestframework-simplejwt (JWT 인증)
-- SQLite (3차) → PostgreSQL (4차에서 전환)
+- PostgreSQL 16 (STEP 7.5에서 SQLite → PostgreSQL 전환 완료)
 - Django Template + Bootstrap 5 + vanilla JS (3차 후반에 적용 예정)
 - python-decouple (.env 관리)
 
 ## 설치 및 실행
 
+### 1) PostgreSQL 준비 (STEP 7.5에서 SQLite → PostgreSQL 전환)
+
 ```bash
-# 1. 클론
+# Ubuntu/WSL
+sudo apt install postgresql postgresql-contrib
+sudo service postgresql start
+
+# DB 생성 (방법 A — 본인 OS 사용자를 owner로, socket peer 인증)
+createdb -E UTF8 munbeop
+
+# DB 생성 (방법 B — 전용 사용자 + 비밀번호, sudo 권한 있는 경우)
+sudo -u postgres psql -c "CREATE USER munbeop_user WITH PASSWORD 'your-pw';"
+sudo -u postgres psql -c "CREATE DATABASE munbeop OWNER munbeop_user ENCODING 'UTF8';"
+```
+
+### 2) Django 셋업
+
+```bash
 git clone https://github.com/fkc256/Munbeop.git
 cd Munbeop
 
-# 2. 가상환경
 python3 -m venv .venv
 source .venv/bin/activate
 
-# 3. 의존성 설치
 pip install -r requirements.txt
 
-# 4. 환경변수 — SECRET_KEY는 본인 환경에 맞게 변경
 cp .env.example .env
-# (필요 시) SECRET_KEY 새로 발급:
-#   python -c "from django.core.management.utils import get_random_secret_key; print(get_random_secret_key())"
+# .env에서 DB_USER/DB_PASSWORD/DB_HOST 본인 환경에 맞게 수정
+# (방법 A: DB_USER=$USER, DB_PASSWORD/DB_HOST 빈 값 — socket peer)
+# (방법 B: DB_USER=munbeop_user, DB_PASSWORD=설정한 비밀번호, DB_HOST=localhost)
 
-# 5. 마이그레이션
 python manage.py migrate
 
-# 6. 카테고리 초기 데이터 (재실행 안전)
-python manage.py load_categories
+# 시연 데이터셋 한 번에 (Story 13 + Law 5 + Precedent 3 + Comment + Like + Bookmark + 사용자)
+python manage.py loaddata fixtures/sample_data.json
+# loaddata 후 시퀀스 재정렬 (PostgreSQL 특이사항 — 다음 INSERT 시 PK 충돌 방지)
+python manage.py sqlsequencereset accounts stories legal_data interactions search | psql -d munbeop
 
-# 6-1. 법령/판례 시연용 최소 데이터 (재실행 안전)
-python manage.py load_sample_data
-
-# 7. (선택) 관리자 계정
+# (선택) 관리자 계정
 python manage.py createsuperuser
 
-# 8. 서버 실행
+# 서버 실행
 python manage.py runserver
 
-# 9. (운영용) 정적 파일 모으기 — staticfiles/ 에 복사됨 (gitignored)
+# (운영용) 정적 파일 — staticfiles/ 에 복사 (gitignored)
 python manage.py collectstatic --noinput
+```
+
+### loaddata 대신 빈 DB로 시작하고 싶을 때
+
+```bash
+python manage.py migrate
+python manage.py load_categories       # 카테고리 9개
+python manage.py load_sample_data      # 법령 5 + 판례 3
+# Story는 사용자가 UI에서 직접 작성 (시연 데이터셋은 fixtures/sample_data.json 참조)
 ```
 
 `http://localhost:8000/admin/` — Django 관리자 페이지.
@@ -327,6 +348,10 @@ munbeop/
 - 본격적인 법령/판례 데이터는 **STEP 8 이후 별도 단계**에서 적재 예정
 - **4차 단계**에서 [국가법령정보센터 OpenAPI](https://www.law.go.kr/) 연동으로 자동화 예정
 - 현재 시연용 판례의 `case_number` / `judgment_date` / `content`는 임시값이며 `[임시]` 마커가 붙어 있음 — 발표/배포 전 실제 데이터로 교체 필수
+
+## 변경 이력
+
+- **2026-05-01 (STEP 7.5)** — SQLite → PostgreSQL 16 전환. 시연 데이터셋(60 객체) 무손실 마이그레이션, 한국어 ILIKE 검색 동작 확인. 이전 SQLite 설정은 `config/settings/dev.py`에 주석으로 보존.
 
 ## 면책 고지
 
