@@ -619,6 +619,30 @@
 .report-modal-options label:hover { background: var(--color-surface); }
 
 /* ============================================================
+   브랜드 헤드라인 — "문제를 해결하는 법" 줄임말 강조
+   ============================================================ */
+.brand-headline {
+  font-size: 2.5rem;
+  font-weight: 800;
+  text-align: center;
+  letter-spacing: -0.02em;
+  margin-bottom: 12px;
+}
+.brand-emph {
+  color: var(--color-primary);
+  font-weight: 900;
+  position: relative;
+  display: inline-block;
+  padding: 0 0.05em;
+  background: linear-gradient(180deg, transparent 60%, rgba(37, 99, 235, 0.15) 60%, rgba(37, 99, 235, 0.15) 95%, transparent 95%);
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+@media (max-width: 768px) {
+  .brand-headline { font-size: 1.8rem; }
+}
+
+/* ============================================================
    실시간 검색어 위젯 — 홈 hero 우측 상단 세로 랭킹 (포털 사이트 스타일)
    ============================================================ */
 .hero-grid {
