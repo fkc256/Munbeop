@@ -145,16 +145,38 @@
   }
 
   // 검색 결과 자동 로드
+  // - laws/precedents: 사연의 카테고리 컨텍스트 그대로 적용 (필터 ON)
+  // - stories: 카테고리 필터 OFF (비슷한 상황 다른 분야도 노출)
+  // - query에 제목 + 본문 합쳐서 키워드 추출 정확도 향상
   async function loadRelated(s) {
     try {
-      const res = await fetch('/api/search/', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ query: s.content, exclude_story_id: s.id })
+      const query = (s.title || '') + ' ' + (s.content || '');
+      const cat = s.category && s.category.slug;
+      const [r1, r2] = await Promise.all([
+        fetch('/api/search/', {
+          method: 'POST', headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ query, exclude_story_id: s.id, category: cat })
+        }),
+        fetch('/api/search/', {
+          method: 'POST', headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ query, exclude_story_id: s.id })
+        })
+      ]);
+      if (!r1.ok || !r2.ok) return;
+      const d1 = await r1.json();
+      const d2 = await r2.json();
+      renderRelated({
+        results: {
+          laws: d1.results.laws,
+          precedents: d1.results.precedents,
+          stories: d2.results.stories,
+        },
+        counts: {
+          laws: d1.counts.laws,
+          precedents: d1.counts.precedents,
+          stories: d2.counts.stories,
+        }
       });
-      if (!res.ok) return;
-      const data = await res.json();
-      renderRelated(data);
     } catch (_) {}
   }
 

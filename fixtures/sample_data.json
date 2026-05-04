@@ -110,6 +110,28 @@
     }
   },
   {
+    "model": "token_blacklist.outstandingtoken",
+    "pk": 11,
+    "fields": {
+      "user": 1,
+      "jti": "2ae623ca270349829a40bf144288f454",
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTc3ODIyMjYxOCwiaWF0IjoxNzc3NjE3ODE4LCJqdGkiOiIyYWU2MjNjYTI3MDM0OTgyOWE0MGJmMTQ0Mjg4ZjQ1NCIsInVzZXJfaWQiOiIxIn0.Jmm9MrQ9-qVYeso2dBd32J8LOKM9eP_0neiOFFiL2MY",
+      "created_at": "2026-05-01T06:43:38.744Z",
+      "expires_at": "2026-05-08T06:43:38Z"
+    }
+  },
+  {
+    "model": "token_blacklist.outstandingtoken",
+    "pk": 12,
+    "fields": {
+      "user": null,
+      "jti": "e545821966a14b0ba94db2bc59b3deb0",
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTc3ODIyNTI2MSwiaWF0IjoxNzc3NjIwNDYxLCJqdGkiOiJlNTQ1ODIxOTY2YTE0YjBiYTk0ZGIyYmM1OWIzZGViMCIsInVzZXJfaWQiOiI1In0.zT6mcPqcYsLNzHJSkBgRZUTILdDQ9JgGe5nO98OenR0",
+      "created_at": "2026-05-01T07:27:41.388Z",
+      "expires_at": "2026-05-08T07:27:41Z"
+    }
+  },
+  {
     "model": "token_blacklist.blacklistedtoken",
     "pk": 1,
     "fields": {
@@ -123,6 +145,14 @@
     "fields": {
       "token": 8,
       "blacklisted_at": "2026-04-29T08:08:22.504Z"
+    }
+  },
+  {
+    "model": "token_blacklist.blacklistedtoken",
+    "pk": 3,
+    "fields": {
+      "token": 12,
+      "blacklisted_at": "2026-05-01T07:27:41.799Z"
     }
   },
   {
@@ -205,6 +235,48 @@
       "nickname": "관리자",
       "created_at": "2026-05-01T05:12:09.039Z",
       "updated_at": "2026-05-01T05:12:09.253Z",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "accounts.user",
+    "pk": 6,
+    "fields": {
+      "password": "pbkdf2_sha256$1000000$swL1LzOHM9KW1DMzhoAFQk$fFyH4OKUCChsFj4l0Eifd9h6OrgZ1zmYokG0UiyxBIY=",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "lawhelper",
+      "first_name": "",
+      "last_name": "",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2026-05-04T03:45:16.987Z",
+      "email": "lawhelper@munbeop.local",
+      "nickname": "도움이",
+      "created_at": "2026-05-04T03:45:16.987Z",
+      "updated_at": "2026-05-04T03:45:17.174Z",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "accounts.user",
+    "pk": 7,
+    "fields": {
+      "password": "pbkdf2_sha256$1000000$tLv3GS47aSYzAL4dqEq3M8$AMruY2Gr7u3BXMJQGcgKxl4qtqoPpauQQpF9qb1A1kc=",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "survivor",
+      "first_name": "",
+      "last_name": "",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2026-05-04T03:45:17.187Z",
+      "email": "survivor@munbeop.local",
+      "nickname": "겪어본사람",
+      "created_at": "2026-05-04T03:45:17.187Z",
+      "updated_at": "2026-05-04T03:45:17.384Z",
       "groups": [],
       "user_permissions": []
     }
@@ -319,73 +391,9 @@
       "is_anonymous": false,
       "is_deleted": false,
       "deleted_at": null,
-      "view_count": 49,
+      "view_count": 53,
       "created_at": "2026-04-27T09:02:27.438Z",
       "updated_at": "2026-04-27T09:04:31.007Z"
-    }
-  },
-  {
-    "model": "stories.story",
-    "pk": 17,
-    "fields": {
-      "user": 1,
-      "title": "전세 관련 추가 사연 #1",
-      "content": "전세 보증금 관련 새 사연 #1 입니다.",
-      "category": 1,
-      "is_anonymous": false,
-      "is_deleted": false,
-      "deleted_at": null,
-      "view_count": 15,
-      "created_at": "2026-04-27T11:09:47.955Z",
-      "updated_at": "2026-04-27T11:09:47.955Z"
-    }
-  },
-  {
-    "model": "stories.story",
-    "pk": 18,
-    "fields": {
-      "user": 1,
-      "title": "전세 관련 추가 사연 #2",
-      "content": "전세 보증금 관련 새 사연 #2 입니다.",
-      "category": 1,
-      "is_anonymous": false,
-      "is_deleted": false,
-      "deleted_at": null,
-      "view_count": 3,
-      "created_at": "2026-04-27T11:09:47.976Z",
-      "updated_at": "2026-04-27T11:09:47.976Z"
-    }
-  },
-  {
-    "model": "stories.story",
-    "pk": 19,
-    "fields": {
-      "user": 1,
-      "title": "전세 관련 추가 사연 #3",
-      "content": "전세 보증금 관련 새 사연 #3 입니다.",
-      "category": 1,
-      "is_anonymous": false,
-      "is_deleted": false,
-      "deleted_at": null,
-      "view_count": 0,
-      "created_at": "2026-04-27T11:09:47.995Z",
-      "updated_at": "2026-04-27T11:09:47.995Z"
-    }
-  },
-  {
-    "model": "stories.story",
-    "pk": 20,
-    "fields": {
-      "user": 1,
-      "title": "전세 관련 추가 사연 #4",
-      "content": "전세 보증금 관련 새 사연 #4 입니다.",
-      "category": 1,
-      "is_anonymous": false,
-      "is_deleted": false,
-      "deleted_at": null,
-      "view_count": 8,
-      "created_at": "2026-04-27T11:09:48.014Z",
-      "updated_at": "2026-04-27T11:09:48.014Z"
     }
   },
   {
@@ -399,7 +407,7 @@
       "is_anonymous": false,
       "is_deleted": false,
       "deleted_at": null,
-      "view_count": 50,
+      "view_count": 52,
       "created_at": "2026-04-28T06:19:26.674Z",
       "updated_at": "2026-04-28T06:19:26.674Z"
     }
@@ -415,7 +423,7 @@
       "is_anonymous": false,
       "is_deleted": false,
       "deleted_at": null,
-      "view_count": 25,
+      "view_count": 27,
       "created_at": "2026-04-28T06:19:26.685Z",
       "updated_at": "2026-04-28T06:19:26.685Z"
     }
@@ -431,7 +439,7 @@
       "is_anonymous": true,
       "is_deleted": false,
       "deleted_at": null,
-      "view_count": 35,
+      "view_count": 37,
       "created_at": "2026-04-28T06:19:26.695Z",
       "updated_at": "2026-04-28T06:19:26.695Z"
     }
@@ -447,7 +455,7 @@
       "is_anonymous": false,
       "is_deleted": false,
       "deleted_at": null,
-      "view_count": 10,
+      "view_count": 12,
       "created_at": "2026-04-28T06:19:26.706Z",
       "updated_at": "2026-04-28T06:19:26.706Z"
     }
@@ -463,7 +471,7 @@
       "is_anonymous": true,
       "is_deleted": false,
       "deleted_at": null,
-      "view_count": 8,
+      "view_count": 11,
       "created_at": "2026-04-28T06:19:26.716Z",
       "updated_at": "2026-04-28T06:19:26.716Z"
     }
@@ -479,7 +487,7 @@
       "is_anonymous": false,
       "is_deleted": false,
       "deleted_at": null,
-      "view_count": 40,
+      "view_count": 44,
       "created_at": "2026-04-28T06:19:26.742Z",
       "updated_at": "2026-04-28T06:19:26.742Z"
     }
@@ -495,7 +503,7 @@
       "is_anonymous": true,
       "is_deleted": false,
       "deleted_at": null,
-      "view_count": 20,
+      "view_count": 25,
       "created_at": "2026-04-28T06:19:26.766Z",
       "updated_at": "2026-04-28T06:19:26.766Z"
     }
@@ -511,7 +519,7 @@
       "is_anonymous": false,
       "is_deleted": false,
       "deleted_at": null,
-      "view_count": 5,
+      "view_count": 10,
       "created_at": "2026-04-28T06:19:26.794Z",
       "updated_at": "2026-04-28T06:19:26.794Z"
     }
@@ -545,7 +553,7 @@
       "source_url": "https://www.law.go.kr/법령/주택임대차보호법",
       "is_active": true,
       "created_at": "2026-04-28T05:03:31.470Z",
-      "updated_at": "2026-04-28T05:06:11.900Z"
+      "updated_at": "2026-05-04T03:43:49.313Z"
     }
   },
   {
@@ -561,7 +569,7 @@
       "source_url": "https://www.law.go.kr/법령/주택임대차보호법",
       "is_active": true,
       "created_at": "2026-04-28T05:03:31.472Z",
-      "updated_at": "2026-04-28T05:06:11.901Z"
+      "updated_at": "2026-05-04T03:43:49.315Z"
     }
   },
   {
@@ -577,7 +585,7 @@
       "source_url": "https://www.law.go.kr/법령/근로기준법",
       "is_active": true,
       "created_at": "2026-04-28T05:03:31.473Z",
-      "updated_at": "2026-04-28T05:06:11.902Z"
+      "updated_at": "2026-05-04T03:43:49.317Z"
     }
   },
   {
@@ -593,7 +601,7 @@
       "source_url": "https://www.law.go.kr/법령/형법",
       "is_active": true,
       "created_at": "2026-04-28T05:03:31.476Z",
-      "updated_at": "2026-04-28T05:06:11.903Z"
+      "updated_at": "2026-05-04T03:43:49.319Z"
     }
   },
   {
@@ -605,11 +613,155 @@
       "article_title": "불법행위의 내용",
       "content": "고의 또는 과실로 인한 위법행위로 타인에게 손해를 가한 자는 그 손해를 배상할 책임이 있다.",
       "category": 9,
-      "keywords": "불법행위,손해배상,고의,과실,위법",
+      "keywords": "불법행위,손해배상,손해,배상,고의,과실,위법,누수,침해,청구",
       "source_url": "https://www.law.go.kr/법령/민법",
       "is_active": true,
       "created_at": "2026-04-28T05:03:31.477Z",
-      "updated_at": "2026-04-28T05:06:38.751Z"
+      "updated_at": "2026-05-04T03:43:49.320Z"
+    }
+  },
+  {
+    "model": "legal_data.law",
+    "pk": 6,
+    "fields": {
+      "law_name": "전자상거래 등에서의 소비자보호에 관한 법률",
+      "article_number": "제17조",
+      "article_title": "청약철회 등",
+      "content": "통신판매의 방법으로 재화등의 구매에 관한 계약을 체결한 소비자는 다음 각 호의 기간(거래당사자가 다음 각 호의 기간보다 긴 기간으로 약정한 경우에는 그 기간) 이내에 해당 계약에 관한 청약철회등을 할 수 있다.\n(법조문 본문 일부 발췌 — 정확한 전문은 source_url 참조)",
+      "category": 3,
+      "keywords": "청약철회,환불,통신판매,7일,온라인쇼핑",
+      "source_url": "https://www.law.go.kr/법령/전자상거래등에서의소비자보호에관한법률",
+      "is_active": true,
+      "created_at": "2026-05-04T03:11:31.605Z",
+      "updated_at": "2026-05-04T03:43:49.322Z"
+    }
+  },
+  {
+    "model": "legal_data.law",
+    "pk": 7,
+    "fields": {
+      "law_name": "약관의 규제에 관한 법률",
+      "article_number": "제6조",
+      "article_title": "일반원칙",
+      "content": "신의성실의 원칙을 위반하여 공정을 잃은 약관 조항은 무효로 한다.\n(법조문 본문 일부 발췌 — 정확한 전문은 source_url 참조)",
+      "category": 3,
+      "keywords": "약관,불공정,무효,신의성실,소비자",
+      "source_url": "https://www.law.go.kr/법령/약관의규제에관한법률",
+      "is_active": true,
+      "created_at": "2026-05-04T03:11:31.612Z",
+      "updated_at": "2026-05-04T03:43:49.324Z"
+    }
+  },
+  {
+    "model": "legal_data.law",
+    "pk": 8,
+    "fields": {
+      "law_name": "민법",
+      "article_number": "제837조",
+      "article_title": "이혼과 자의 양육책임",
+      "content": "이혼하는 부모는 협의에 의하여 자(子)의 양육에 관한 사항을 정한다. 협의가 이루어지지 아니하거나 협의할 수 없는 때에는 가정법원이 직권으로 또는 당사자의 청구에 따라 정한다.\n(법조문 본문 일부 발췌 — 정확한 전문은 source_url 참조)",
+      "category": 4,
+      "keywords": "양육비,양육권,이혼,협의,가정법원",
+      "source_url": "https://www.law.go.kr/법령/민법",
+      "is_active": true,
+      "created_at": "2026-05-04T03:11:31.614Z",
+      "updated_at": "2026-05-04T03:43:49.325Z"
+    }
+  },
+  {
+    "model": "legal_data.law",
+    "pk": 9,
+    "fields": {
+      "law_name": "민법",
+      "article_number": "제839조의2",
+      "article_title": "재산분할청구권",
+      "content": "협의상 이혼한 자의 일방은 다른 일방에 대하여 재산분할을 청구할 수 있다.\n(법조문 본문 일부 발췌 — 정확한 전문은 source_url 참조)",
+      "category": 4,
+      "keywords": "재산분할,이혼,협의,청구권",
+      "source_url": "https://www.law.go.kr/법령/민법",
+      "is_active": true,
+      "created_at": "2026-05-04T03:11:31.616Z",
+      "updated_at": "2026-05-04T03:43:49.327Z"
+    }
+  },
+  {
+    "model": "legal_data.law",
+    "pk": 10,
+    "fields": {
+      "law_name": "자동차손해배상 보장법",
+      "article_number": "제3조",
+      "article_title": "자동차손해배상책임",
+      "content": "자기를 위하여 자동차를 운행하는 자는 그 운행으로 다른 사람을 사망하게 하거나 부상하게 한 경우에는 그 손해를 배상할 책임을 진다.\n(법조문 본문 일부 발췌 — 정확한 전문은 source_url 참조)",
+      "category": 5,
+      "keywords": "운행자책임,교통사고,손해배상,과실",
+      "source_url": "https://www.law.go.kr/법령/자동차손해배상보장법",
+      "is_active": true,
+      "created_at": "2026-05-04T03:11:31.618Z",
+      "updated_at": "2026-05-04T03:43:49.328Z"
+    }
+  },
+  {
+    "model": "legal_data.law",
+    "pk": 11,
+    "fields": {
+      "law_name": "도로교통법",
+      "article_number": "제54조",
+      "article_title": "사고발생 시의 조치",
+      "content": "차 또는 노면전차의 운전 등 교통으로 인하여 사람을 사상하거나 물건을 손괴한 경우에는 그 차 또는 노면전차의 운전자나 그 밖의 승무원은 즉시 정차하여 사상자를 구호하는 등 필요한 조치를 하여야 한다.\n(법조문 본문 일부 발췌 — 정확한 전문은 source_url 참조)",
+      "category": 5,
+      "keywords": "교통사고,사고조치,운전자,구호의무",
+      "source_url": "https://www.law.go.kr/법령/도로교통법",
+      "is_active": true,
+      "created_at": "2026-05-04T03:11:31.620Z",
+      "updated_at": "2026-05-04T03:43:49.330Z"
+    }
+  },
+  {
+    "model": "legal_data.law",
+    "pk": 12,
+    "fields": {
+      "law_name": "민법",
+      "article_number": "제565조",
+      "article_title": "해약금",
+      "content": "매매의 당사자 일방이 계약 당시에 금전 기타 물건을 계약금, 보증금 등의 명목으로 상대방에게 교부한 때에는 당사자간에 다른 약정이 없는 한 당사자의 일방이 이행에 착수할 때까지 교부자는 이를 포기하고 수령자는 그 배액을 상환하여 매매계약을 해제할 수 있다.",
+      "category": 7,
+      "keywords": "해약금,계약금,배액상환,매매계약,해제",
+      "source_url": "https://www.law.go.kr/법령/민법",
+      "is_active": true,
+      "created_at": "2026-05-04T03:11:31.622Z",
+      "updated_at": "2026-05-04T03:43:49.332Z"
+    }
+  },
+  {
+    "model": "legal_data.law",
+    "pk": 13,
+    "fields": {
+      "law_name": "민법",
+      "article_number": "제162조",
+      "article_title": "채권, 재산권의 소멸시효",
+      "content": "① 채권은 10년간 행사하지 아니하면 소멸시효가 완성한다.\n(제1항만 발췌. 제2항(재산권 20년) 등은 source_url 참조)",
+      "category": 8,
+      "keywords": "소멸시효,채권,10년,차용,차용금,빌려준,카톡",
+      "source_url": "https://www.law.go.kr/법령/민법",
+      "is_active": true,
+      "created_at": "2026-05-04T03:11:31.623Z",
+      "updated_at": "2026-05-04T03:43:49.334Z"
+    }
+  },
+  {
+    "model": "legal_data.law",
+    "pk": 14,
+    "fields": {
+      "law_name": "민법",
+      "article_number": "제428조",
+      "article_title": "보증채무의 내용",
+      "content": "① 보증인은 주채무자가 이행하지 아니하는 채무를 이행할 의무가 있다.\n(법조문 본문 일부 발췌 — 정확한 전문은 source_url 참조)",
+      "category": 8,
+      "keywords": "보증채무,주채무,이행의무,연대보증",
+      "source_url": "https://www.law.go.kr/법령/민법",
+      "is_active": true,
+      "created_at": "2026-05-04T03:11:31.625Z",
+      "updated_at": "2026-05-04T03:43:49.335Z"
     }
   },
   {
@@ -627,7 +779,7 @@
       "source_url": "",
       "result_type": "plaintiff_partial",
       "created_at": "2026-04-28T05:03:31.478Z",
-      "updated_at": "2026-04-28T05:06:11.904Z",
+      "updated_at": "2026-05-04T03:43:49.338Z",
       "related_laws": [
         1
       ]
@@ -648,7 +800,7 @@
       "source_url": "",
       "result_type": "plaintiff_win",
       "created_at": "2026-04-28T05:03:31.481Z",
-      "updated_at": "2026-04-28T05:06:11.906Z",
+      "updated_at": "2026-05-04T03:43:49.342Z",
       "related_laws": [
         3
       ]
@@ -669,9 +821,135 @@
       "source_url": "",
       "result_type": "defendant_win",
       "created_at": "2026-04-28T05:03:31.483Z",
-      "updated_at": "2026-04-28T05:06:11.907Z",
+      "updated_at": "2026-05-04T03:43:49.344Z",
       "related_laws": [
         4
+      ]
+    }
+  },
+  {
+    "model": "legal_data.precedent",
+    "pk": 4,
+    "fields": {
+      "case_number": "[임시] 2022다112233",
+      "case_name": "온라인 쇼핑몰 환불 거부 사건",
+      "court": "서울중앙지방법원",
+      "judgment_date": "2022-09-08",
+      "summary": "통신판매업자가 청약철회 기간 내 환불 요청을 부당하게 거부한 경우 전자상거래법 위반에 해당한다는 취지의 판단.",
+      "content": "[임시 본문 — STEP 8 이후 본격 적재 시 교체 예정]\n본 사건은 소비자가 배송 파손을 이유로 환불을 요청했으나 판매자가 '소비자 부주의'를 이유로 거부한 사안으로, 법원은 청약철회 기간 내 정당한 사유 없는 환불 거부는 위법하다고 판단하였다.",
+      "category": 3,
+      "keywords": "환불거부,청약철회,통신판매,소비자보호",
+      "source_url": "",
+      "result_type": "plaintiff_win",
+      "created_at": "2026-05-04T03:11:31.645Z",
+      "updated_at": "2026-05-04T03:43:49.347Z",
+      "related_laws": [
+        6
+      ]
+    }
+  },
+  {
+    "model": "legal_data.precedent",
+    "pk": 5,
+    "fields": {
+      "case_number": "[임시] 2023느합3456",
+      "case_name": "양육비 산정 기준 사건",
+      "court": "서울가정법원",
+      "judgment_date": "2023-05-11",
+      "summary": "양육비 산정표는 합리적 기준이지만 양육의 구체적 사정을 종합 고려하여 조정할 수 있다는 취지의 판단.",
+      "content": "[임시 본문 — STEP 8 이후 본격 적재 시 교체 예정]\n본 사건은 미성년 자녀의 양육비 액수가 쟁점이 된 가사사건으로, 가정법원은 양육비 산정표를 기준으로 하되 부모의 재산·소득, 자녀의 연령·교육환경 등을 종합하여 양육비를 정한다고 판시하였다.",
+      "category": 4,
+      "keywords": "양육비,산정표,이혼,가정법원,자녀",
+      "source_url": "",
+      "result_type": "plaintiff_partial",
+      "created_at": "2026-05-04T03:11:31.651Z",
+      "updated_at": "2026-05-04T03:43:49.350Z",
+      "related_laws": [
+        8
+      ]
+    }
+  },
+  {
+    "model": "legal_data.precedent",
+    "pk": 6,
+    "fields": {
+      "case_number": "[임시] 2022나445566",
+      "case_name": "이면도로 신호 없는 사거리 사고 과실비율 사건",
+      "court": "서울중앙지방법원",
+      "judgment_date": "2022-11-25",
+      "summary": "신호 없는 교차로에서 좌우 미확인 상태로 진입한 차량의 과실이 더 크게 인정될 수 있다는 취지의 판단.",
+      "content": "[임시 본문 — STEP 8 이후 본격 적재 시 교체 예정]\n본 사건은 신호 없는 사거리에서 양 차량이 충돌한 사안으로, 법원은 좌우 안전을 확인하지 않고 진입한 차량의 과실이 더 크다고 판단하여 과실비율을 조정하였다.",
+      "category": 5,
+      "keywords": "교통사고,과실비율,이면도로,신호없는교차로,블랙박스",
+      "source_url": "",
+      "result_type": "plaintiff_partial",
+      "created_at": "2026-05-04T03:11:31.654Z",
+      "updated_at": "2026-05-04T03:43:49.352Z",
+      "related_laws": [
+        10
+      ]
+    }
+  },
+  {
+    "model": "legal_data.precedent",
+    "pk": 7,
+    "fields": {
+      "case_number": "[임시] 2023가합7788",
+      "case_name": "아파트 매매 일방 해제 통보 사건",
+      "court": "서울중앙지방법원",
+      "judgment_date": "2023-08-17",
+      "summary": "매도인이 시세 상승을 이유로 일방 해제를 통보한 경우, 매수인은 계약 이행 강제 또는 손해배상을 선택할 수 있다는 취지의 판단.",
+      "content": "[임시 본문 — STEP 8 이후 본격 적재 시 교체 예정]\n본 사건은 부동산 매매 계약 후 시세 상승으로 매도인이 일방 해제를 통보한 사안으로, 법원은 매수인이 이행이익 상실에 대한 손해배상을 청구할 수 있다고 판시하였다.",
+      "category": 7,
+      "keywords": "매매계약,일방해제,위약금,이행강제,부동산",
+      "source_url": "",
+      "result_type": "plaintiff_win",
+      "created_at": "2026-05-04T03:11:31.657Z",
+      "updated_at": "2026-05-04T03:43:49.355Z",
+      "related_laws": [
+        12
+      ]
+    }
+  },
+  {
+    "model": "legal_data.precedent",
+    "pk": 8,
+    "fields": {
+      "case_number": "[임시] 2021가소9876",
+      "case_name": "카톡 메시지 차용 입증 사건",
+      "court": "서울중앙지방법원",
+      "judgment_date": "2021-07-30",
+      "summary": "차용증 없이도 카카오톡 메시지와 계좌이체 내역으로 금전소비대차계약의 성립을 인정할 수 있다는 취지의 판단.",
+      "content": "[임시 본문 — STEP 8 이후 본격 적재 시 교체 예정]\n본 사건은 차용증이 없고 카톡 메시지와 이체 내역만 있는 상황에서 금전소비대차의 성립이 다투어진 사안으로, 법원은 메시지 내용과 이체 정황을 종합해 채권 성립을 인정하였다.",
+      "category": 8,
+      "keywords": "차용금,카카오톡,입증,소멸시효,금전소비대차",
+      "source_url": "",
+      "result_type": "plaintiff_win",
+      "created_at": "2026-05-04T03:11:31.660Z",
+      "updated_at": "2026-05-04T03:43:49.358Z",
+      "related_laws": [
+        13
+      ]
+    }
+  },
+  {
+    "model": "legal_data.precedent",
+    "pk": 9,
+    "fields": {
+      "case_number": "[임시] 2022가단55432",
+      "case_name": "공동주택 누수 손해배상 사건",
+      "court": "서울중앙지방법원",
+      "judgment_date": "2022-04-19",
+      "summary": "윗집 전유부분의 누수로 인한 아랫집 손해는 점유자가 제1차 책임을 지고, 공용부분 결함은 관리주체가 책임을 진다는 취지의 판단.",
+      "content": "[임시 본문 — STEP 8 이후 본격 적재 시 교체 예정]\n본 사건은 윗집의 배관 노후로 아랫집에 누수 피해가 발생한 사안으로, 법원은 전유부분 시설물의 점유자에게 1차적 손해배상 책임이 있다고 판단하였다.",
+      "category": 9,
+      "keywords": "누수,손해배상,공동주택,점유자,불법행위",
+      "source_url": "",
+      "result_type": "plaintiff_partial",
+      "created_at": "2026-05-04T03:12:37.090Z",
+      "updated_at": "2026-05-04T03:43:49.361Z",
+      "related_laws": [
+        5
       ]
     }
   },
@@ -727,7 +1005,7 @@
   },
   {
     "model": "interactions.comment",
-    "pk": 1,
+    "pk": 11,
     "fields": {
       "user": 1,
       "story": 1,
@@ -735,106 +1013,344 @@
       "content": "저도 비슷한 상황이에요. 보증금 못 받아서 골치 아팠는데 결국 임차권등기명령부터 신청했습니다. 도움 되셨으면 해서 댓글 남깁니다.",
       "is_deleted": false,
       "deleted_at": null,
-      "created_at": "2026-04-28T07:42:56.083Z",
-      "updated_at": "2026-04-28T07:42:56.083Z"
+      "created_at": "2026-05-04T03:45:17.391Z",
+      "updated_at": "2026-05-04T03:45:17.391Z"
     }
   },
   {
     "model": "interactions.comment",
-    "pk": 3,
+    "pk": 14,
     "fields": {
-      "user": 1,
+      "user": 7,
       "story": 1,
       "parent": null,
-      "content": "테스트 댓글 #수정됨",
-      "is_deleted": true,
-      "deleted_at": "2026-04-28T07:44:52.675Z",
-      "created_at": "2026-04-28T07:44:01.340Z",
-      "updated_at": "2026-04-28T07:44:52.632Z"
-    }
-  },
-  {
-    "model": "interactions.comment",
-    "pk": 5,
-    "fields": {
-      "user": 1,
-      "story": 62,
-      "parent": null,
-      "content": "story 62 댓글",
+      "content": "저는 1년 끌었어요. 지급명령 → 강제집행 순서로 갔는데, 처음부터 변호사 도움 받았으면 더 빨랐을 것 같습니다.",
       "is_deleted": false,
       "deleted_at": null,
-      "created_at": "2026-04-28T07:44:37.915Z",
-      "updated_at": "2026-04-28T07:44:37.915Z"
+      "created_at": "2026-05-04T03:45:17.411Z",
+      "updated_at": "2026-05-04T03:45:17.411Z"
     }
   },
   {
     "model": "interactions.comment",
-    "pk": 6,
+    "pk": 15,
+    "fields": {
+      "user": 6,
+      "story": 62,
+      "parent": null,
+      "content": "근로기준법 제23조에 따라 정당한 이유 없는 해고는 부당해고에 해당할 수 있습니다. 노동위원회에 부당해고 구제신청(해고일로부터 3개월 이내)이 가능하다는 점 참고하세요.",
+      "is_deleted": false,
+      "deleted_at": null,
+      "created_at": "2026-05-04T03:45:17.416Z",
+      "updated_at": "2026-05-04T03:45:17.416Z"
+    }
+  },
+  {
+    "model": "interactions.comment",
+    "pk": 17,
+    "fields": {
+      "user": 2,
+      "story": 62,
+      "parent": null,
+      "content": "서면통지 없는 해고는 그것 자체로 무효 사유가 될 수 있다고 들었어요. 통지서나 녹취 같은 증거 챙겨두세요.",
+      "is_deleted": false,
+      "deleted_at": null,
+      "created_at": "2026-05-04T03:45:17.427Z",
+      "updated_at": "2026-05-04T03:45:17.427Z"
+    }
+  },
+  {
+    "model": "interactions.comment",
+    "pk": 18,
+    "fields": {
+      "user": 6,
+      "story": 63,
+      "parent": null,
+      "content": "전자상거래법상 통신판매로 산 물건은 7일 이내 청약철회가 가능합니다. 파손 사진과 박스 상태 사진을 함께 남겨두시고, 한국소비자원 1372 상담을 권장드립니다.",
+      "is_deleted": false,
+      "deleted_at": null,
+      "created_at": "2026-05-04T03:45:17.432Z",
+      "updated_at": "2026-05-04T03:45:17.432Z"
+    }
+  },
+  {
+    "model": "interactions.comment",
+    "pk": 19,
+    "fields": {
+      "user": 7,
+      "story": 63,
+      "parent": null,
+      "content": "저는 카드사 차지백 신청해서 환불받았어요. 판매자가 안 들어주면 결제수단 쪽으로 한번 알아보세요.",
+      "is_deleted": false,
+      "deleted_at": null,
+      "created_at": "2026-05-04T03:45:17.436Z",
+      "updated_at": "2026-05-04T03:45:17.436Z"
+    }
+  },
+  {
+    "model": "interactions.comment",
+    "pk": 20,
     "fields": {
       "user": 1,
-      "story": 1,
+      "story": 63,
       "parent": null,
-      "content": "고립된 댓글 — 곧 삭제됨",
-      "is_deleted": true,
-      "deleted_at": "2026-04-28T07:44:52.760Z",
-      "created_at": "2026-04-28T07:44:52.730Z",
-      "updated_at": "2026-04-28T07:44:52.730Z"
+      "content": "받자마자 사진 찍어두신 게 잘하신 일이에요. 분쟁조정위에 그 자료 그대로 제출하면 통상 빠르게 처리되더라고요.",
+      "is_deleted": false,
+      "deleted_at": null,
+      "created_at": "2026-05-04T03:45:17.441Z",
+      "updated_at": "2026-05-04T03:45:17.441Z"
     }
   },
   {
     "model": "interactions.comment",
-    "pk": 7,
+    "pk": 21,
+    "fields": {
+      "user": 6,
+      "story": 64,
+      "parent": null,
+      "content": "서울가정법원 양육비 산정표를 기준으로 부모 합산소득과 자녀 연령을 대입하면 표준 양육비가 나옵니다. 협의 안 되면 가정법원 양육비 청구로 결정됩니다.",
+      "is_deleted": false,
+      "deleted_at": null,
+      "created_at": "2026-05-04T03:45:17.446Z",
+      "updated_at": "2026-05-04T03:45:17.446Z"
+    }
+  },
+  {
+    "model": "interactions.comment",
+    "pk": 22,
+    "fields": {
+      "user": 7,
+      "story": 64,
+      "parent": null,
+      "content": "저도 산정표 보고 협의 시도했는데 결국 법원 결정으로 갔어요. 한 번 정해도 사정이 바뀌면 양육비 변경심판 청구할 수 있어요.",
+      "is_deleted": false,
+      "deleted_at": null,
+      "created_at": "2026-05-04T03:45:17.451Z",
+      "updated_at": "2026-05-04T03:45:17.451Z"
+    }
+  },
+  {
+    "model": "interactions.comment",
+    "pk": 23,
+    "fields": {
+      "user": 6,
+      "story": 65,
+      "parent": null,
+      "content": "과실비율은 손해보험협회 「자동차사고 과실비율 인정기준」을 따릅니다. 보험사가 정한 비율이 부당하다면 금융감독원 분쟁조정 또는 소송으로 다툴 수 있어요.",
+      "is_deleted": false,
+      "deleted_at": null,
+      "created_at": "2026-05-04T03:45:17.455Z",
+      "updated_at": "2026-05-04T03:45:17.455Z"
+    }
+  },
+  {
+    "model": "interactions.comment",
+    "pk": 24,
     "fields": {
       "user": 1,
-      "story": 1,
+      "story": 65,
       "parent": null,
-      "content": "6B 시연 댓글 (검증용)",
-      "is_deleted": true,
-      "deleted_at": "2026-04-29T17:15:12.865Z",
-      "created_at": "2026-04-29T17:15:12.784Z",
-      "updated_at": "2026-04-29T17:15:12.784Z"
+      "content": "블랙박스 영상이 있으면 큰 무기예요. 손해보험협회 분쟁심의위원회에 영상 첨부해서 이의 제기 해보세요.",
+      "is_deleted": false,
+      "deleted_at": null,
+      "created_at": "2026-05-04T03:45:17.459Z",
+      "updated_at": "2026-05-04T03:45:17.459Z"
     }
   },
   {
     "model": "interactions.comment",
-    "pk": 2,
+    "pk": 25,
+    "fields": {
+      "user": 7,
+      "story": 65,
+      "parent": null,
+      "content": "저는 6:4에서 4:6으로 뒤집었어요. 영상에서 상대방 진입 속도, 좌우 미확인이 명확히 찍혀 있으면 가능합니다.",
+      "is_deleted": false,
+      "deleted_at": null,
+      "created_at": "2026-05-04T03:45:17.464Z",
+      "updated_at": "2026-05-04T03:45:17.464Z"
+    }
+  },
+  {
+    "model": "interactions.comment",
+    "pk": 26,
+    "fields": {
+      "user": 6,
+      "story": 66,
+      "parent": null,
+      "content": "공연성(불특정 다수 인식 가능) + 사실 적시 + 명예 훼손 가능성, 세 요건이 인정되면 형법 제307조 명예훼손에 해당할 수 있습니다. 함께 들은 친구의 진술이 증거가 될 수 있어요.",
+      "is_deleted": false,
+      "deleted_at": null,
+      "created_at": "2026-05-04T03:45:17.469Z",
+      "updated_at": "2026-05-04T03:45:17.469Z"
+    }
+  },
+  {
+    "model": "interactions.comment",
+    "pk": 27,
+    "fields": {
+      "user": 7,
+      "story": 66,
+      "parent": null,
+      "content": "저는 친구 진술서 받고 카페 CCTV 보존 요청까지 해놓고 고소 진행했어요. 시간 지나면 CCTV가 사라지니 빠르게 움직이는 게 좋아요.",
+      "is_deleted": false,
+      "deleted_at": null,
+      "created_at": "2026-05-04T03:45:17.473Z",
+      "updated_at": "2026-05-04T03:45:17.473Z"
+    }
+  },
+  {
+    "model": "interactions.comment",
+    "pk": 28,
+    "fields": {
+      "user": 6,
+      "story": 67,
+      "parent": null,
+      "content": "민법 제565조 해약금 규정상 이행 착수 전이면 매도인은 계약금의 배액 상환으로 해제할 수 있습니다. 다만 매수인이 이미 이행에 착수한 단계라면 다툼 여지가 있어요.",
+      "is_deleted": false,
+      "deleted_at": null,
+      "created_at": "2026-05-04T03:45:17.477Z",
+      "updated_at": "2026-05-04T03:45:17.477Z"
+    }
+  },
+  {
+    "model": "interactions.comment",
+    "pk": 30,
+    "fields": {
+      "user": 7,
+      "story": 67,
+      "parent": null,
+      "content": "저는 비슷한 케이스에서 이행이익 손해배상 청구로 갔습니다. 위약금만 받기보다 추가 청구도 가능한지 변호사에게 한 번 상담받아보세요.",
+      "is_deleted": false,
+      "deleted_at": null,
+      "created_at": "2026-05-04T03:45:17.487Z",
+      "updated_at": "2026-05-04T03:45:17.487Z"
+    }
+  },
+  {
+    "model": "interactions.comment",
+    "pk": 31,
+    "fields": {
+      "user": 6,
+      "story": 68,
+      "parent": null,
+      "content": "차용증이 없어도 카카오톡 메시지와 계좌이체 내역으로 금전소비대차계약의 성립을 입증할 수 있습니다. 민사상 채권 소멸시효는 10년이라 시효는 아직 충분합니다.",
+      "is_deleted": false,
+      "deleted_at": null,
+      "created_at": "2026-05-04T03:45:17.491Z",
+      "updated_at": "2026-05-04T03:45:17.491Z"
+    }
+  },
+  {
+    "model": "interactions.comment",
+    "pk": 32,
+    "fields": {
+      "user": 7,
+      "story": 68,
+      "parent": null,
+      "content": "저는 카톡 백업본을 노트북으로 옮겨서 PDF로 출력해서 증거로 제출했어요. 화면 캡처 말고 백업본이 더 확실해요.",
+      "is_deleted": false,
+      "deleted_at": null,
+      "created_at": "2026-05-04T03:45:17.496Z",
+      "updated_at": "2026-05-04T03:45:17.496Z"
+    }
+  },
+  {
+    "model": "interactions.comment",
+    "pk": 33,
+    "fields": {
+      "user": 1,
+      "story": 68,
+      "parent": null,
+      "content": "지급명령 신청도 고려해보세요. 상대방이 이의 신청 안 하면 그대로 확정돼서 강제집행 가능합니다.",
+      "is_deleted": false,
+      "deleted_at": null,
+      "created_at": "2026-05-04T03:45:17.501Z",
+      "updated_at": "2026-05-04T03:45:17.501Z"
+    }
+  },
+  {
+    "model": "interactions.comment",
+    "pk": 34,
+    "fields": {
+      "user": 6,
+      "story": 69,
+      "parent": null,
+      "content": "전유부분(윗집 내부) 누수는 점유자(윗집 소유자/세입자)가 1차 책임을 집니다. 공용부분(공용 배관 등) 결함이라면 관리주체나 시공사에 청구할 수 있어요.",
+      "is_deleted": false,
+      "deleted_at": null,
+      "created_at": "2026-05-04T03:45:17.505Z",
+      "updated_at": "2026-05-04T03:45:17.505Z"
+    }
+  },
+  {
+    "model": "interactions.comment",
+    "pk": 35,
+    "fields": {
+      "user": 7,
+      "story": 69,
+      "parent": null,
+      "content": "저도 비슷한 일 있었는데 아파트 관리사무소 통해서 누수 원인 진단부터 받았어요. 원인 파악이 책임 소재 가르는 핵심이에요.",
+      "is_deleted": false,
+      "deleted_at": null,
+      "created_at": "2026-05-04T03:45:17.510Z",
+      "updated_at": "2026-05-04T03:45:17.510Z"
+    }
+  },
+  {
+    "model": "interactions.comment",
+    "pk": 12,
     "fields": {
       "user": 2,
       "story": 1,
-      "parent": 1,
+      "parent": 11,
       "content": "저는 내용증명부터 보내고 그래도 안 줘서 소액심판으로 갔습니다. 내용증명 단계에서 주는 경우도 있어요.",
       "is_deleted": false,
       "deleted_at": null,
-      "created_at": "2026-04-28T07:42:56.100Z",
-      "updated_at": "2026-04-28T07:42:56.100Z"
+      "created_at": "2026-05-04T03:45:17.400Z",
+      "updated_at": "2026-05-04T03:45:17.400Z"
     }
   },
   {
     "model": "interactions.comment",
-    "pk": 4,
+    "pk": 13,
     "fields": {
-      "user": 2,
+      "user": 6,
       "story": 1,
-      "parent": 3,
-      "content": "대댓글 추가",
+      "parent": 11,
+      "content": "참고로 임차권등기명령은 임대차 종료 후 보증금을 돌려받지 못한 경우 신청할 수 있어요. 주민등록을 옮기더라도 대항력·우선변제권이 유지된다는 점이 핵심입니다.",
       "is_deleted": false,
       "deleted_at": null,
-      "created_at": "2026-04-28T07:44:37.869Z",
-      "updated_at": "2026-04-28T07:44:37.869Z"
+      "created_at": "2026-05-04T03:45:17.406Z",
+      "updated_at": "2026-05-04T03:45:17.406Z"
     }
   },
   {
     "model": "interactions.comment",
-    "pk": 8,
+    "pk": 16,
+    "fields": {
+      "user": 7,
+      "story": 62,
+      "parent": 15,
+      "content": "저도 같은 상황 겪었어요. 회사 사정 핑계는 정리해고 요건(긴박한 경영상 필요 등)을 갖춰야 인정되는데, 그게 안 되면 부당해고로 다툴 수 있어요.",
+      "is_deleted": false,
+      "deleted_at": null,
+      "created_at": "2026-05-04T03:45:17.422Z",
+      "updated_at": "2026-05-04T03:45:17.422Z"
+    }
+  },
+  {
+    "model": "interactions.comment",
+    "pk": 29,
     "fields": {
       "user": 1,
-      "story": 1,
-      "parent": 7,
-      "content": "대댓글 시연",
-      "is_deleted": true,
-      "deleted_at": "2026-04-29T17:15:12.908Z",
-      "created_at": "2026-04-29T17:15:12.814Z",
-      "updated_at": "2026-04-29T17:15:12.814Z"
+      "story": 67,
+      "parent": 28,
+      "content": "이사 준비도 다 하셨다니 이행착수로 인정될 가능성도 있겠네요. 해제 통보 받은 시점, 이사 준비 정황 등 시간순으로 자료 정리해두세요.",
+      "is_deleted": false,
+      "deleted_at": null,
+      "created_at": "2026-05-04T03:45:17.483Z",
+      "updated_at": "2026-05-04T03:45:17.483Z"
     }
   }
 ]

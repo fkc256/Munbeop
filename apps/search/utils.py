@@ -54,7 +54,7 @@ def strip_particle(token: str) -> str:
 _TOKEN_SPLIT_RE = re.compile(r"[\s,.;:!?()\[\]{}\"'·…~`/\\\-_=+*&%$#@<>]+")
 
 
-def extract_keywords(text: str, max_keywords: int = 10) -> list[str]:
+def extract_keywords(text: str, max_keywords: int = 15) -> list[str]:
     """자연어 텍스트 → 검색 키워드 리스트.
 
     흐름: 토큰 분할 → 조사 stripping → 2글자 이상 필터 → 불용어 제거 → 중복 제거 → 상한.

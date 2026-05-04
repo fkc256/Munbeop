@@ -85,7 +85,125 @@ LAWS = [
             "책임이 있다."
         ),
         "category_slug": "etc",
-        "keywords": "불법행위,손해배상,고의,과실,위법",
+        "keywords": "불법행위,손해배상,손해,배상,고의,과실,위법,누수,침해,청구",
+        "source_url": "https://www.law.go.kr/법령/민법",
+    },
+    # === STEP 8 (사연-법령 매칭 빈 카테고리 보강 — 2026-05-01) ===
+    {
+        "law_name": "전자상거래 등에서의 소비자보호에 관한 법률",
+        "article_number": "제17조",
+        "article_title": "청약철회 등",
+        "content": (
+            "통신판매의 방법으로 재화등의 구매에 관한 계약을 체결한 소비자는 다음 각 호의 "
+            "기간(거래당사자가 다음 각 호의 기간보다 긴 기간으로 약정한 경우에는 그 기간) "
+            "이내에 해당 계약에 관한 청약철회등을 할 수 있다.\n"
+            "(법조문 본문 일부 발췌 — 정확한 전문은 source_url 참조)"
+        ),
+        "category_slug": "consumer",
+        "keywords": "청약철회,환불,통신판매,7일,온라인쇼핑",
+        "source_url": "https://www.law.go.kr/법령/전자상거래등에서의소비자보호에관한법률",
+    },
+    {
+        "law_name": "약관의 규제에 관한 법률",
+        "article_number": "제6조",
+        "article_title": "일반원칙",
+        "content": (
+            "신의성실의 원칙을 위반하여 공정을 잃은 약관 조항은 무효로 한다.\n"
+            "(법조문 본문 일부 발췌 — 정확한 전문은 source_url 참조)"
+        ),
+        "category_slug": "consumer",
+        "keywords": "약관,불공정,무효,신의성실,소비자",
+        "source_url": "https://www.law.go.kr/법령/약관의규제에관한법률",
+    },
+    {
+        "law_name": "민법",
+        "article_number": "제837조",
+        "article_title": "이혼과 자의 양육책임",
+        "content": (
+            "이혼하는 부모는 협의에 의하여 자(子)의 양육에 관한 사항을 정한다. 협의가 "
+            "이루어지지 아니하거나 협의할 수 없는 때에는 가정법원이 직권으로 또는 당사자의 "
+            "청구에 따라 정한다.\n"
+            "(법조문 본문 일부 발췌 — 정확한 전문은 source_url 참조)"
+        ),
+        "category_slug": "family",
+        "keywords": "양육비,양육권,이혼,협의,가정법원",
+        "source_url": "https://www.law.go.kr/법령/민법",
+    },
+    {
+        "law_name": "민법",
+        "article_number": "제839조의2",
+        "article_title": "재산분할청구권",
+        "content": (
+            "협의상 이혼한 자의 일방은 다른 일방에 대하여 재산분할을 청구할 수 있다.\n"
+            "(법조문 본문 일부 발췌 — 정확한 전문은 source_url 참조)"
+        ),
+        "category_slug": "family",
+        "keywords": "재산분할,이혼,협의,청구권",
+        "source_url": "https://www.law.go.kr/법령/민법",
+    },
+    {
+        "law_name": "자동차손해배상 보장법",
+        "article_number": "제3조",
+        "article_title": "자동차손해배상책임",
+        "content": (
+            "자기를 위하여 자동차를 운행하는 자는 그 운행으로 다른 사람을 사망하게 하거나 "
+            "부상하게 한 경우에는 그 손해를 배상할 책임을 진다.\n"
+            "(법조문 본문 일부 발췌 — 정확한 전문은 source_url 참조)"
+        ),
+        "category_slug": "traffic",
+        "keywords": "운행자책임,교통사고,손해배상,과실",
+        "source_url": "https://www.law.go.kr/법령/자동차손해배상보장법",
+    },
+    {
+        "law_name": "도로교통법",
+        "article_number": "제54조",
+        "article_title": "사고발생 시의 조치",
+        "content": (
+            "차 또는 노면전차의 운전 등 교통으로 인하여 사람을 사상하거나 물건을 손괴한 "
+            "경우에는 그 차 또는 노면전차의 운전자나 그 밖의 승무원은 즉시 정차하여 사상자를 "
+            "구호하는 등 필요한 조치를 하여야 한다.\n"
+            "(법조문 본문 일부 발췌 — 정확한 전문은 source_url 참조)"
+        ),
+        "category_slug": "traffic",
+        "keywords": "교통사고,사고조치,운전자,구호의무",
+        "source_url": "https://www.law.go.kr/법령/도로교통법",
+    },
+    {
+        "law_name": "민법",
+        "article_number": "제565조",
+        "article_title": "해약금",
+        "content": (
+            "매매의 당사자 일방이 계약 당시에 금전 기타 물건을 계약금, 보증금 등의 명목으로 "
+            "상대방에게 교부한 때에는 당사자간에 다른 약정이 없는 한 당사자의 일방이 이행에 "
+            "착수할 때까지 교부자는 이를 포기하고 수령자는 그 배액을 상환하여 매매계약을 "
+            "해제할 수 있다."
+        ),
+        "category_slug": "realestate",
+        "keywords": "해약금,계약금,배액상환,매매계약,해제",
+        "source_url": "https://www.law.go.kr/법령/민법",
+    },
+    {
+        "law_name": "민법",
+        "article_number": "제162조",
+        "article_title": "채권, 재산권의 소멸시효",
+        "content": (
+            "① 채권은 10년간 행사하지 아니하면 소멸시효가 완성한다.\n"
+            "(제1항만 발췌. 제2항(재산권 20년) 등은 source_url 참조)"
+        ),
+        "category_slug": "debt",
+        "keywords": "소멸시효,채권,10년,차용,차용금,빌려준,카톡",
+        "source_url": "https://www.law.go.kr/법령/민법",
+    },
+    {
+        "law_name": "민법",
+        "article_number": "제428조",
+        "article_title": "보증채무의 내용",
+        "content": (
+            "① 보증인은 주채무자가 이행하지 아니하는 채무를 이행할 의무가 있다.\n"
+            "(법조문 본문 일부 발췌 — 정확한 전문은 source_url 참조)"
+        ),
+        "category_slug": "debt",
+        "keywords": "보증채무,주채무,이행의무,연대보증",
         "source_url": "https://www.law.go.kr/법령/민법",
     },
 ]
@@ -156,11 +274,142 @@ PRECEDENTS = [
             ("형법", "제307조"),
         ],
     },
+    # === STEP 8 (사연-법령 매칭 빈 카테고리 보강 — 2026-05-01) ===
+    {
+        "case_number": "[임시] 2022다112233",
+        "case_name": "온라인 쇼핑몰 환불 거부 사건",
+        "court": "서울중앙지방법원",
+        "judgment_date": date(2022, 9, 8),
+        "summary": (
+            "통신판매업자가 청약철회 기간 내 환불 요청을 부당하게 거부한 경우 "
+            "전자상거래법 위반에 해당한다는 취지의 판단."
+        ),
+        "content": (
+            "[임시 본문 — STEP 8 이후 본격 적재 시 교체 예정]\n"
+            "본 사건은 소비자가 배송 파손을 이유로 환불을 요청했으나 판매자가 '소비자 부주의'를 "
+            "이유로 거부한 사안으로, 법원은 청약철회 기간 내 정당한 사유 없는 환불 거부는 "
+            "위법하다고 판단하였다."
+        ),
+        "category_slug": "consumer",
+        "keywords": "환불거부,청약철회,통신판매,소비자보호",
+        "result_type": "plaintiff_win",
+        "related_laws": [
+            ("전자상거래 등에서의 소비자보호에 관한 법률", "제17조"),
+        ],
+    },
+    {
+        "case_number": "[임시] 2023느합3456",
+        "case_name": "양육비 산정 기준 사건",
+        "court": "서울가정법원",
+        "judgment_date": date(2023, 5, 11),
+        "summary": (
+            "양육비 산정표는 합리적 기준이지만 양육의 구체적 사정을 종합 고려하여 "
+            "조정할 수 있다는 취지의 판단."
+        ),
+        "content": (
+            "[임시 본문 — STEP 8 이후 본격 적재 시 교체 예정]\n"
+            "본 사건은 미성년 자녀의 양육비 액수가 쟁점이 된 가사사건으로, 가정법원은 "
+            "양육비 산정표를 기준으로 하되 부모의 재산·소득, 자녀의 연령·교육환경 등을 "
+            "종합하여 양육비를 정한다고 판시하였다."
+        ),
+        "category_slug": "family",
+        "keywords": "양육비,산정표,이혼,가정법원,자녀",
+        "result_type": "plaintiff_partial",
+        "related_laws": [
+            ("민법", "제837조"),
+        ],
+    },
+    {
+        "case_number": "[임시] 2022나445566",
+        "case_name": "이면도로 신호 없는 사거리 사고 과실비율 사건",
+        "court": "서울중앙지방법원",
+        "judgment_date": date(2022, 11, 25),
+        "summary": (
+            "신호 없는 교차로에서 좌우 미확인 상태로 진입한 차량의 과실이 더 크게 "
+            "인정될 수 있다는 취지의 판단."
+        ),
+        "content": (
+            "[임시 본문 — STEP 8 이후 본격 적재 시 교체 예정]\n"
+            "본 사건은 신호 없는 사거리에서 양 차량이 충돌한 사안으로, 법원은 좌우 안전을 "
+            "확인하지 않고 진입한 차량의 과실이 더 크다고 판단하여 과실비율을 조정하였다."
+        ),
+        "category_slug": "traffic",
+        "keywords": "교통사고,과실비율,이면도로,신호없는교차로,블랙박스",
+        "result_type": "plaintiff_partial",
+        "related_laws": [
+            ("자동차손해배상 보장법", "제3조"),
+        ],
+    },
+    {
+        "case_number": "[임시] 2023가합7788",
+        "case_name": "아파트 매매 일방 해제 통보 사건",
+        "court": "서울중앙지방법원",
+        "judgment_date": date(2023, 8, 17),
+        "summary": (
+            "매도인이 시세 상승을 이유로 일방 해제를 통보한 경우, 매수인은 계약 이행 "
+            "강제 또는 손해배상을 선택할 수 있다는 취지의 판단."
+        ),
+        "content": (
+            "[임시 본문 — STEP 8 이후 본격 적재 시 교체 예정]\n"
+            "본 사건은 부동산 매매 계약 후 시세 상승으로 매도인이 일방 해제를 통보한 "
+            "사안으로, 법원은 매수인이 이행이익 상실에 대한 손해배상을 청구할 수 있다고 "
+            "판시하였다."
+        ),
+        "category_slug": "realestate",
+        "keywords": "매매계약,일방해제,위약금,이행강제,부동산",
+        "result_type": "plaintiff_win",
+        "related_laws": [
+            ("민법", "제565조"),
+        ],
+    },
+    {
+        "case_number": "[임시] 2021가소9876",
+        "case_name": "카톡 메시지 차용 입증 사건",
+        "court": "서울중앙지방법원",
+        "judgment_date": date(2021, 7, 30),
+        "summary": (
+            "차용증 없이도 카카오톡 메시지와 계좌이체 내역으로 금전소비대차계약의 "
+            "성립을 인정할 수 있다는 취지의 판단."
+        ),
+        "content": (
+            "[임시 본문 — STEP 8 이후 본격 적재 시 교체 예정]\n"
+            "본 사건은 차용증이 없고 카톡 메시지와 이체 내역만 있는 상황에서 금전소비대차의 "
+            "성립이 다투어진 사안으로, 법원은 메시지 내용과 이체 정황을 종합해 채권 성립을 "
+            "인정하였다."
+        ),
+        "category_slug": "debt",
+        "keywords": "차용금,카카오톡,입증,소멸시효,금전소비대차",
+        "result_type": "plaintiff_win",
+        "related_laws": [
+            ("민법", "제162조"),
+        ],
+    },
+    {
+        "case_number": "[임시] 2022가단55432",
+        "case_name": "공동주택 누수 손해배상 사건",
+        "court": "서울중앙지방법원",
+        "judgment_date": date(2022, 4, 19),
+        "summary": (
+            "윗집 전유부분의 누수로 인한 아랫집 손해는 점유자가 제1차 책임을 지고, "
+            "공용부분 결함은 관리주체가 책임을 진다는 취지의 판단."
+        ),
+        "content": (
+            "[임시 본문 — STEP 8 이후 본격 적재 시 교체 예정]\n"
+            "본 사건은 윗집의 배관 노후로 아랫집에 누수 피해가 발생한 사안으로, 법원은 "
+            "전유부분 시설물의 점유자에게 1차적 손해배상 책임이 있다고 판단하였다."
+        ),
+        "category_slug": "etc",
+        "keywords": "누수,손해배상,공동주택,점유자,불법행위",
+        "result_type": "plaintiff_partial",
+        "related_laws": [
+            ("민법", "제750조"),
+        ],
+    },
 ]
 
 
 class Command(BaseCommand):
-    help = "법령/판례 시연용 최소 데이터(Law 5건, Precedent 3건)를 등록(또는 갱신)한다."
+    help = "법령/판례 시연용 데이터(Law 15건, Precedent 8건)를 등록(또는 갱신)한다."
 
     @transaction.atomic
     def handle(self, *args, **options):
