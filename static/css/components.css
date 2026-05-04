@@ -624,12 +624,20 @@
 .hero-grid {
   max-width: 920px;
   margin: 0 auto;
-  display: grid;
-  grid-template-columns: 1fr 240px;
-  gap: 24px;
-  align-items: start;
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
 }
-.hero-grid .hero-search { margin: 0; max-width: none; }
+.hero-grid > .hero-search {
+  flex: 1;
+  min-width: 0;
+  margin: 0 !important;
+  max-width: none !important;
+}
+.hero-grid > .trending-widget {
+  flex-shrink: 0;
+  width: 240px;
+}
 
 .trending-widget {
   background: #fff;
@@ -674,8 +682,11 @@
   opacity: 0.85;
 }
 
-.trending-widget-list {
-  list-style: none;
+.trending-widget-list,
+ol.trending-widget-list,
+ul.trending-widget-list {
+  list-style: none !important;
+  list-style-type: none !important;
   margin: 0;
   padding: 6px 0;
 }
@@ -842,15 +853,20 @@
   padding: 1px 7px;
 }
 .hot-story-card-title {
-  font-size: 0.88rem;
-  font-weight: 700;
-  line-height: 1.3;
+  font-size: 0.92rem;
+  font-weight: 800;
+  line-height: 1.35;
+  color: var(--color-text);
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
   margin: 0;
   flex: 1;
+  letter-spacing: -0.01em;
+}
+.hot-story-card:hover .hot-story-card-title {
+  color: #B91C1C;
 }
 .hot-story-card-meta {
   font-size: 0.72rem;

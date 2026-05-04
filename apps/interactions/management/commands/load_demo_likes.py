@@ -17,7 +17,7 @@ from apps.stories.models import Story
 
 User = get_user_model()
 GHOST_PREFIX = "anon_"
-GHOST_COUNT = 150
+GHOST_COUNT = 250  # 인기 1위가 200+ 좋아요 받을 수 있게 충분히
 
 
 class Command(BaseCommand):
@@ -60,21 +60,29 @@ class Command(BaseCommand):
         ).delete()
         self.stdout.write(f"  ghost 기존 좋아요 wipe: {wiped}건")
 
-        # 3) view_count 기반 좋아요 분배
-        # 사연 정렬 후 view_count 등수에 따라 좋아요 양 결정
+        # 3) view_count 기반 rank별 단조 감소 분배
+        # 1위 220 → 2위 200 → 3위 180 ... 점차 줄어들어 차이가 명확히 보이게
         stories = list(Story.objects.order_by("-view_count"))
         bulk_likes = []
-        for s in stories:
+        for rank, s in enumerate(stories, start=1):
             v = s.view_count or 0
-            if v >= 30:
-                target = random.randint(100, 250)
-            elif v >= 15:
-                target = random.randint(30, 100)
-            elif v >= 5:
-                target = random.randint(5, 30)
+            if rank <= 10:
+                # Top 10: 220 → 200 → 180 → 160 → 140 → 125 → 110 → 95 → 80 → 65
+                base = max(220 - (rank - 1) * 18, 65)
+                # 2~5 정도 가벼운 노이즈로 자연스러움
+                target = base + random.randint(-4, 4)
+            elif rank <= 25 and v >= 5:
+                # 중위: 60 → 20 점차 감소 + 노이즈
+                base = max(60 - (rank - 11) * 3, 20)
+                target = base + random.randint(-5, 5)
+            elif v >= 2:
+                # 하위: 5~20 분포
+                target = random.randint(5, 20)
             else:
                 target = random.randint(0, 5)
-            target = min(target, len(ghost_user_ids))
+            target = max(0, min(target, len(ghost_user_ids)))
+            if target == 0:
+                continue
             chosen = random.sample(ghost_user_ids, target)
             for uid in chosen:
                 bulk_likes.append(Like(
