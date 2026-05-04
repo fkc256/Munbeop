@@ -6,14 +6,20 @@
   <div class="container">
     <h1>법이 어려워서 망설이고 계신가요?</h1>
     <p class="hero-sub">내 상황을 그대로 적어보세요. 관련 법령과 판례, 비슷한 사연을 찾아드립니다.</p>
-    <form id="hero-search" class="hero-search">
-      <textarea id="hero-query" name="q" required
-        placeholder="예) 전세 계약이 끝났는데 집주인이 보증금을 돌려주지 않아요..."></textarea>
-      <button type="submit" class="btn-primary btn-lg">검색하기</button>
-    </form>
-    <div id="trending-bar" class="trending-bar" style="display:none;">
-      <span class="trending-bar-label">🔥 지금 많이 찾는</span>
-      <div id="trending-chips" class="trending-chips"></div>
+    <div class="hero-grid">
+      <form id="hero-search" class="hero-search">
+        <textarea id="hero-query" name="q" required
+          placeholder="예) 전세 계약이 끝났는데 집주인이 보증금을 돌려주지 않아요..."></textarea>
+        <button type="submit" class="btn-primary btn-lg">검색하기</button>
+      </form>
+      <aside id="trending-widget" class="trending-widget" style="display:none;">
+        <div class="trending-widget-header">
+          <span class="label"><span class="live-dot"></span>실시간 검색어</span>
+          <span class="period">최근 24h</span>
+        </div>
+        <ol id="trending-widget-list" class="trending-widget-list"></ol>
+        <div class="trending-widget-footer">검색어 클릭 시 결과로 이동</div>
+      </aside>
     </div>
   </div>
 </section>
@@ -155,25 +161,25 @@
     return n === 1 ? 'top1' : n === 2 ? 'top2' : n === 3 ? 'top3' : '';
   }
 
-  // 실시간 검색어 — hero 아래 가로 chips
+  // 실시간 검색어 — hero 우측 상단 세로 위젯 (포털 스타일)
   async function loadTrending() {
-    const wrap = document.getElementById('trending-bar');
-    const chips = document.getElementById('trending-chips');
+    const widget = document.getElementById('trending-widget');
+    const list = document.getElementById('trending-widget-list');
     try {
       const res = await fetch('/api/search/trending/?hours=24&limit=10');
       if (!res.ok) throw new Error('failed');
       const data = await res.json();
-      if (!data.items.length) { wrap.style.display = 'none'; return; }
-      chips.innerHTML = data.items.map(it => ''
-        + '<a class="trending-chip ' + rankClass(it.rank) + '" '
-        + '   href="/search/?q=' + encodeURIComponent(it.query) + '">'
-        + '<span class="trending-chip-rank">' + it.rank + '</span>'
-        + '<span>' + window.escapeHtml(it.query) + '</span>'
-        + '</a>'
+      if (!data.items.length) { widget.style.display = 'none'; return; }
+      list.innerHTML = data.items.map(it => ''
+        + '<li class="' + rankClass(it.rank) + '">'
+        + '<span class="rank">' + it.rank + '</span>'
+        + '<a class="query-text" href="/search/?q=' + encodeURIComponent(it.query) + '">'
+        +   window.escapeHtml(it.query) + '</a>'
+        + '</li>'
       ).join('');
-      wrap.style.display = '';
+      widget.style.display = '';
     } catch (_) {
-      wrap.style.display = 'none';
+      widget.style.display = 'none';
     }
   }
 
