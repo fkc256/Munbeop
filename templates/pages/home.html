@@ -84,11 +84,29 @@
 </section>
 
 <section class="section container">
-  <h2>지금 사람들이 묻고 있어요 <a href="/stories/" class="section-link">사연 더 보기 →</a></h2>
-  <div id="popular-stories" class="story-list">
-    <div class="card"><div class="skeleton" style="height: 60px;"></div></div>
-    <div class="card"><div class="skeleton" style="height: 60px;"></div></div>
-    <div class="card"><div class="skeleton" style="height: 60px;"></div></div>
+  <div class="home-grid">
+    <div>
+      <h2>지금 사람들이 묻고 있어요 <a href="/stories/" class="section-link">사연 더 보기 →</a></h2>
+      <div id="popular-stories" class="story-list">
+        <div class="card"><div class="skeleton" style="height: 60px;"></div></div>
+        <div class="card"><div class="skeleton" style="height: 60px;"></div></div>
+        <div class="card"><div class="skeleton" style="height: 60px;"></div></div>
+      </div>
+    </div>
+    <aside class="home-sidebar">
+      <div class="sidebar-card">
+        <h3>🔥 실시간 검색어 <span style="color:var(--color-muted);font-size:0.7rem;font-weight:400;">(24시간)</span></h3>
+        <ul id="trending-list" class="rank-list">
+          <li><span class="rank-num">·</span><span class="rank-text">불러오는 중…</span></li>
+        </ul>
+      </div>
+      <div class="sidebar-card">
+        <h3>📈 포텐 인기글 <span style="color:var(--color-muted);font-size:0.7rem;font-weight:400;">(7일)</span></h3>
+        <ul id="popular-list" class="rank-list">
+          <li><span class="rank-num">·</span><span class="rank-text">불러오는 중…</span></li>
+        </ul>
+      </div>
+    </aside>
   </div>
 </section>
 {% endblock %}
@@ -147,7 +165,61 @@
     }
   }
 
+  function rankNumClass(n) {
+    return n === 1 ? 'top1' : n === 2 ? 'top2' : n === 3 ? 'top3' : '';
+  }
+
+  async function loadTrending() {
+    const list = document.getElementById('trending-list');
+    try {
+      const res = await fetch('/api/search/trending/?hours=24&limit=10');
+      if (!res.ok) throw new Error('failed');
+      const data = await res.json();
+      if (!data.items.length) {
+        list.innerHTML = '<li><span class="rank-num">·</span><span class="rank-text" style="color:var(--color-muted);">검색 기록이 없습니다.</span></li>';
+        return;
+      }
+      list.innerHTML = data.items.map(it => ''
+        + '<li>'
+        + '<span class="rank-num ' + rankNumClass(it.rank) + '">' + it.rank + '</span>'
+        + '<a class="rank-text" href="/search/?q=' + encodeURIComponent(it.query) + '">'
+        +   window.escapeHtml(it.query) + '</a>'
+        + '<span class="rank-meta">' + it.count + '회</span>'
+        + '</li>'
+      ).join('');
+    } catch (_) {
+      list.innerHTML = '<li><span class="rank-num">·</span><span class="rank-text">불러오기 실패</span></li>';
+    }
+  }
+
+  async function loadHotPosts() {
+    const list = document.getElementById('popular-list');
+    try {
+      const res = await fetch('/api/search/popular/?days=30&limit=10');
+      if (!res.ok) throw new Error('failed');
+      const data = await res.json();
+      if (!data.items.length) {
+        list.innerHTML = '<li><span class="rank-num">·</span><span class="rank-text" style="color:var(--color-muted);">아직 인기글이 없습니다.</span></li>';
+        return;
+      }
+      list.innerHTML = data.items.map(it => ''
+        + '<li>'
+        + '<span class="rank-num ' + rankNumClass(it.rank) + '">' + it.rank + '</span>'
+        + '<a class="rank-text" href="/stories/' + it.id + '/" title="' + window.escapeHtml(it.title) + '">'
+        +   window.escapeHtml(it.title)
+        +   (it.is_hot ? '<span class="hot-flame">🔥</span>' : '')
+        + '</a>'
+        + '<span class="rank-meta">♡' + it.like_count + ' 💬' + it.comment_count + '</span>'
+        + '</li>'
+      ).join('');
+    } catch (_) {
+      list.innerHTML = '<li><span class="rank-num">·</span><span class="rank-text">불러오기 실패</span></li>';
+    }
+  }
+
   loadPopular();
+  loadTrending();
+  loadHotPosts();
 })();
 </script>
 {% endblock %}

@@ -1556,6 +1556,831 @@
     }
   },
   {
+    "model": "search.searchquery",
+    "pk": 77,
+    "fields": {
+      "query": "전세 보증금 못 받고 있어요",
+      "keywords": "전세,보증금",
+      "user": null,
+      "category": "",
+      "created_at": "2026-05-04T00:50:00.345Z"
+    }
+  },
+  {
+    "model": "search.searchquery",
+    "pk": 78,
+    "fields": {
+      "query": "전세 보증금 못 받고 있어요",
+      "keywords": "전세,보증금",
+      "user": null,
+      "category": "",
+      "created_at": "2026-05-04T05:17:43.345Z"
+    }
+  },
+  {
+    "model": "search.searchquery",
+    "pk": 79,
+    "fields": {
+      "query": "전세 보증금 못 받고 있어요",
+      "keywords": "전세,보증금",
+      "user": null,
+      "category": "",
+      "created_at": "2026-05-03T17:21:33.345Z"
+    }
+  },
+  {
+    "model": "search.searchquery",
+    "pk": 80,
+    "fields": {
+      "query": "전세 보증금 못 받고 있어요",
+      "keywords": "전세,보증금",
+      "user": null,
+      "category": "",
+      "created_at": "2026-05-04T03:02:02.345Z"
+    }
+  },
+  {
+    "model": "search.searchquery",
+    "pk": 81,
+    "fields": {
+      "query": "전세 보증금 못 받고 있어요",
+      "keywords": "전세,보증금",
+      "user": null,
+      "category": "",
+      "created_at": "2026-05-03T15:05:03.345Z"
+    }
+  },
+  {
+    "model": "search.searchquery",
+    "pk": 82,
+    "fields": {
+      "query": "전세 보증금 못 받고 있어요",
+      "keywords": "전세,보증금",
+      "user": null,
+      "category": "",
+      "created_at": "2026-05-03T16:26:55.345Z"
+    }
+  },
+  {
+    "model": "search.searchquery",
+    "pk": 83,
+    "fields": {
+      "query": "전세 보증금 못 받고 있어요",
+      "keywords": "전세,보증금",
+      "user": null,
+      "category": "",
+      "created_at": "2026-05-03T20:20:40.345Z"
+    }
+  },
+  {
+    "model": "search.searchquery",
+    "pk": 84,
+    "fields": {
+      "query": "전세 보증금 못 받고 있어요",
+      "keywords": "전세,보증금",
+      "user": null,
+      "category": "",
+      "created_at": "2026-05-04T00:34:15.345Z"
+    }
+  },
+  {
+    "model": "search.searchquery",
+    "pk": 85,
+    "fields": {
+      "query": "전세 보증금 못 받고 있어요",
+      "keywords": "전세,보증금",
+      "user": null,
+      "category": "",
+      "created_at": "2026-05-04T05:34:29.345Z"
+    }
+  },
+  {
+    "model": "search.searchquery",
+    "pk": 86,
+    "fields": {
+      "query": "전세 보증금 못 받고 있어요",
+      "keywords": "전세,보증금",
+      "user": null,
+      "category": "",
+      "created_at": "2026-05-03T12:33:53.345Z"
+    }
+  },
+  {
+    "model": "search.searchquery",
+    "pk": 87,
+    "fields": {
+      "query": "전세 보증금 못 받고 있어요",
+      "keywords": "전세,보증금",
+      "user": null,
+      "category": "",
+      "created_at": "2026-05-03T08:23:25.345Z"
+    }
+  },
+  {
+    "model": "search.searchquery",
+    "pk": 88,
+    "fields": {
+      "query": "전세 보증금 못 받고 있어요",
+      "keywords": "전세,보증금",
+      "user": null,
+      "category": "",
+      "created_at": "2026-05-03T14:44:22.345Z"
+    }
+  },
+  {
+    "model": "search.searchquery",
+    "pk": 89,
+    "fields": {
+      "query": "부당해고 노동위원회",
+      "keywords": "부당해고,노동위원회",
+      "user": null,
+      "category": "",
+      "created_at": "2026-05-03T14:03:09.345Z"
+    }
+  },
+  {
+    "model": "search.searchquery",
+    "pk": 90,
+    "fields": {
+      "query": "부당해고 노동위원회",
+      "keywords": "부당해고,노동위원회",
+      "user": null,
+      "category": "",
+      "created_at": "2026-05-03T11:23:27.345Z"
+    }
+  },
+  {
+    "model": "search.searchquery",
+    "pk": 91,
+    "fields": {
+      "query": "부당해고 노동위원회",
+      "keywords": "부당해고,노동위원회",
+      "user": null,
+      "category": "",
+      "created_at": "2026-05-04T02:33:56.345Z"
+    }
+  },
+  {
+    "model": "search.searchquery",
+    "pk": 92,
+    "fields": {
+      "query": "부당해고 노동위원회",
+      "keywords": "부당해고,노동위원회",
+      "user": null,
+      "category": "",
+      "created_at": "2026-05-03T23:07:45.345Z"
+    }
+  },
+  {
+    "model": "search.searchquery",
+    "pk": 93,
+    "fields": {
+      "query": "부당해고 노동위원회",
+      "keywords": "부당해고,노동위원회",
+      "user": null,
+      "category": "",
+      "created_at": "2026-05-03T17:27:35.345Z"
+    }
+  },
+  {
+    "model": "search.searchquery",
+    "pk": 94,
+    "fields": {
+      "query": "부당해고 노동위원회",
+      "keywords": "부당해고,노동위원회",
+      "user": null,
+      "category": "",
+      "created_at": "2026-05-04T01:21:54.345Z"
+    }
+  },
+  {
+    "model": "search.searchquery",
+    "pk": 95,
+    "fields": {
+      "query": "부당해고 노동위원회",
+      "keywords": "부당해고,노동위원회",
+      "user": null,
+      "category": "",
+      "created_at": "2026-05-03T12:11:18.345Z"
+    }
+  },
+  {
+    "model": "search.searchquery",
+    "pk": 96,
+    "fields": {
+      "query": "부당해고 노동위원회",
+      "keywords": "부당해고,노동위원회",
+      "user": null,
+      "category": "",
+      "created_at": "2026-05-04T05:07:44.345Z"
+    }
+  },
+  {
+    "model": "search.searchquery",
+    "pk": 97,
+    "fields": {
+      "query": "부당해고 노동위원회",
+      "keywords": "부당해고,노동위원회",
+      "user": null,
+      "category": "",
+      "created_at": "2026-05-03T11:39:09.345Z"
+    }
+  },
+  {
+    "model": "search.searchquery",
+    "pk": 98,
+    "fields": {
+      "query": "이혼 양육비 산정",
+      "keywords": "이혼,양육비,산정",
+      "user": null,
+      "category": "",
+      "created_at": "2026-05-04T01:40:37.345Z"
+    }
+  },
+  {
+    "model": "search.searchquery",
+    "pk": 99,
+    "fields": {
+      "query": "이혼 양육비 산정",
+      "keywords": "이혼,양육비,산정",
+      "user": null,
+      "category": "",
+      "created_at": "2026-05-03T11:34:32.345Z"
+    }
+  },
+  {
+    "model": "search.searchquery",
+    "pk": 100,
+    "fields": {
+      "query": "이혼 양육비 산정",
+      "keywords": "이혼,양육비,산정",
+      "user": null,
+      "category": "",
+      "created_at": "2026-05-03T06:58:20.345Z"
+    }
+  },
+  {
+    "model": "search.searchquery",
+    "pk": 101,
+    "fields": {
+      "query": "이혼 양육비 산정",
+      "keywords": "이혼,양육비,산정",
+      "user": null,
+      "category": "",
+      "created_at": "2026-05-03T12:17:19.345Z"
+    }
+  },
+  {
+    "model": "search.searchquery",
+    "pk": 102,
+    "fields": {
+      "query": "이혼 양육비 산정",
+      "keywords": "이혼,양육비,산정",
+      "user": null,
+      "category": "",
+      "created_at": "2026-05-03T13:43:24.345Z"
+    }
+  },
+  {
+    "model": "search.searchquery",
+    "pk": 103,
+    "fields": {
+      "query": "이혼 양육비 산정",
+      "keywords": "이혼,양육비,산정",
+      "user": null,
+      "category": "",
+      "created_at": "2026-05-03T21:53:45.345Z"
+    }
+  },
+  {
+    "model": "search.searchquery",
+    "pk": 104,
+    "fields": {
+      "query": "이혼 양육비 산정",
+      "keywords": "이혼,양육비,산정",
+      "user": null,
+      "category": "",
+      "created_at": "2026-05-03T19:03:51.345Z"
+    }
+  },
+  {
+    "model": "search.searchquery",
+    "pk": 105,
+    "fields": {
+      "query": "이혼 양육비 산정",
+      "keywords": "이혼,양육비,산정",
+      "user": null,
+      "category": "",
+      "created_at": "2026-05-04T01:37:22.345Z"
+    }
+  },
+  {
+    "model": "search.searchquery",
+    "pk": 106,
+    "fields": {
+      "query": "아파트 매매 계약 해제",
+      "keywords": "아파트,매매,계약,해제",
+      "user": null,
+      "category": "",
+      "created_at": "2026-05-04T06:22:15.345Z"
+    }
+  },
+  {
+    "model": "search.searchquery",
+    "pk": 107,
+    "fields": {
+      "query": "아파트 매매 계약 해제",
+      "keywords": "아파트,매매,계약,해제",
+      "user": null,
+      "category": "",
+      "created_at": "2026-05-03T10:41:02.345Z"
+    }
+  },
+  {
+    "model": "search.searchquery",
+    "pk": 108,
+    "fields": {
+      "query": "아파트 매매 계약 해제",
+      "keywords": "아파트,매매,계약,해제",
+      "user": null,
+      "category": "",
+      "created_at": "2026-05-03T09:41:33.345Z"
+    }
+  },
+  {
+    "model": "search.searchquery",
+    "pk": 109,
+    "fields": {
+      "query": "아파트 매매 계약 해제",
+      "keywords": "아파트,매매,계약,해제",
+      "user": null,
+      "category": "",
+      "created_at": "2026-05-03T20:24:29.345Z"
+    }
+  },
+  {
+    "model": "search.searchquery",
+    "pk": 110,
+    "fields": {
+      "query": "아파트 매매 계약 해제",
+      "keywords": "아파트,매매,계약,해제",
+      "user": null,
+      "category": "",
+      "created_at": "2026-05-03T23:49:10.345Z"
+    }
+  },
+  {
+    "model": "search.searchquery",
+    "pk": 111,
+    "fields": {
+      "query": "아파트 매매 계약 해제",
+      "keywords": "아파트,매매,계약,해제",
+      "user": null,
+      "category": "",
+      "created_at": "2026-05-03T22:19:39.345Z"
+    }
+  },
+  {
+    "model": "search.searchquery",
+    "pk": 112,
+    "fields": {
+      "query": "아파트 매매 계약 해제",
+      "keywords": "아파트,매매,계약,해제",
+      "user": null,
+      "category": "",
+      "created_at": "2026-05-03T18:23:17.345Z"
+    }
+  },
+  {
+    "model": "search.searchquery",
+    "pk": 113,
+    "fields": {
+      "query": "교통사고 과실비율",
+      "keywords": "교통사고,과실비율",
+      "user": null,
+      "category": "",
+      "created_at": "2026-05-03T21:42:13.345Z"
+    }
+  },
+  {
+    "model": "search.searchquery",
+    "pk": 114,
+    "fields": {
+      "query": "교통사고 과실비율",
+      "keywords": "교통사고,과실비율",
+      "user": null,
+      "category": "",
+      "created_at": "2026-05-04T05:20:02.345Z"
+    }
+  },
+  {
+    "model": "search.searchquery",
+    "pk": 115,
+    "fields": {
+      "query": "교통사고 과실비율",
+      "keywords": "교통사고,과실비율",
+      "user": null,
+      "category": "",
+      "created_at": "2026-05-04T05:09:10.345Z"
+    }
+  },
+  {
+    "model": "search.searchquery",
+    "pk": 116,
+    "fields": {
+      "query": "교통사고 과실비율",
+      "keywords": "교통사고,과실비율",
+      "user": null,
+      "category": "",
+      "created_at": "2026-05-03T09:44:56.345Z"
+    }
+  },
+  {
+    "model": "search.searchquery",
+    "pk": 117,
+    "fields": {
+      "query": "교통사고 과실비율",
+      "keywords": "교통사고,과실비율",
+      "user": null,
+      "category": "",
+      "created_at": "2026-05-03T16:54:09.345Z"
+    }
+  },
+  {
+    "model": "search.searchquery",
+    "pk": 118,
+    "fields": {
+      "query": "교통사고 과실비율",
+      "keywords": "교통사고,과실비율",
+      "user": null,
+      "category": "",
+      "created_at": "2026-05-03T17:18:07.345Z"
+    }
+  },
+  {
+    "model": "search.searchquery",
+    "pk": 119,
+    "fields": {
+      "query": "교통사고 과실비율",
+      "keywords": "교통사고,과실비율",
+      "user": null,
+      "category": "",
+      "created_at": "2026-05-03T15:53:53.345Z"
+    }
+  },
+  {
+    "model": "search.searchquery",
+    "pk": 120,
+    "fields": {
+      "query": "명예훼손 신고",
+      "keywords": "명예훼손,신고",
+      "user": null,
+      "category": "",
+      "created_at": "2026-05-03T15:41:19.345Z"
+    }
+  },
+  {
+    "model": "search.searchquery",
+    "pk": 121,
+    "fields": {
+      "query": "명예훼손 신고",
+      "keywords": "명예훼손,신고",
+      "user": null,
+      "category": "",
+      "created_at": "2026-05-03T22:15:16.345Z"
+    }
+  },
+  {
+    "model": "search.searchquery",
+    "pk": 122,
+    "fields": {
+      "query": "명예훼손 신고",
+      "keywords": "명예훼손,신고",
+      "user": null,
+      "category": "",
+      "created_at": "2026-05-03T16:58:46.345Z"
+    }
+  },
+  {
+    "model": "search.searchquery",
+    "pk": 123,
+    "fields": {
+      "query": "명예훼손 신고",
+      "keywords": "명예훼손,신고",
+      "user": null,
+      "category": "",
+      "created_at": "2026-05-04T00:22:35.345Z"
+    }
+  },
+  {
+    "model": "search.searchquery",
+    "pk": 124,
+    "fields": {
+      "query": "명예훼손 신고",
+      "keywords": "명예훼손,신고",
+      "user": null,
+      "category": "",
+      "created_at": "2026-05-04T03:19:58.345Z"
+    }
+  },
+  {
+    "model": "search.searchquery",
+    "pk": 125,
+    "fields": {
+      "query": "명예훼손 신고",
+      "keywords": "명예훼손,신고",
+      "user": null,
+      "category": "",
+      "created_at": "2026-05-03T13:53:42.345Z"
+    }
+  },
+  {
+    "model": "search.searchquery",
+    "pk": 126,
+    "fields": {
+      "query": "보이스피싱 환급",
+      "keywords": "보이스피싱,환급",
+      "user": null,
+      "category": "",
+      "created_at": "2026-05-04T04:20:54.345Z"
+    }
+  },
+  {
+    "model": "search.searchquery",
+    "pk": 127,
+    "fields": {
+      "query": "보이스피싱 환급",
+      "keywords": "보이스피싱,환급",
+      "user": null,
+      "category": "",
+      "created_at": "2026-05-03T17:17:45.345Z"
+    }
+  },
+  {
+    "model": "search.searchquery",
+    "pk": 128,
+    "fields": {
+      "query": "보이스피싱 환급",
+      "keywords": "보이스피싱,환급",
+      "user": null,
+      "category": "",
+      "created_at": "2026-05-04T01:14:43.345Z"
+    }
+  },
+  {
+    "model": "search.searchquery",
+    "pk": 129,
+    "fields": {
+      "query": "보이스피싱 환급",
+      "keywords": "보이스피싱,환급",
+      "user": null,
+      "category": "",
+      "created_at": "2026-05-03T15:23:47.345Z"
+    }
+  },
+  {
+    "model": "search.searchquery",
+    "pk": 130,
+    "fields": {
+      "query": "보이스피싱 환급",
+      "keywords": "보이스피싱,환급",
+      "user": null,
+      "category": "",
+      "created_at": "2026-05-03T07:50:09.345Z"
+    }
+  },
+  {
+    "model": "search.searchquery",
+    "pk": 131,
+    "fields": {
+      "query": "월세 보증금 환불",
+      "keywords": "월세,보증금,환불",
+      "user": null,
+      "category": "",
+      "created_at": "2026-05-03T07:14:10.345Z"
+    }
+  },
+  {
+    "model": "search.searchquery",
+    "pk": 132,
+    "fields": {
+      "query": "월세 보증금 환불",
+      "keywords": "월세,보증금,환불",
+      "user": null,
+      "category": "",
+      "created_at": "2026-05-03T22:58:20.345Z"
+    }
+  },
+  {
+    "model": "search.searchquery",
+    "pk": 133,
+    "fields": {
+      "query": "월세 보증금 환불",
+      "keywords": "월세,보증금,환불",
+      "user": null,
+      "category": "",
+      "created_at": "2026-05-03T23:36:48.345Z"
+    }
+  },
+  {
+    "model": "search.searchquery",
+    "pk": 134,
+    "fields": {
+      "query": "월세 보증금 환불",
+      "keywords": "월세,보증금,환불",
+      "user": null,
+      "category": "",
+      "created_at": "2026-05-03T09:19:10.345Z"
+    }
+  },
+  {
+    "model": "search.searchquery",
+    "pk": 135,
+    "fields": {
+      "query": "월세 보증금 환불",
+      "keywords": "월세,보증금,환불",
+      "user": null,
+      "category": "",
+      "created_at": "2026-05-04T02:43:54.345Z"
+    }
+  },
+  {
+    "model": "search.searchquery",
+    "pk": 136,
+    "fields": {
+      "query": "층간소음",
+      "keywords": "층간소음",
+      "user": null,
+      "category": "",
+      "created_at": "2026-05-04T00:01:00.345Z"
+    }
+  },
+  {
+    "model": "search.searchquery",
+    "pk": 137,
+    "fields": {
+      "query": "층간소음",
+      "keywords": "층간소음",
+      "user": null,
+      "category": "",
+      "created_at": "2026-05-03T18:36:26.345Z"
+    }
+  },
+  {
+    "model": "search.searchquery",
+    "pk": 138,
+    "fields": {
+      "query": "층간소음",
+      "keywords": "층간소음",
+      "user": null,
+      "category": "",
+      "created_at": "2026-05-03T18:26:45.345Z"
+    }
+  },
+  {
+    "model": "search.searchquery",
+    "pk": 139,
+    "fields": {
+      "query": "층간소음",
+      "keywords": "층간소음",
+      "user": null,
+      "category": "",
+      "created_at": "2026-05-03T09:16:26.345Z"
+    }
+  },
+  {
+    "model": "search.searchquery",
+    "pk": 140,
+    "fields": {
+      "query": "카톡으로 빌려준 돈",
+      "keywords": "카톡,빌려준",
+      "user": null,
+      "category": "",
+      "created_at": "2026-05-03T19:50:29.345Z"
+    }
+  },
+  {
+    "model": "search.searchquery",
+    "pk": 141,
+    "fields": {
+      "query": "카톡으로 빌려준 돈",
+      "keywords": "카톡,빌려준",
+      "user": null,
+      "category": "",
+      "created_at": "2026-05-03T10:34:55.345Z"
+    }
+  },
+  {
+    "model": "search.searchquery",
+    "pk": 142,
+    "fields": {
+      "query": "카톡으로 빌려준 돈",
+      "keywords": "카톡,빌려준",
+      "user": null,
+      "category": "",
+      "created_at": "2026-05-04T00:09:19.345Z"
+    }
+  },
+  {
+    "model": "search.searchquery",
+    "pk": 143,
+    "fields": {
+      "query": "중고거래 사기",
+      "keywords": "중고거래,사기",
+      "user": null,
+      "category": "",
+      "created_at": "2026-05-03T13:59:58.345Z"
+    }
+  },
+  {
+    "model": "search.searchquery",
+    "pk": 144,
+    "fields": {
+      "query": "중고거래 사기",
+      "keywords": "중고거래,사기",
+      "user": null,
+      "category": "",
+      "created_at": "2026-05-03T16:11:52.345Z"
+    }
+  },
+  {
+    "model": "search.searchquery",
+    "pk": 145,
+    "fields": {
+      "query": "중고거래 사기",
+      "keywords": "중고거래,사기",
+      "user": null,
+      "category": "",
+      "created_at": "2026-05-03T07:30:01.345Z"
+    }
+  },
+  {
+    "model": "search.searchquery",
+    "pk": 146,
+    "fields": {
+      "query": "산업재해 신청",
+      "keywords": "산업재해,신청",
+      "user": null,
+      "category": "",
+      "created_at": "2026-05-03T06:41:11.345Z"
+    }
+  },
+  {
+    "model": "search.searchquery",
+    "pk": 147,
+    "fields": {
+      "query": "산업재해 신청",
+      "keywords": "산업재해,신청",
+      "user": null,
+      "category": "",
+      "created_at": "2026-05-04T05:45:36.345Z"
+    }
+  },
+  {
+    "model": "search.searchquery",
+    "pk": 148,
+    "fields": {
+      "query": "사실혼 재산분할",
+      "keywords": "사실혼,재산분할",
+      "user": null,
+      "category": "",
+      "created_at": "2026-05-03T21:44:04.345Z"
+    }
+  },
+  {
+    "model": "search.searchquery",
+    "pk": 149,
+    "fields": {
+      "query": "사실혼 재산분할",
+      "keywords": "사실혼,재산분할",
+      "user": null,
+      "category": "",
+      "created_at": "2026-05-03T10:35:50.345Z"
+    }
+  },
+  {
+    "model": "search.searchquery",
+    "pk": 150,
+    "fields": {
+      "query": "재택근무 산재",
+      "keywords": "재택근무,산재",
+      "user": null,
+      "category": "",
+      "created_at": "2026-05-03T13:58:54.345Z"
+    }
+  },
+  {
+    "model": "search.searchquery",
+    "pk": 151,
+    "fields": {
+      "query": "유튜브 저작권",
+      "keywords": "유튜브,저작권",
+      "user": null,
+      "category": "",
+      "created_at": "2026-05-03T06:42:11.345Z"
+    }
+  },
+  {
     "model": "interactions.like",
     "pk": 1,
     "fields": {

@@ -618,6 +618,85 @@
 }
 .report-modal-options label:hover { background: var(--color-surface); }
 
+/* ---------- Home sidebar — 실시간 검색어 + 포텐 인기글 (펨코 스타일) ---------- */
+.home-grid {
+  display: grid;
+  grid-template-columns: 1fr 320px;
+  gap: 24px;
+  align-items: start;
+}
+.home-sidebar { display: flex; flex-direction: column; gap: 16px; }
+.sidebar-card {
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: 14px 16px;
+  box-shadow: var(--shadow-sm);
+}
+.sidebar-card h3 {
+  font-size: 1rem;
+  font-weight: 700;
+  margin: 0 0 10px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--color-border);
+}
+.rank-list { list-style: none; padding: 0; margin: 0; }
+.rank-list li {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 0;
+  font-size: 0.9rem;
+  border-bottom: 1px dashed transparent;
+}
+.rank-list li + li { border-top: 1px dashed var(--color-border); }
+.rank-num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  border-radius: 4px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  background: var(--color-surface);
+  color: var(--color-muted);
+  flex-shrink: 0;
+}
+.rank-num.top1 { background: #DC2626; color: #fff; }
+.rank-num.top2 { background: #EA580C; color: #fff; }
+.rank-num.top3 { background: #F59E0B; color: #fff; }
+.rank-text {
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: var(--color-text);
+  text-decoration: none;
+}
+.rank-text:hover { color: var(--color-primary); text-decoration: none; }
+.rank-meta {
+  font-size: 0.75rem;
+  color: var(--color-muted);
+  flex-shrink: 0;
+}
+.hot-flame {
+  display: inline-block;
+  margin-left: 4px;
+  color: #DC2626;
+  font-size: 0.75rem;
+}
+
+@media (max-width: 900px) {
+  .home-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+}
+
 /* ---------- Tabs (마이페이지) ---------- */
 .tabs {
   display: flex;
