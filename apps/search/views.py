@@ -58,11 +58,11 @@ class TrendingSearchView(APIView):
 
 
 class PopularStoriesView(APIView):
-    """포텐 (인기글) 랭킹.
+    """핫 인기글 랭킹.
 
     GET /api/stories/popular/?days=7&limit=10
     - 점수 = log10(view+1)*2 + like*3 + comment*5
-    - 임계 (15점) 넘으면 포텐 (is_hot=true)
+    - 임계 (15점) 넘으면 핫 인기글 (is_hot=true)
     """
 
     permission_classes = (permissions.AllowAny,)
