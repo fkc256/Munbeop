@@ -8,6 +8,14 @@
     <a id="new-story-btn" class="btn-primary" href="/stories/new/">사연 작성</a>
   </div>
 
+  <section id="hot-stories" class="hot-stories-section" style="display:none;">
+    <div class="hot-stories-header">
+      <h2 class="hot-stories-title">🔥 이번 주 포텐 인기글</h2>
+      <span class="hot-stories-period">최근 30일 · 댓글·좋아요·조회수 종합</span>
+    </div>
+    <div id="hot-stories-grid" class="hot-stories-grid"></div>
+  </section>
+
   <div id="category-tabs" class="filter-tabs"></div>
   <div class="filter-tabs" id="ordering-tabs">
     <a class="filter-tab" data-ordering="-created_at" href="#">최신순</a>
@@ -130,9 +138,41 @@
     }
   }
 
+  // 포텐 인기글 (페이지 상단 강조)
+  async function loadHotStories() {
+    const section = document.getElementById('hot-stories');
+    const grid = document.getElementById('hot-stories-grid');
+    try {
+      const res = await fetch('/api/search/popular/?days=30&limit=5');
+      if (!res.ok) throw new Error('failed');
+      const data = await res.json();
+      if (!data.items.length) { section.style.display = 'none'; return; }
+      grid.innerHTML = data.items.map(it => {
+        const cat = it.category || 'etc';
+        const catName = CATEGORY_LABELS[cat] || cat;
+        const rankCls = it.rank <= 3 ? ('rank' + it.rank) : '';
+        return ''
+          + '<a class="hot-story-card ' + rankCls + '" href="/stories/' + it.id + '/">'
+          +   '<span class="hot-story-rank">' + it.rank + '</span>'
+          +   '<span class="badge badge-primary">' + window.escapeHtml(catName) + '</span>'
+          +   '<h3 class="hot-story-card-title">' + window.escapeHtml(it.title) + '</h3>'
+          +   '<div class="hot-story-card-meta">'
+          +     (it.is_hot ? '<span class="hot-emoji">🔥 HOT</span>' : '')
+          +     '<span>♡ ' + it.like_count + '</span>'
+          +     '<span>💬 ' + it.comment_count + '</span>'
+          +   '</div>'
+          + '</a>';
+      }).join('');
+      section.style.display = '';
+    } catch (_) {
+      section.style.display = 'none';
+    }
+  }
+
   renderTabs();
   load();
   setupAuth();
+  loadHotStories();
 })();
 </script>
 {% endblock %}
