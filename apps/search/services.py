@@ -11,7 +11,7 @@ from __future__ import annotations
 
 from typing import Iterable, Optional
 
-from django.db.models import Q
+from django.db.models import Count, Q
 
 from apps.legal_data.models import Law, Precedent
 from apps.stories.models import Story
@@ -92,6 +92,21 @@ def search_stories(
     limit: int = 5,
     exclude_id: Optional[int] = None,
 ) -> list[Story]:
+    """유사 사연 추천 — 키워드 매칭 + engagement(view/like/comment) 가중 합산.
+
+    3차 알고리즘 (의도적으로 단순):
+      composite = 키워드 매칭 점수 × 3
+                + log10(view_count + 1)
+                + 0.5 × like_count
+                + 1.0 × comment_count
+
+    핀터레스트/유튜브식 의미적 유사도(임베딩 + 협업필터링)는 4차 영역 — search_stories
+    함수 시그니처는 동일하게 유지해서 4차에서 swap만 하면 ViewSet 변경 없음.
+    """
+    import math
+
+    from apps.interactions.models import Comment, Like
+
     if not keywords:
         return []
     qs = Story.objects.select_related("user", "category")
@@ -101,13 +116,37 @@ def search_stories(
         qs = qs.exclude(id=exclude_id)
     qs = qs.filter(_build_or_q(keywords, ("title", "content"))).distinct()
 
+    # candidate ids 미리 추출 → engagement 카운트 한 번에 prefetch
+    candidates = list(qs)
+    cand_ids = [s.id for s in candidates]
+    like_counts = dict(
+        Like.objects.filter(target_type="story", target_id__in=cand_ids)
+        .values_list("target_id")
+        .annotate(c=Count("*"))
+        .values_list("target_id", "c")
+    )
+    comment_counts = dict(
+        Comment.objects.filter(story_id__in=cand_ids)
+        .values_list("story_id")
+        .annotate(c=Count("*"))
+        .values_list("story_id", "c")
+    )
+
     scored: list[Story] = []
-    for s in qs:
-        matched = [
-            kw for kw in keywords if _kw_in_any(kw, s.title, s.content)
-        ]
+    for s in candidates:
+        matched = [kw for kw in keywords if _kw_in_any(kw, s.title, s.content)]
+        like_n = like_counts.get(s.id, 0)
+        comment_n = comment_counts.get(s.id, 0)
+        composite = (
+            len(matched) * 3.0
+            + math.log10((s.view_count or 0) + 1)
+            + 0.5 * like_n
+            + 1.0 * comment_n
+        )
         s._matched_keywords = matched
-        s._score = len(matched)
+        s._score = len(matched)        # 표시용 (UI에 매칭 키워드 개수)
+        s._composite_score = composite # 정렬용 (engagement 가중)
+        s._engagement = {"likes": like_n, "comments": comment_n, "views": s.view_count}
         scored.append(s)
-    scored.sort(key=lambda s: (s._score, s.view_count), reverse=True)
+    scored.sort(key=lambda s: (s._composite_score, s.view_count), reverse=True)
     return scored[:limit]

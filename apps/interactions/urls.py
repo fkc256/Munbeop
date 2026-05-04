@@ -3,6 +3,7 @@ from django.urls import path
 from .views import (
     BookmarkToggleView,
     CommentDetailView,
+    CommentReportView,
     LikeToggleView,
     MyBookmarksView,
     StoryCommentListCreateView,
@@ -17,6 +18,7 @@ urlpatterns = [
         name="story-comment-list-create",
     ),
     path("comments/<int:pk>/", CommentDetailView.as_view(), name="comment-detail"),
+    path("comments/<int:pk>/report/", CommentReportView.as_view(), name="comment-report"),
     path("likes/toggle/", LikeToggleView.as_view(), name="like-toggle"),
     path("bookmarks/toggle/", BookmarkToggleView.as_view(), name="bookmark-toggle"),
     path("bookmarks/", MyBookmarksView.as_view(), name="my-bookmarks"),

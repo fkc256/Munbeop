@@ -1,22 +1,24 @@
 from django.db.models import Count, Q
 from django.shortcuts import get_object_or_404
 from rest_framework import generics, permissions, status
-from rest_framework.exceptions import NotFound
+from rest_framework.exceptions import NotFound, PermissionDenied, ValidationError
 from rest_framework.response import Response
 from rest_framework.views import APIView
 
 from apps.legal_data.models import Law, Precedent
 from apps.stories.models import Story
 
-from .models import Bookmark, Comment, Like
+from .models import Bookmark, Comment, Like, Report
 from .permissions import IsCommentOwnerOrReadOnly
 from .serializers import (
+    BEST_LIKE_THRESHOLD,
     BookmarkListSerializer,
     BookmarkToggleSerializer,
     CommentCreateSerializer,
     CommentSerializer,
     CommentUpdateSerializer,
     LikeToggleSerializer,
+    ReportCreateSerializer,
 )
 
 
@@ -32,28 +34,96 @@ class StoryCommentListCreateView(generics.GenericAPIView):
 
     def get(self, request, *args, **kwargs):
         story = self._get_story()
-        # 최상위 댓글: 활성이거나(deleted여도 활성 대댓글 ≥1)
-        active_top = Comment.objects.filter(story=story, parent__isnull=True)
-        deleted_with_replies = (
+        # 최상위 댓글 노출 정책:
+        # - 활성 댓글 → 항상 노출
+        # - 작성자 직접 삭제(deletion_reason='author') → 활성 대댓글 ≥1일 때만 placeholder
+        # - 신고/관리자 삭제(deletion_reason in ['report','admin']) → 자식 유무 무관 항상 placeholder
+        #   (커뮤니티 운영 흔적은 가시화 — 펨코/디시 표준)
+        active_top_ids = list(
+            Comment.objects.filter(story=story, parent__isnull=True)
+            .values_list("id", flat=True)
+        )
+        report_admin_deleted_ids = list(
             Comment.all_objects.filter(
-                story=story, parent__isnull=True, is_deleted=True
+                story=story, parent__isnull=True, is_deleted=True,
+                deletion_reason__in=["report", "admin"],
+            ).values_list("id", flat=True)
+        )
+        author_deleted_with_replies_ids = list(
+            Comment.all_objects.filter(
+                story=story, parent__isnull=True, is_deleted=True,
+                deletion_reason="author",
             )
             .annotate(_alive_replies=Count("replies", filter=Q(replies__is_deleted=False)))
             .filter(_alive_replies__gt=0)
+            .values_list("id", flat=True)
         )
-        # union 후 created_at asc 정렬
-        top_ids = list(active_top.values_list("id", flat=True)) + list(
-            deleted_with_replies.values_list("id", flat=True)
-        )
+        top_ids = active_top_ids + report_admin_deleted_ids + author_deleted_with_replies_ids
+
+        # 정렬 옵션: ?ordering=best | latest | oldest (기본 best — 베스트 우선 + 그 외 최신순)
+        ordering = request.query_params.get("ordering", "best")
+
+        # 베스트 댓글: 활성 + 좋아요 ≥ 임계값. 별도 섹션으로 분리 응답
+        if ordering == "best":
+            # 좋아요 카운트 annotate
+            qs_with_likes = Comment.all_objects.filter(id__in=top_ids).annotate(
+                _like_count=Count(
+                    "id",
+                    filter=Q(
+                        id__in=Like.objects.filter(target_type="comment").values("target_id")
+                    ),
+                )
+            )
+            # 위 annotate가 단순 boolean이라 정확 카운트는 별도 dict
+            like_counts = dict(
+                Like.objects.filter(target_type="comment", target_id__in=top_ids)
+                .values_list("target_id")
+                .annotate(c=Count("*"))
+                .values_list("target_id", "c")
+            )
+            best_ids = [
+                cid for cid in top_ids
+                if like_counts.get(cid, 0) >= BEST_LIKE_THRESHOLD
+            ]
+            best_qs = (
+                Comment.all_objects.filter(id__in=best_ids, is_deleted=False)
+                .select_related("user", "story")
+                .prefetch_related("replies__user")
+            )
+            # 베스트는 좋아요 수 desc, 동점이면 최신순
+            best_list = sorted(
+                list(best_qs),
+                key=lambda c: (like_counts.get(c.id, 0), c.created_at),
+                reverse=True,
+            )
+            # 일반 댓글 (베스트 제외, 베스트라도 deleted 여부 무관 — best_ids는 활성만이라 안전)
+            normal_ids = [cid for cid in top_ids if cid not in set(best_ids)]
+            normal_qs = (
+                Comment.all_objects.filter(id__in=normal_ids)
+                .select_related("user", "story")
+                .prefetch_related("replies__user")
+                .order_by("-created_at")
+            )
+            page = self.paginate_queryset(normal_qs)
+            ser_normal = CommentSerializer(page, many=True, context={"request": request})
+            ser_best = CommentSerializer(best_list, many=True, context={"request": request})
+            paginated = self.get_paginated_response(ser_normal.data)
+            paginated.data["best"] = ser_best.data
+            return paginated
+
+        # 단순 정렬: latest / oldest
+        order_field = "-created_at" if ordering == "latest" else "created_at"
         qs = (
             Comment.all_objects.filter(id__in=top_ids)
-            .select_related("user")
+            .select_related("user", "story")
             .prefetch_related("replies__user")
-            .order_by("created_at")
+            .order_by(order_field)
         )
         page = self.paginate_queryset(qs)
         ser = CommentSerializer(page, many=True, context={"request": request})
-        return self.get_paginated_response(ser.data)
+        paginated = self.get_paginated_response(ser.data)
+        paginated.data["best"] = []
+        return paginated
 
     def post(self, request, *args, **kwargs):
         story = self._get_story()
@@ -169,6 +239,53 @@ class BookmarkToggleView(APIView):
             )
             bookmarked = True
         return Response({"bookmarked": bookmarked})
+
+
+class CommentReportView(APIView):
+    """POST /api/comments/<pk>/report/
+
+    같은 사용자의 같은 댓글 중복 신고 X.
+    임계값(Report.REPORT_THRESHOLD) 누적 시 자동 soft delete (deletion_reason='report').
+    """
+
+    permission_classes = (permissions.IsAuthenticated,)
+
+    def post(self, request, pk):
+        comment = get_object_or_404(Comment.objects, pk=pk)
+        if comment.user_id == request.user.id:
+            raise PermissionDenied("자신의 댓글은 신고할 수 없습니다.")
+
+        ser = ReportCreateSerializer(data=request.data)
+        ser.is_valid(raise_exception=True)
+
+        report, created = Report.objects.get_or_create(
+            user=request.user,
+            comment=comment,
+            defaults={
+                "reason": ser.validated_data["reason"],
+                "detail": ser.validated_data.get("detail", ""),
+            },
+        )
+        if not created:
+            return Response(
+                {"detail": "이미 신고한 댓글입니다.", "report_count": comment.reports.count()},
+                status=status.HTTP_200_OK,
+            )
+
+        report_count = comment.reports.count()
+        auto_deleted = False
+        if report_count >= Report.REPORT_THRESHOLD and not comment.is_deleted:
+            comment.soft_delete(reason="report")
+            auto_deleted = True
+
+        return Response(
+            {
+                "detail": "신고 접수됨",
+                "report_count": report_count,
+                "auto_deleted": auto_deleted,
+            },
+            status=status.HTTP_201_CREATED,
+        )
 
 
 class MyBookmarksView(generics.ListAPIView):

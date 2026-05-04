@@ -9,6 +9,12 @@ class CommentManager(models.Manager):
 
 
 class Comment(models.Model):
+    DELETION_REASONS = [
+        ("author", "작성자 본인 삭제"),
+        ("report", "신고 누적 자동 삭제"),
+        ("admin", "관리자 수동 삭제"),
+    ]
+
     user = models.ForeignKey(
         settings.AUTH_USER_MODEL,
         on_delete=models.SET_NULL,
@@ -29,6 +35,9 @@ class Comment(models.Model):
     )
     content = models.TextField()
     is_deleted = models.BooleanField(default=False)
+    deletion_reason = models.CharField(
+        max_length=20, choices=DELETION_REASONS, blank=True, default=""
+    )
     deleted_at = models.DateTimeField(null=True, blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
@@ -53,10 +62,11 @@ class Comment(models.Model):
     def is_reply(self) -> bool:
         return self.parent_id is not None
 
-    def soft_delete(self) -> None:
+    def soft_delete(self, reason: str = "author") -> None:
         self.is_deleted = True
+        self.deletion_reason = reason
         self.deleted_at = timezone.now()
-        self.save(update_fields=["is_deleted", "deleted_at"])
+        self.save(update_fields=["is_deleted", "deletion_reason", "deleted_at"])
 
 
 class Like(models.Model):
@@ -84,6 +94,43 @@ class Like(models.Model):
 
     def __str__(self) -> str:
         return f"{self.user_id} likes {self.target_type}#{self.target_id}"
+
+
+class Report(models.Model):
+    """댓글 신고. 같은 사용자가 같은 댓글에 여러 번 신고 X.
+    임계값(REPORT_THRESHOLD) 누적 시 댓글 자동 soft delete (deletion_reason='report').
+    """
+    REASON_CHOICES = [
+        ("spam", "스팸/광고"),
+        ("abuse", "욕설/비방"),
+        ("misinfo", "허위정보"),
+        ("obscene", "음란/혐오"),
+        ("etc", "기타"),
+    ]
+    REPORT_THRESHOLD = 3  # 이 건수에 도달하면 자동 삭제
+
+    user = models.ForeignKey(
+        settings.AUTH_USER_MODEL,
+        on_delete=models.CASCADE,
+        related_name="reports",
+    )
+    comment = models.ForeignKey(
+        "interactions.Comment",
+        on_delete=models.CASCADE,
+        related_name="reports",
+    )
+    reason = models.CharField(max_length=20, choices=REASON_CHOICES, default="etc")
+    detail = models.TextField(blank=True, default="")
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        unique_together = [["user", "comment"]]
+        indexes = [models.Index(fields=["comment", "created_at"])]
+        verbose_name = "신고"
+        verbose_name_plural = "신고"
+
+    def __str__(self) -> str:
+        return f"report by {self.user_id} on comment {self.comment_id} ({self.reason})"
 
 
 class Bookmark(models.Model):

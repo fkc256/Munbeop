@@ -282,6 +282,48 @@
     }
   },
   {
+    "model": "accounts.user",
+    "pk": 8,
+    "fields": {
+      "password": "pbkdf2_sha256$1000000$hYinsJZK0w5ryNWYtOntW9$7FzuB+9wAr+zaqt9Qnt725+UK+ty+ZIccZcoKLeObyI=",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "demo_helper",
+      "first_name": "",
+      "last_name": "",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2026-05-04T04:49:36.393Z",
+      "email": "demo_helper@munbeop.local",
+      "nickname": "도움주는1",
+      "created_at": "2026-05-04T04:49:36.394Z",
+      "updated_at": "2026-05-04T04:49:36.597Z",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "accounts.user",
+    "pk": 9,
+    "fields": {
+      "password": "pbkdf2_sha256$1000000$KeK7oLKIF1YMFHHO4fxN7q$rpCIE6l27IR6ORZvFly9LoAxDszODlt7Xrjpik6Th5o=",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "demo_helper2",
+      "first_name": "",
+      "last_name": "",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2026-05-04T04:49:36.610Z",
+      "email": "demo_helper2@munbeop.local",
+      "nickname": "도움주는2",
+      "created_at": "2026-05-04T04:49:36.610Z",
+      "updated_at": "2026-05-04T04:49:36.814Z",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
     "model": "stories.category",
     "pk": 1,
     "fields": {
@@ -382,162 +424,722 @@
   },
   {
     "model": "stories.story",
-    "pk": 1,
+    "pk": 72,
     "fields": {
-      "user": 1,
-      "title": "전세 보증금 반환 지연 문의",
-      "content": "집주인이 보증금 반환을 미루고 있습니다. 어떻게 해야 하나요?",
+      "user": 2,
+      "title": "전세 만기 두 달 남았는데 집주인이 연락두절",
+      "content": "전세 만기가 두 달 남았는데 집주인이 카톡도 전화도 안 받고 있습니다. 만기 전에 보증금 반환 의사를 미리 확인하고 싶어서 계속 연락했는데 답이 없어요. 부동산에 가서 물어봤더니 사장님이 다른 지역에 있다고만 하시고 정확한 내용을 모르신다고 합니다. 만기 다 돼서 이사 못 가는 상황이 생길까봐 너무 불안합니다. 어떻게 대응해야 할까요?",
       "category": 1,
       "is_anonymous": false,
       "is_deleted": false,
       "deleted_at": null,
-      "view_count": 53,
-      "created_at": "2026-04-27T09:02:27.438Z",
-      "updated_at": "2026-04-27T09:04:31.007Z"
+      "view_count": 30,
+      "created_at": "2026-05-04T04:47:11.589Z",
+      "updated_at": "2026-05-04T04:47:11.589Z"
     }
   },
   {
     "model": "stories.story",
-    "pk": 62,
+    "pk": 73,
     "fields": {
-      "user": 1,
-      "title": "3년 다닌 회사에서 갑작스러운 해고 통보",
-      "content": "3년째 다니던 작은 회사에서 갑자기 해고 통보를 받았습니다. 어제 사장님이 따로 부르시더니 '회사 사정이 안 좋다, 다음 주부터 나오지 말라'고 한 마디만 하시고 끝이었습니다. 서면 통지도 없었고 구체적인 사유 설명도 없었어요. 인사위원회나 징계 절차 같은 것도 없었고요. 동료들 얘기 들어보니 회사 매출은 평소랑 비슷하다는데, 정말 회사 사정이 맞는 건지도 의심스럽습니다. 이런 경우도 부당해고에 해당하는 건가요? 받을 수 있는 보상이 있는지, 어디에 신고하면 되는지 알고 싶습니다.",
-      "category": 2,
+      "user": 6,
+      "title": "월세 보증금에서 도배 비용 과도하게 공제",
+      "content": "2년 살고 나갔는데 집주인이 도배·장판 전체 교체 비용으로 보증금 200만원 중 150만원을 공제했습니다. 입주 전 도배 상태가 이미 5년은 넘은 것으로 보였고, 저희가 특별히 훼손한 부분은 거의 없었어요. 통상의 마모와 자연 노후화는 임차인 부담이 아니라고 들었는데, 이렇게 일방적으로 공제하는 게 맞는 건가요?",
+      "category": 1,
       "is_anonymous": false,
       "is_deleted": false,
       "deleted_at": null,
-      "view_count": 52,
-      "created_at": "2026-04-28T06:19:26.674Z",
-      "updated_at": "2026-04-28T06:19:26.674Z"
+      "view_count": 22,
+      "created_at": "2026-05-04T04:47:11.595Z",
+      "updated_at": "2026-05-04T04:47:11.596Z"
     }
   },
   {
     "model": "stories.story",
-    "pk": 63,
+    "pk": 74,
     "fields": {
       "user": 2,
-      "title": "배송 중 파손된 가전, 환불 거부 당했습니다",
-      "content": "온라인 쇼핑몰에서 소형 가전을 구매했는데 배송 중 외관이 심하게 파손돼서 도착했습니다. 박스도 찌그러져 있었고 제품 모서리가 깨져 있었어요. 받자마자 사진 찍어서 판매자에게 환불을 요청했는데 '소비자 부주의' 또는 '택배사 책임'이라며 책임을 미루고 환불을 거부하고 있습니다. 이런 경우 누구한테 책임을 물어야 하는 건가요? 소비자 분쟁조정위원회 같은 곳에 신고하면 효과가 있을까요?",
-      "category": 3,
-      "is_anonymous": false,
-      "is_deleted": false,
-      "deleted_at": null,
-      "view_count": 27,
-      "created_at": "2026-04-28T06:19:26.685Z",
-      "updated_at": "2026-04-28T06:19:26.685Z"
-    }
-  },
-  {
-    "model": "stories.story",
-    "pk": 64,
-    "fields": {
-      "user": 1,
-      "title": "이혼 양육비 산정, 산정표대로 따라야 하나요?",
-      "content": "이혼 소송을 진행 중인데 양육비 산정 기준이 너무 모호해서 답답합니다. 아이가 둘(초등학생, 미취학)이고 제 월 소득은 350만원, 배우자 소득은 500만원 정도입니다. 양육은 제가 맡기로 했는데 변호사마다 얘기가 달라서 헷갈려요. 양육비 산정표라는 게 있다고 들었는데 거기 그대로 따르는 건지 아니면 협의로 정할 수 있는 건지, 한 번 정해지면 바꾸기 어려운지도 궁금합니다.",
-      "category": 4,
+      "title": "원룸 곰팡이 심한데 집주인이 환기 탓으로 돌려요",
+      "content": "원룸 살고 있는데 입주 한 달도 안 돼서 벽지에 곰팡이가 심하게 생겼습니다. 환기를 안 한 적도 없고 청소도 자주 했는데 결로 때문인지 점점 심해져요. 집주인에게 얘기했더니 환기 안 한 제 잘못이라고만 합니다. 사실은 단열이 부실한 게 원인 같은데 어떻게 입증해야 할까요?",
+      "category": 1,
       "is_anonymous": true,
       "is_deleted": false,
       "deleted_at": null,
-      "view_count": 37,
-      "created_at": "2026-04-28T06:19:26.695Z",
-      "updated_at": "2026-04-28T06:19:26.695Z"
+      "view_count": 18,
+      "created_at": "2026-05-04T04:47:11.600Z",
+      "updated_at": "2026-05-04T04:47:11.600Z"
     }
   },
   {
     "model": "stories.story",
-    "pk": 65,
+    "pk": 75,
     "fields": {
-      "user": 2,
-      "title": "이면도로 사거리 사고, 과실비율 6:4 납득이 안 갑니다",
-      "content": "주택가 이면도로에서 신호 없는 사거리를 지나가다가 우측에서 오던 차량과 부딪혔습니다. 다행히 인명피해는 없는데 양쪽 차량 다 제법 파손됐습니다. 보험사에서는 과실 비율이 6:4(제 쪽이 6)로 나왔다는데, 상대방이 좌우 확인 안 하고 그냥 진입했는데 왜 제 과실이 더 큰 건지 납득이 안 갑니다. 블랙박스 영상도 있는데 보험사가 다시 검토해줄까요? 이의제기는 어떻게 하나요?",
-      "category": 5,
+      "user": 7,
+      "title": "재계약 시 집주인이 일방적으로 월세 30% 인상 요구",
+      "content": "월세 살고 있는데 재계약 시기가 와서 집주인이 월세를 30%나 올려달라고 합니다. 주변 시세를 알아봐도 그 정도는 아닌데, 안 받아들이면 나가라는 식이에요. 임대료 인상에 법적인 한도가 있다고 들었는데 정확히 어떻게 적용되는지 알고 싶습니다. 거부할 권리가 있나요?",
+      "category": 1,
       "is_anonymous": false,
       "is_deleted": false,
       "deleted_at": null,
       "view_count": 12,
-      "created_at": "2026-04-28T06:19:26.706Z",
-      "updated_at": "2026-04-28T06:19:26.706Z"
+      "created_at": "2026-05-04T04:47:11.605Z",
+      "updated_at": "2026-05-04T04:47:11.605Z"
     }
   },
   {
     "model": "stories.story",
-    "pk": 66,
+    "pk": 76,
     "fields": {
       "user": 1,
-      "title": "공공장소에서 험담 들었는데 명예훼손 신고 가능한가요?",
-      "content": "동네 카페에서 단골 손님 몇 명이 모여 제 험담을 하는 걸 우연히 들었습니다. '저 사람 돈 떼어먹은 적 있다'는 등 사실과 전혀 다른 얘기를 큰 소리로 하고 있었어요. 듣고 있던 다른 손님들이 저를 이상한 눈으로 쳐다보더라고요. 녹음한 건 없지만 함께 있던 친구가 같이 들었습니다. 이런 경우도 명예훼손으로 신고할 수 있나요? 사실이 아닌 내용을 공공장소에서 큰소리로 떠든 거라면요.",
-      "category": 6,
+      "title": "전세사기 의심 — 등기부등본에 근저당이 많아요",
+      "content": "전세 계약하려고 등기부등본 떼봤더니 근저당이 시세의 80%까지 잡혀있더라고요. 공인중개사는 '문제없다'고 했지만 불안합니다. 만약 집이 경매로 넘어가면 보증금을 받지 못할 수 있다는 얘기를 들어서요. 계약 전에 어떤 부분을 더 확인해야 안전할까요?",
+      "category": 1,
+      "is_anonymous": false,
+      "is_deleted": false,
+      "deleted_at": null,
+      "view_count": 8,
+      "created_at": "2026-05-04T04:47:11.609Z",
+      "updated_at": "2026-05-04T04:47:11.609Z"
+    }
+  },
+  {
+    "model": "stories.story",
+    "pk": 77,
+    "fields": {
+      "user": 6,
+      "title": "수습 3개월 끝나고 정규직 전환 거부됐어요",
+      "content": "3개월 수습 기간 동안 정말 열심히 일했는데, 막상 끝날 때쯤 회사에서 '평가 결과가 기대에 못 미친다'며 정규직 전환을 거부했습니다. 평가 기준이 처음에 안내된 적도 없고 구체적 사유도 모호합니다. 수습 종료 시점에 그냥 해고당하는 건 정당한 건가요? 수습이라도 부당해고 다툴 수 있나요?",
+      "category": 2,
+      "is_anonymous": false,
+      "is_deleted": false,
+      "deleted_at": null,
+      "view_count": 45,
+      "created_at": "2026-05-04T04:47:11.614Z",
+      "updated_at": "2026-05-04T04:47:11.614Z"
+    }
+  },
+  {
+    "model": "stories.story",
+    "pk": 78,
+    "fields": {
+      "user": 2,
+      "title": "주말 출근 강요받는데 수당이 지급 안 돼요",
+      "content": "거의 매주 주말 출근을 시키는데 휴일근로수당이나 대체휴무 둘 다 안 줍니다. 관리자에게 얘기하면 '연봉제니까 따로 줄 필요 없다'고 하고요. 연봉제라고 해서 법정수당까지 안 줘도 되는 건 아니라고 들었는데 맞나요? 노동청 진정이 필요한 수준일까요?",
+      "category": 2,
+      "is_anonymous": false,
+      "is_deleted": false,
+      "deleted_at": null,
+      "view_count": 27,
+      "created_at": "2026-05-04T04:47:11.619Z",
+      "updated_at": "2026-05-04T04:47:11.619Z"
+    }
+  },
+  {
+    "model": "stories.story",
+    "pk": 79,
+    "fields": {
+      "user": 7,
+      "title": "직장 내 괴롭힘 신고 후 오히려 따돌림 받습니다",
+      "content": "직장 상사의 괴롭힘을 회사에 신고했더니, 오히려 부서 사람들이 저를 따돌리기 시작했습니다. 회의에서 의도적으로 배제하고 업무 전달도 잘 안 해줘요. 괴롭힘 신고 후 불리한 처우는 법적으로 금지된 걸로 아는데, 따돌림도 여기에 해당할까요?",
+      "category": 2,
+      "is_anonymous": true,
+      "is_deleted": false,
+      "deleted_at": null,
+      "view_count": 15,
+      "created_at": "2026-05-04T04:47:11.623Z",
+      "updated_at": "2026-05-04T04:47:11.623Z"
+    }
+  },
+  {
+    "model": "stories.story",
+    "pk": 80,
+    "fields": {
+      "user": 1,
+      "title": "퇴직금 지급이 한 달 넘게 미뤄지고 있어요",
+      "content": "회사를 퇴사한 지 한 달이 지났는데 퇴직금이 들어오지 않습니다. 회사에 연락하면 '곧 처리한다'는 말만 반복합니다. 퇴직금 지연이 지속되면 어디에 신고해야 하는지, 지연 이자도 받을 수 있는지 알고 싶습니다.",
+      "category": 2,
+      "is_anonymous": false,
+      "is_deleted": false,
+      "deleted_at": null,
+      "view_count": 8,
+      "created_at": "2026-05-04T04:47:11.628Z",
+      "updated_at": "2026-05-04T04:47:11.628Z"
+    }
+  },
+  {
+    "model": "stories.story",
+    "pk": 81,
+    "fields": {
+      "user": 6,
+      "title": "재택근무 중 사고도 산업재해 인정될까요",
+      "content": "재택근무 중 책상에서 일어나다 발목을 다쳤습니다. 회사에 산재 신청을 알아봐달라고 했더니 '재택은 산재 적용 안 된다'고 답했습니다. 코로나 이후 재택근무도 산재 범위에 포함될 수 있다고 들었는데 어떤 조건이 필요한가요?",
+      "category": 2,
+      "is_anonymous": false,
+      "is_deleted": false,
+      "deleted_at": null,
+      "view_count": 5,
+      "created_at": "2026-05-04T04:47:11.633Z",
+      "updated_at": "2026-05-04T04:47:11.633Z"
+    }
+  },
+  {
+    "model": "stories.story",
+    "pk": 82,
+    "fields": {
+      "user": 2,
+      "title": "중고거래 사기로 30만원 송금했어요",
+      "content": "당근마켓에서 노트북 구매하려고 30만원 선입금했는데 그 후로 연락이 끊겼습니다. 프로필 보니 다른 사람들도 같은 피해를 봤다는 후기가 있어요. 경찰에 신고하면 되돌려받을 수 있을까요? 본인 명의 계좌로 받았더라도 추적이 어렵다는 얘기가 있어서 걱정입니다.",
+      "category": 3,
+      "is_anonymous": false,
+      "is_deleted": false,
+      "deleted_at": null,
+      "view_count": 38,
+      "created_at": "2026-05-04T04:47:11.637Z",
+      "updated_at": "2026-05-04T04:47:11.637Z"
+    }
+  },
+  {
+    "model": "stories.story",
+    "pk": 83,
+    "fields": {
+      "user": 6,
+      "title": "헬스장 6개월 결제 후 한 달 만에 폐업",
+      "content": "헬스장 6개월권 60만원 결제했는데 한 달 만에 폐업했습니다. 사장님은 잠적했고요. 카드 할부로 결제했는데 카드사 차지백 신청이 가능한지, 잔여 기간 환불받을 방법이 있는지 알고 싶습니다.",
+      "category": 3,
+      "is_anonymous": false,
+      "is_deleted": false,
+      "deleted_at": null,
+      "view_count": 24,
+      "created_at": "2026-05-04T04:47:11.641Z",
+      "updated_at": "2026-05-04T04:47:11.641Z"
+    }
+  },
+  {
+    "model": "stories.story",
+    "pk": 84,
+    "fields": {
+      "user": 1,
+      "title": "온라인 강의 환불을 약관 핑계로 거부합니다",
+      "content": "온라인 강의 50만원 결제하고 한 강 듣고 환불 요청했는데, 업체에서 '7일 이내라도 수강 시작하면 환불 불가' 약관을 들이대며 거부합니다. 이런 약관이 법적으로 유효한가요? 소비자분쟁조정위원회 신청이 효과 있을까요?",
+      "category": 3,
       "is_anonymous": true,
       "is_deleted": false,
       "deleted_at": null,
       "view_count": 11,
-      "created_at": "2026-04-28T06:19:26.716Z",
-      "updated_at": "2026-04-28T06:19:26.716Z"
+      "created_at": "2026-05-04T04:47:11.646Z",
+      "updated_at": "2026-05-04T04:47:11.646Z"
     }
   },
   {
     "model": "stories.story",
-    "pk": 67,
+    "pk": 85,
     "fields": {
-      "user": 1,
-      "title": "아파트 매매 계약을 매도인이 일방 해제 통보",
-      "content": "3개월 전에 아파트 매매 계약을 맺고 계약금 5천만원을 지급했습니다. 그런데 잔금 치르기 한 달 전에 매도인이 갑자기 '집값이 너무 올라서 못 팔겠다, 위약금 두 배로 줄 테니 계약을 해제하자'고 통보했습니다. 저는 이미 이사 준비도 다 해놨고 살던 집도 정리한 상태라 너무 황당합니다. 위약금만 받고 끝낼 수밖에 없는 건지, 계약 이행을 강제할 방법은 없는지 궁금합니다.",
-      "category": 7,
+      "user": 7,
+      "title": "택시 미터기 조작 의심 — 평소보다 2배 요금",
+      "content": "심야에 택시 탔는데 평소 2만원 정도 나오던 거리가 4만원 가까이 나왔습니다. 기사님이 우회로로 일부러 돌아간 것 같기도 하고, 미터기 조작 의심도 듭니다. 어디에 신고하고 환불받을 수 있을까요? 영수증 있고 카드결제 했습니다.",
+      "category": 3,
       "is_anonymous": false,
       "is_deleted": false,
       "deleted_at": null,
-      "view_count": 44,
-      "created_at": "2026-04-28T06:19:26.742Z",
-      "updated_at": "2026-04-28T06:19:26.742Z"
+      "view_count": 7,
+      "created_at": "2026-05-04T04:47:11.650Z",
+      "updated_at": "2026-05-04T04:47:11.650Z"
     }
   },
   {
     "model": "stories.story",
-    "pk": 68,
+    "pk": 86,
     "fields": {
       "user": 2,
-      "title": "카톡으로 빌려준 돈 1500만원, 회수 가능할까요?",
-      "content": "5년 전쯤 친한 친구한테 1500만원을 빌려줬습니다. 차용증 같은 건 없고 카톡으로 '꼭 갚을게'라고 한 메시지랑 계좌이체 내역만 있어요. 처음 1년은 조금씩 갚더니 그 후로 연락이 끊겼고 최근에 우연히 만났는데 '돈 빌린 적 없다'고 잡아뗍니다. 카톡 내역과 이체 내역만 있어도 법적으로 받아낼 수 있나요? 시효는 얼마나 남았을까요?",
-      "category": 8,
+      "title": "구독 자동결제 해지가 안 됩니다",
+      "content": "OTT 구독 해지를 시도했는데 사이트에서 해지 버튼이 안 보이고, 고객센터는 연결도 안 됩니다. 매달 결제만 빠져나가서 답답합니다. 자동결제 해지가 어렵게 설계된 것도 법적으로 문제 없는 건가요?",
+      "category": 3,
+      "is_anonymous": false,
+      "is_deleted": false,
+      "deleted_at": null,
+      "view_count": 4,
+      "created_at": "2026-05-04T04:47:11.655Z",
+      "updated_at": "2026-05-04T04:47:11.655Z"
+    }
+  },
+  {
+    "model": "stories.story",
+    "pk": 87,
+    "fields": {
+      "user": 6,
+      "title": "이혼 후 양육비 약속 지키지 않는 전 배우자",
+      "content": "협의이혼 시 양육비 매달 80만원 받기로 했는데, 1년째 안 들어오고 있습니다. 전 배우자는 '돈이 없다'는 말만 합니다. 양육비 이행관리원에 신청해봤지만 진행이 더디네요. 더 강력한 법적 절차로 강제할 수 있는 방법이 있을까요?",
+      "category": 4,
       "is_anonymous": true,
       "is_deleted": false,
       "deleted_at": null,
-      "view_count": 25,
-      "created_at": "2026-04-28T06:19:26.766Z",
-      "updated_at": "2026-04-28T06:19:26.766Z"
+      "view_count": 40,
+      "created_at": "2026-05-04T04:47:11.659Z",
+      "updated_at": "2026-05-04T04:47:11.659Z"
     }
   },
   {
     "model": "stories.story",
-    "pk": 69,
+    "pk": 88,
     "fields": {
       "user": 1,
-      "title": "윗집 누수로 손상, 윗집과 시공사 누구한테 청구하나요?",
-      "content": "아파트 윗집 누수로 천장과 벽지가 손상되고 가구도 일부 망가졌습니다. 윗집 주인은 자기 잘못이 아니고 시공사 문제라며 책임을 회피하고, 시공사는 보증기간 지났다고 발뺍니다. 결국 저만 손해를 보는 상황인데, 윗집에 손해배상을 청구할 수 있는 건지, 아니면 시공사에 청구해야 하는지 헷갈립니다. 누구를 상대로 어떻게 진행해야 하나요?",
-      "category": 9,
+      "title": "재산분할 협의 중 배우자가 재산을 빼돌렸어요",
+      "content": "이혼 협의 중인데 배우자가 부동산 명의를 가족에게 넘기고 통장도 정리하는 정황이 있습니다. 재산분할 회피 목적으로 보이는데, 이미 처분된 재산도 분할 대상으로 되돌릴 수 있을까요? 가압류부터 신청해야 하는지 궁금합니다.",
+      "category": 4,
+      "is_anonymous": true,
+      "is_deleted": false,
+      "deleted_at": null,
+      "view_count": 26,
+      "created_at": "2026-05-04T04:47:11.664Z",
+      "updated_at": "2026-05-04T04:47:11.664Z"
+    }
+  },
+  {
+    "model": "stories.story",
+    "pk": 89,
+    "fields": {
+      "user": 2,
+      "title": "이혼 시 친권과 양육권 분리 가능한가요",
+      "content": "이혼 후 양육권은 제가 갖고, 친권은 전 배우자가 갖는 형태로 협의할 수 있는지 궁금합니다. 친권이 있어야 학교 행정이나 의료 동의 같은 게 가능하다고 들어서요. 이렇게 분리하는 게 법적으로 일반적인지요?",
+      "category": 4,
+      "is_anonymous": false,
+      "is_deleted": false,
+      "deleted_at": null,
+      "view_count": 14,
+      "created_at": "2026-05-04T04:47:11.669Z",
+      "updated_at": "2026-05-04T04:47:11.669Z"
+    }
+  },
+  {
+    "model": "stories.story",
+    "pk": 90,
+    "fields": {
+      "user": 7,
+      "title": "사실혼 관계 해소 시 재산 정산은 어떻게 되나요",
+      "content": "혼인신고 없이 5년 동거했고 같이 모은 재산이 꽤 됩니다. 헤어지게 됐는데 사실혼도 재산분할이 가능하다고 들었어요. 사실혼 입증 자료는 어떤 게 인정되는지, 분할 비율은 어떻게 정해지는지 알고 싶습니다.",
+      "category": 4,
+      "is_anonymous": true,
+      "is_deleted": false,
+      "deleted_at": null,
+      "view_count": 6,
+      "created_at": "2026-05-04T04:47:11.673Z",
+      "updated_at": "2026-05-04T04:47:11.673Z"
+    }
+  },
+  {
+    "model": "stories.story",
+    "pk": 91,
+    "fields": {
+      "user": 6,
+      "title": "조부모가 손주 면접교섭권을 청구할 수 있나요",
+      "content": "이혼한 자녀와 며느리가 손자를 데리고 가서 못 보게 한 지 2년이 됐습니다. 조부모도 면접교섭권을 청구할 수 있다고 들었는데 어떻게 신청하는 건가요? 법원에 청구하면 인정받을 가능성이 어느 정도일까요?",
+      "category": 4,
+      "is_anonymous": false,
+      "is_deleted": false,
+      "deleted_at": null,
+      "view_count": 3,
+      "created_at": "2026-05-04T04:47:11.677Z",
+      "updated_at": "2026-05-04T04:47:11.677Z"
+    }
+  },
+  {
+    "model": "stories.story",
+    "pk": 92,
+    "fields": {
+      "user": 1,
+      "title": "우회전 사고 — 보행자 신호 막판 진입",
+      "content": "우회전 중에 보행자 신호 끝나갈 때 갑자기 횡단보도로 뛰어든 보행자와 충돌했습니다. 다행히 큰 부상은 없었지만, 보험사가 100% 제 과실로 처리하려고 합니다. 보행자 신호가 명확히 빨간불이었는데도 운전자 일방 과실인 게 맞나요? 블랙박스 영상도 있습니다.",
+      "category": 5,
+      "is_anonymous": false,
+      "is_deleted": false,
+      "deleted_at": null,
+      "view_count": 33,
+      "created_at": "2026-05-04T04:47:11.682Z",
+      "updated_at": "2026-05-04T04:47:11.682Z"
+    }
+  },
+  {
+    "model": "stories.story",
+    "pk": 93,
+    "fields": {
+      "user": 6,
+      "title": "주차장 후진 사고 — 비접촉 사고도 책임?",
+      "content": "주차장에서 후진 중 다른 차량이 갑자기 끼어들다가 본인이 놀라서 옆 기둥을 박았습니다. 그 차량 운전자가 저 때문에 사고가 났다며 보험 처리를 요구합니다. 비접촉 사고도 이런 식으로 책임을 묻는 게 가능한가요?",
+      "category": 5,
+      "is_anonymous": false,
+      "is_deleted": false,
+      "deleted_at": null,
+      "view_count": 19,
+      "created_at": "2026-05-04T04:47:11.686Z",
+      "updated_at": "2026-05-04T04:47:11.686Z"
+    }
+  },
+  {
+    "model": "stories.story",
+    "pk": 94,
+    "fields": {
+      "user": 7,
+      "title": "음주운전 차량에 추돌당해서 입원했어요",
+      "content": "신호 대기 중 뒤에서 음주운전 차량이 추돌해 목·허리 부상으로 2주 입원했습니다. 상대방 보험사는 합의금을 적게 제시하는데, 음주운전인 경우 형사 처벌과는 별개로 민사 손해배상도 가중되는지 궁금합니다.",
+      "category": 5,
       "is_anonymous": false,
       "is_deleted": false,
       "deleted_at": null,
       "view_count": 10,
-      "created_at": "2026-04-28T06:19:26.794Z",
-      "updated_at": "2026-04-28T06:19:26.794Z"
+      "created_at": "2026-05-04T04:47:11.690Z",
+      "updated_at": "2026-05-04T04:47:11.690Z"
     }
   },
   {
     "model": "stories.story",
-    "pk": 70,
+    "pk": 95,
+    "fields": {
+      "user": 2,
+      "title": "킥보드 사고 — 자동차보험으로 보장되나요",
+      "content": "전동킥보드 타다가 갑자기 튀어나온 자동차와 부딪혀 다쳤습니다. 자동차 운전자가 100% 잘못한 것 같은데, 킥보드 운전자 보험 가입 의무도 있다고 들어서 헷갈립니다. 어떻게 보상받을 수 있는지요?",
+      "category": 5,
+      "is_anonymous": false,
+      "is_deleted": false,
+      "deleted_at": null,
+      "view_count": 5,
+      "created_at": "2026-05-04T04:47:11.694Z",
+      "updated_at": "2026-05-04T04:47:11.694Z"
+    }
+  },
+  {
+    "model": "stories.story",
+    "pk": 96,
     "fields": {
       "user": 1,
-      "title": "6B 검증용 - 전세 보증금 새 사연",
-      "content": "전세 보증금 못 받고 있어서 어떻게 처리해야 할지 모르겠습니다. 임대인이 연락도 안 됩니다. 도움이 필요해요.",
-      "category": 1,
+      "title": "자전거 vs 보행자 사고 — 자전거가 책임진다?",
+      "content": "자전거 도로 없는 인도에서 자전거 타다 보행자와 충돌했습니다. 보행자가 다쳤는데 자전거는 보험이 따로 없어서 모든 비용을 제가 부담해야 하는 상황입니다. 이런 경우 어떤 보상 한도가 있는지, 형사 처벌 가능성은 있는지 알고 싶습니다.",
+      "category": 5,
+      "is_anonymous": true,
+      "is_deleted": false,
+      "deleted_at": null,
+      "view_count": 2,
+      "created_at": "2026-05-04T04:47:11.699Z",
+      "updated_at": "2026-05-04T04:47:11.699Z"
+    }
+  },
+  {
+    "model": "stories.story",
+    "pk": 97,
+    "fields": {
+      "user": 6,
+      "title": "전 연인이 SNS에 사적 사진을 올렸어요",
+      "content": "헤어진 전 연인이 헤어진 직후 제 사진과 사생활 내용을 SNS에 올려서 지인들이 다 봤습니다. 본인은 '사실만 적었다'고 합니다. 사실이라도 사생활 침해나 명예훼손이 될 수 있는지, 어떻게 신고해야 하는지 알고 싶습니다.",
+      "category": 6,
+      "is_anonymous": true,
+      "is_deleted": false,
+      "deleted_at": null,
+      "view_count": 42,
+      "created_at": "2026-05-04T04:47:11.703Z",
+      "updated_at": "2026-05-04T04:47:11.703Z"
+    }
+  },
+  {
+    "model": "stories.story",
+    "pk": 98,
+    "fields": {
+      "user": 1,
+      "title": "보이스피싱으로 600만원 송금했어요",
+      "content": "검찰 사칭 보이스피싱에 속아 600만원을 안전계좌로 송금했습니다. 30분 후 이상함을 느끼고 경찰 신고했지만 이미 인출됐다고 합니다. 송금 직후 신고했는데도 회수가 어렵다는 게 맞나요? 보이스피싱 피해금 환급 절차가 어떻게 되는지요?",
+      "category": 6,
+      "is_anonymous": true,
+      "is_deleted": false,
+      "deleted_at": null,
+      "view_count": 28,
+      "created_at": "2026-05-04T04:47:11.707Z",
+      "updated_at": "2026-05-04T04:47:11.707Z"
+    }
+  },
+  {
+    "model": "stories.story",
+    "pk": 99,
+    "fields": {
+      "user": 7,
+      "title": "회사 동료가 제 SNS를 무단 캡처해서 단톡방에",
+      "content": "비공개 SNS에 올린 글을 회사 동료가 캡처해서 회사 단톡방에 올렸습니다. 그 글에 회사 험담은 없었지만 사생활이 노출돼 부담스럽습니다. 비공개 글의 무단 공개도 법적 제재가 가능한가요?",
+      "category": 6,
       "is_anonymous": false,
-      "is_deleted": true,
-      "deleted_at": "2026-04-29T17:14:59.140Z",
-      "view_count": 0,
-      "created_at": "2026-04-29T17:14:59.079Z",
-      "updated_at": "2026-04-29T17:14:59.079Z"
+      "is_deleted": false,
+      "deleted_at": null,
+      "view_count": 16,
+      "created_at": "2026-05-04T04:47:11.712Z",
+      "updated_at": "2026-05-04T04:47:11.712Z"
+    }
+  },
+  {
+    "model": "stories.story",
+    "pk": 100,
+    "fields": {
+      "user": 2,
+      "title": "건물주가 임차인 비밀번호로 가게 무단 진입",
+      "content": "상가 임차인인데, 폐문 시간에 건물주가 본인이 알고 있는 도어록 비밀번호로 가게에 들어와 매장 사진을 찍어갔습니다. 건물주라도 임차인 동의 없이 들어오면 주거침입에 해당하지 않나요? 어떻게 대응해야 할까요?",
+      "category": 6,
+      "is_anonymous": false,
+      "is_deleted": false,
+      "deleted_at": null,
+      "view_count": 9,
+      "created_at": "2026-05-04T04:47:11.716Z",
+      "updated_at": "2026-05-04T04:47:11.716Z"
+    }
+  },
+  {
+    "model": "stories.story",
+    "pk": 101,
+    "fields": {
+      "user": 6,
+      "title": "층간소음 보복으로 천장 두드림 당하고 있어요",
+      "content": "아래층에서 층간소음 항의로 매일 새벽 천장을 망치로 두드리고 욕설도 들립니다. 오히려 저희가 잠을 못 자고 있어요. 이런 보복 행위도 형사 처벌 대상이 될 수 있나요? 신고는 어디로 해야 효과적일까요?",
+      "category": 6,
+      "is_anonymous": true,
+      "is_deleted": false,
+      "deleted_at": null,
+      "view_count": 4,
+      "created_at": "2026-05-04T04:47:11.721Z",
+      "updated_at": "2026-05-04T04:47:11.721Z"
+    }
+  },
+  {
+    "model": "stories.story",
+    "pk": 102,
+    "fields": {
+      "user": 1,
+      "title": "아파트 매매 — 잔금 직전 등기 변경 발견",
+      "content": "잔금 치르기 일주일 전 등기부등본을 다시 떼봤더니 가압류가 새로 잡혀있었습니다. 매도인은 '곧 해결하겠다'고 하지만 불안해서 잔금을 미뤘습니다. 매수인 보호 차원에서 어떤 조치를 취할 수 있나요? 계약 해제 사유가 되는지요?",
+      "category": 7,
+      "is_anonymous": false,
+      "is_deleted": false,
+      "deleted_at": null,
+      "view_count": 35,
+      "created_at": "2026-05-04T04:47:11.725Z",
+      "updated_at": "2026-05-04T04:47:11.725Z"
+    }
+  },
+  {
+    "model": "stories.story",
+    "pk": 103,
+    "fields": {
+      "user": 6,
+      "title": "오피스텔 매매 — 임차인이 명도 거부",
+      "content": "오피스텔 매수했는데 기존 임차인이 약속한 날에 나가지 않고 있습니다. 매도인은 본인이 알 바 아니라며 책임을 회피합니다. 명도 소송까지 가야 하는지, 매도인의 책임은 어디까지인지 궁금합니다.",
+      "category": 7,
+      "is_anonymous": false,
+      "is_deleted": false,
+      "deleted_at": null,
+      "view_count": 21,
+      "created_at": "2026-05-04T04:47:11.730Z",
+      "updated_at": "2026-05-04T04:47:11.730Z"
+    }
+  },
+  {
+    "model": "stories.story",
+    "pk": 104,
+    "fields": {
+      "user": 2,
+      "title": "공인중개사 설명과 다른 하자 — 보상 가능?",
+      "content": "신축 빌라 매수 후 입주했는데 공인중개사가 '하자 없다'고 한 부분에서 누수와 균열이 발견됐습니다. 매도인이 알고도 숨긴 정황이 있어요. 매도인과 중개사 모두에게 손해배상 청구가 가능한가요?",
+      "category": 7,
+      "is_anonymous": false,
+      "is_deleted": false,
+      "deleted_at": null,
+      "view_count": 13,
+      "created_at": "2026-05-04T04:47:11.734Z",
+      "updated_at": "2026-05-04T04:47:11.734Z"
+    }
+  },
+  {
+    "model": "stories.story",
+    "pk": 105,
+    "fields": {
+      "user": 7,
+      "title": "다운계약 강요받았는데 나중에 문제 안 될까요",
+      "content": "매수 협상 중 매도인이 다운계약을 강요합니다. 안 받으면 계약 안 한다는 식이에요. 다운계약하면 나중에 양도세 추징·과태료 등 위험이 있다고 들었는데, 매수인도 처벌 대상인가요?",
+      "category": 7,
+      "is_anonymous": false,
+      "is_deleted": false,
+      "deleted_at": null,
+      "view_count": 6,
+      "created_at": "2026-05-04T04:47:11.738Z",
+      "updated_at": "2026-05-04T04:47:11.738Z"
+    }
+  },
+  {
+    "model": "stories.story",
+    "pk": 106,
+    "fields": {
+      "user": 1,
+      "title": "재개발 지역 빌라 매수 — 입주권 인정 안 돼요",
+      "content": "재개발 구역 내 빌라를 매수했는데, 조합에서 '입주권 자격 안 된다'고 통보받았습니다. 공인중개사는 입주권 받을 수 있다고 설명했는데 차이가 큽니다. 어떻게 대응해야 할지 막막합니다.",
+      "category": 7,
+      "is_anonymous": false,
+      "is_deleted": false,
+      "deleted_at": null,
+      "view_count": 2,
+      "created_at": "2026-05-04T04:47:11.743Z",
+      "updated_at": "2026-05-04T04:47:11.743Z"
+    }
+  },
+  {
+    "model": "stories.story",
+    "pk": 107,
+    "fields": {
+      "user": 6,
+      "title": "보증 잘못 서서 친구 빚을 떠안게 됐어요",
+      "content": "10년 전 친구 사업 보증 섰는데 친구가 잠적하면서 채권자가 저에게 청구하고 있습니다. 이미 시간이 지났는데 시효가 지난 건 아닌지, 지금 받은 청구에 어떻게 대응해야 하는지 막막합니다.",
+      "category": 8,
+      "is_anonymous": true,
+      "is_deleted": false,
+      "deleted_at": null,
+      "view_count": 31,
+      "created_at": "2026-05-04T04:47:11.748Z",
+      "updated_at": "2026-05-04T04:47:11.748Z"
+    }
+  },
+  {
+    "model": "stories.story",
+    "pk": 108,
+    "fields": {
+      "user": 2,
+      "title": "사채업자한테 협박당하고 있어요",
+      "content": "급해서 사채를 썼는데 갚기 시작한 후로 협박 전화·문자가 계속 옵니다. 이자도 법정금리를 한참 넘는 것 같아요. 협박 자체가 처벌 대상인지, 초과 이자는 안 갚아도 되는지 궁금합니다.",
+      "category": 8,
+      "is_anonymous": false,
+      "is_deleted": false,
+      "deleted_at": null,
+      "view_count": 23,
+      "created_at": "2026-05-04T04:47:11.752Z",
+      "updated_at": "2026-05-04T04:47:11.752Z"
+    }
+  },
+  {
+    "model": "stories.story",
+    "pk": 109,
+    "fields": {
+      "user": 1,
+      "title": "회생 절차 후 가족이 보증한 빚도 사라지나요",
+      "content": "개인회생 절차를 시작했는데, 제가 진 빚 중 일부는 부모님이 보증을 서신 게 있습니다. 회생 인가되면 제 채무는 일부 면책되지만 보증인인 부모님은 어떻게 되는지 정확히 알고 싶습니다.",
+      "category": 8,
+      "is_anonymous": false,
+      "is_deleted": false,
+      "deleted_at": null,
+      "view_count": 11,
+      "created_at": "2026-05-04T04:47:11.757Z",
+      "updated_at": "2026-05-04T04:47:11.757Z"
+    }
+  },
+  {
+    "model": "stories.story",
+    "pk": 110,
+    "fields": {
+      "user": 7,
+      "title": "전 동업자가 회사 자금을 사적으로 썼어요",
+      "content": "동업으로 운영한 카페에서 동업자가 회사 카드로 개인 물품을 구매한 정황이 있습니다. 동업 종료 시 정산하면서 알게 됐는데, 횡령으로 형사 고소가 가능한지 민사로 가야 하는지 헷갈립니다.",
+      "category": 8,
+      "is_anonymous": true,
+      "is_deleted": false,
+      "deleted_at": null,
+      "view_count": 5,
+      "created_at": "2026-05-04T04:47:11.762Z",
+      "updated_at": "2026-05-04T04:47:11.762Z"
+    }
+  },
+  {
+    "model": "stories.story",
+    "pk": 111,
+    "fields": {
+      "user": 6,
+      "title": "카드 결제 대금 분쟁 — 사용 안 한 결제 청구",
+      "content": "카드 명세서에 사용한 적 없는 결제가 100만원 넘게 잡혔습니다. 카드사에 이의 제기했지만 '본인 인증 정상'이라며 처리해 줄 수 없다고 합니다. 어떻게 다퉈야 환불받을 수 있을까요?",
+      "category": 8,
+      "is_anonymous": false,
+      "is_deleted": false,
+      "deleted_at": null,
+      "view_count": 1,
+      "created_at": "2026-05-04T04:47:11.768Z",
+      "updated_at": "2026-05-04T04:47:11.768Z"
+    }
+  },
+  {
+    "model": "stories.story",
+    "pk": 112,
+    "fields": {
+      "user": 6,
+      "title": "층간소음 분쟁 — 관리사무소 중재가 효과 없어요",
+      "content": "위층 소음으로 1년째 고통받고 있는데, 관리사무소 중재도 잠시 효과가 있다가 다시 반복됩니다. 환경분쟁조정위에 신청해야 하는지, 직접 민사 소송으로 가야 하는지 알고 싶습니다.",
+      "category": 9,
+      "is_anonymous": false,
+      "is_deleted": false,
+      "deleted_at": null,
+      "view_count": 29,
+      "created_at": "2026-05-04T04:47:11.773Z",
+      "updated_at": "2026-05-04T04:47:11.773Z"
+    }
+  },
+  {
+    "model": "stories.story",
+    "pk": 113,
+    "fields": {
+      "user": 1,
+      "title": "반려견이 옆집 강아지를 물어서 합의금 분쟁",
+      "content": "산책 중 제 강아지가 옆집 강아지를 물어 다치게 했습니다. 옆집은 치료비 외에 정신적 위자료까지 요구하는데, 합의금 산정 기준이 어떻게 되는지 궁금합니다. 반려동물 관련 분쟁 사례가 있을까요?",
+      "category": 9,
+      "is_anonymous": false,
+      "is_deleted": false,
+      "deleted_at": null,
+      "view_count": 17,
+      "created_at": "2026-05-04T04:47:11.778Z",
+      "updated_at": "2026-05-04T04:47:11.778Z"
+    }
+  },
+  {
+    "model": "stories.story",
+    "pk": 114,
+    "fields": {
+      "user": 2,
+      "title": "집에서 운영한 공방 — 이웃이 영업 중단 요구",
+      "content": "집에서 도자기 공방을 운영하는데, 이웃이 시끄럽다며 영업 중단을 요구합니다. 주거지역에서 가내 공방도 제약이 있는지, 어떤 기준으로 판단되는지 알고 싶습니다.",
+      "category": 9,
+      "is_anonymous": true,
+      "is_deleted": false,
+      "deleted_at": null,
+      "view_count": 9,
+      "created_at": "2026-05-04T04:47:11.782Z",
+      "updated_at": "2026-05-04T04:47:11.782Z"
+    }
+  },
+  {
+    "model": "stories.story",
+    "pk": 115,
+    "fields": {
+      "user": 7,
+      "title": "온라인 사기 피해 모임 — 단체 소송 가능한가요",
+      "content": "온라인 사기 피해자 모임에서 한 사람당 피해액은 적지만 합치면 큰 금액입니다. 단체 소송이나 공동 고소 형태로 진행할 수 있는지, 어떤 절차가 효율적인지 알고 싶습니다.",
+      "category": 9,
+      "is_anonymous": false,
+      "is_deleted": false,
+      "deleted_at": null,
+      "view_count": 4,
+      "created_at": "2026-05-04T04:47:11.787Z",
+      "updated_at": "2026-05-04T04:47:11.787Z"
+    }
+  },
+  {
+    "model": "stories.story",
+    "pk": 116,
+    "fields": {
+      "user": 1,
+      "title": "유튜브 영상 무단 도용 — 어떻게 대응하나요",
+      "content": "제가 만든 유튜브 영상을 다른 채널이 일부 편집해서 자기 콘텐츠처럼 올렸습니다. 조회수도 제 원본보다 많이 나옵니다. 저작권 신고만으로 충분한지, 손해배상도 가능한지 알고 싶습니다.",
+      "category": 9,
+      "is_anonymous": false,
+      "is_deleted": false,
+      "deleted_at": null,
+      "view_count": 2,
+      "created_at": "2026-05-04T04:47:11.791Z",
+      "updated_at": "2026-05-04T04:47:11.791Z"
     }
   },
   {
@@ -974,6 +1576,202 @@
     }
   },
   {
+    "model": "interactions.like",
+    "pk": 6,
+    "fields": {
+      "user": 1,
+      "target_type": "comment",
+      "target_id": 36,
+      "created_at": "2026-05-04T04:49:37.069Z"
+    }
+  },
+  {
+    "model": "interactions.like",
+    "pk": 7,
+    "fields": {
+      "user": 2,
+      "target_type": "comment",
+      "target_id": 36,
+      "created_at": "2026-05-04T04:49:37.075Z"
+    }
+  },
+  {
+    "model": "interactions.like",
+    "pk": 8,
+    "fields": {
+      "user": 7,
+      "target_type": "comment",
+      "target_id": 36,
+      "created_at": "2026-05-04T04:49:37.079Z"
+    }
+  },
+  {
+    "model": "interactions.like",
+    "pk": 9,
+    "fields": {
+      "user": 8,
+      "target_type": "comment",
+      "target_id": 36,
+      "created_at": "2026-05-04T04:49:37.083Z"
+    }
+  },
+  {
+    "model": "interactions.like",
+    "pk": 10,
+    "fields": {
+      "user": 2,
+      "target_type": "comment",
+      "target_id": 44,
+      "created_at": "2026-05-04T04:49:37.089Z"
+    }
+  },
+  {
+    "model": "interactions.like",
+    "pk": 11,
+    "fields": {
+      "user": 7,
+      "target_type": "comment",
+      "target_id": 44,
+      "created_at": "2026-05-04T04:49:37.093Z"
+    }
+  },
+  {
+    "model": "interactions.like",
+    "pk": 12,
+    "fields": {
+      "user": 8,
+      "target_type": "comment",
+      "target_id": 44,
+      "created_at": "2026-05-04T04:49:37.097Z"
+    }
+  },
+  {
+    "model": "interactions.like",
+    "pk": 13,
+    "fields": {
+      "user": 1,
+      "target_type": "comment",
+      "target_id": 65,
+      "created_at": "2026-05-04T04:49:37.103Z"
+    }
+  },
+  {
+    "model": "interactions.like",
+    "pk": 14,
+    "fields": {
+      "user": 2,
+      "target_type": "comment",
+      "target_id": 65,
+      "created_at": "2026-05-04T04:49:37.107Z"
+    }
+  },
+  {
+    "model": "interactions.like",
+    "pk": 15,
+    "fields": {
+      "user": 7,
+      "target_type": "comment",
+      "target_id": 65,
+      "created_at": "2026-05-04T04:49:37.111Z"
+    }
+  },
+  {
+    "model": "interactions.like",
+    "pk": 16,
+    "fields": {
+      "user": 8,
+      "target_type": "comment",
+      "target_id": 65,
+      "created_at": "2026-05-04T04:49:37.116Z"
+    }
+  },
+  {
+    "model": "interactions.like",
+    "pk": 17,
+    "fields": {
+      "user": 9,
+      "target_type": "comment",
+      "target_id": 65,
+      "created_at": "2026-05-04T04:49:37.120Z"
+    }
+  },
+  {
+    "model": "interactions.like",
+    "pk": 18,
+    "fields": {
+      "user": 1,
+      "target_type": "story",
+      "target_id": 77,
+      "created_at": "2026-05-04T04:49:37.148Z"
+    }
+  },
+  {
+    "model": "interactions.report",
+    "pk": 1,
+    "fields": {
+      "user": 1,
+      "comment": 79,
+      "reason": "spam",
+      "detail": "",
+      "created_at": "2026-05-04T04:49:37.130Z"
+    }
+  },
+  {
+    "model": "interactions.report",
+    "pk": 2,
+    "fields": {
+      "user": 2,
+      "comment": 79,
+      "reason": "spam",
+      "detail": "",
+      "created_at": "2026-05-04T04:49:37.135Z"
+    }
+  },
+  {
+    "model": "interactions.report",
+    "pk": 3,
+    "fields": {
+      "user": 7,
+      "comment": 79,
+      "reason": "spam",
+      "detail": "",
+      "created_at": "2026-05-04T04:49:37.139Z"
+    }
+  },
+  {
+    "model": "interactions.report",
+    "pk": 4,
+    "fields": {
+      "user": 1,
+      "comment": 82,
+      "reason": "spam",
+      "detail": "",
+      "created_at": "2026-05-04T04:52:51.940Z"
+    }
+  },
+  {
+    "model": "interactions.report",
+    "pk": 5,
+    "fields": {
+      "user": 2,
+      "comment": 82,
+      "reason": "spam",
+      "detail": "",
+      "created_at": "2026-05-04T04:52:51.945Z"
+    }
+  },
+  {
+    "model": "interactions.report",
+    "pk": 6,
+    "fields": {
+      "user": 7,
+      "comment": 82,
+      "reason": "spam",
+      "detail": "",
+      "created_at": "2026-05-04T04:52:51.949Z"
+    }
+  },
+  {
     "model": "interactions.bookmark",
     "pk": 3,
     "fields": {
@@ -1005,352 +1803,707 @@
   },
   {
     "model": "interactions.comment",
-    "pk": 11,
-    "fields": {
-      "user": 1,
-      "story": 1,
-      "parent": null,
-      "content": "저도 비슷한 상황이에요. 보증금 못 받아서 골치 아팠는데 결국 임차권등기명령부터 신청했습니다. 도움 되셨으면 해서 댓글 남깁니다.",
-      "is_deleted": false,
-      "deleted_at": null,
-      "created_at": "2026-05-04T03:45:17.391Z",
-      "updated_at": "2026-05-04T03:45:17.391Z"
-    }
-  },
-  {
-    "model": "interactions.comment",
-    "pk": 14,
-    "fields": {
-      "user": 7,
-      "story": 1,
-      "parent": null,
-      "content": "저는 1년 끌었어요. 지급명령 → 강제집행 순서로 갔는데, 처음부터 변호사 도움 받았으면 더 빨랐을 것 같습니다.",
-      "is_deleted": false,
-      "deleted_at": null,
-      "created_at": "2026-05-04T03:45:17.411Z",
-      "updated_at": "2026-05-04T03:45:17.411Z"
-    }
-  },
-  {
-    "model": "interactions.comment",
-    "pk": 15,
+    "pk": 36,
     "fields": {
       "user": 6,
-      "story": 62,
+      "story": 72,
       "parent": null,
-      "content": "근로기준법 제23조에 따라 정당한 이유 없는 해고는 부당해고에 해당할 수 있습니다. 노동위원회에 부당해고 구제신청(해고일로부터 3개월 이내)이 가능하다는 점 참고하세요.",
+      "content": "참고로 만기 1개월 전까지 임대인이 갱신 거절·조건 변경 통지 안 하면 묵시적 갱신이 성립합니다. 연락두절 자체로 임차인이 불리해지진 않으니 카톡·문자 기록은 모두 보존해두세요.",
       "is_deleted": false,
+      "deletion_reason": "",
       "deleted_at": null,
-      "created_at": "2026-05-04T03:45:17.416Z",
-      "updated_at": "2026-05-04T03:45:17.416Z"
+      "created_at": "2026-05-04T04:49:36.823Z",
+      "updated_at": "2026-05-04T04:49:36.823Z"
     }
   },
   {
     "model": "interactions.comment",
-    "pk": 17,
+    "pk": 38,
+    "fields": {
+      "user": 1,
+      "story": 72,
+      "parent": null,
+      "content": "이사 못 가는 상황이 생기면 임차권등기명령부터 신청하세요. 보증금 안 받고 이사 가도 대항력·우선변제권 유지됩니다.",
+      "is_deleted": false,
+      "deletion_reason": "",
+      "deleted_at": null,
+      "created_at": "2026-05-04T04:49:36.835Z",
+      "updated_at": "2026-05-04T04:49:36.835Z"
+    }
+  },
+  {
+    "model": "interactions.comment",
+    "pk": 39,
+    "fields": {
+      "user": 6,
+      "story": 73,
+      "parent": null,
+      "content": "통상의 마모와 자연 노후화는 임차인 부담이 아닙니다. 입주 시 사진이 없어도 출장비 영수증, 도배지 견적서 등을 요구하면 부풀린 금액 확인 가능해요.",
+      "is_deleted": false,
+      "deletion_reason": "",
+      "deleted_at": null,
+      "created_at": "2026-05-04T04:49:36.840Z",
+      "updated_at": "2026-05-04T04:49:36.840Z"
+    }
+  },
+  {
+    "model": "interactions.comment",
+    "pk": 40,
+    "fields": {
+      "user": 7,
+      "story": 73,
+      "parent": null,
+      "content": "저는 같은 케이스에서 한국소비자원 분쟁조정으로 80% 환수받았어요. 비용도 거의 안 들고요.",
+      "is_deleted": false,
+      "deletion_reason": "",
+      "deleted_at": null,
+      "created_at": "2026-05-04T04:49:36.844Z",
+      "updated_at": "2026-05-04T04:49:36.844Z"
+    }
+  },
+  {
+    "model": "interactions.comment",
+    "pk": 41,
+    "fields": {
+      "user": 6,
+      "story": 75,
+      "parent": null,
+      "content": "주택임대차보호법상 임대료 인상은 5%를 초과할 수 없어요. 5% 초과 요구는 거부해도 됩니다. 거부 후에도 임대인이 계약 해지 통보하면 부당한 거절이라 묵시적 갱신 적용됩니다.",
+      "is_deleted": false,
+      "deletion_reason": "",
+      "deleted_at": null,
+      "created_at": "2026-05-04T04:49:36.850Z",
+      "updated_at": "2026-05-04T04:49:36.850Z"
+    }
+  },
+  {
+    "model": "interactions.comment",
+    "pk": 43,
+    "fields": {
+      "user": 6,
+      "story": 76,
+      "parent": null,
+      "content": "근저당이 시세의 70% 넘으면 위험 신호입니다. 전세보증보험(HUG, SGI) 가입 가능 여부도 사전에 확인하시고, 불가능하면 계약 다시 생각하세요.",
+      "is_deleted": false,
+      "deletion_reason": "",
+      "deleted_at": null,
+      "created_at": "2026-05-04T04:49:36.860Z",
+      "updated_at": "2026-05-04T04:49:36.860Z"
+    }
+  },
+  {
+    "model": "interactions.comment",
+    "pk": 44,
+    "fields": {
+      "user": 6,
+      "story": 77,
+      "parent": null,
+      "content": "수습 기간이라도 정당한 사유 없는 본채용 거부는 부당해고에 해당할 수 있습니다. 평가 기준이 사전 공개되지 않았다면 절차적 정당성도 결여됐다고 볼 여지가 있어요.",
+      "is_deleted": false,
+      "deletion_reason": "",
+      "deleted_at": null,
+      "created_at": "2026-05-04T04:49:36.866Z",
+      "updated_at": "2026-05-04T04:49:36.866Z"
+    }
+  },
+  {
+    "model": "interactions.comment",
+    "pk": 46,
+    "fields": {
+      "user": 1,
+      "story": 77,
+      "parent": null,
+      "content": "노무사 무료 상담도 활용해보세요. 노동권익센터(서울/경기 등)에서 상담 도와줍니다.",
+      "is_deleted": false,
+      "deletion_reason": "",
+      "deleted_at": null,
+      "created_at": "2026-05-04T04:49:36.876Z",
+      "updated_at": "2026-05-04T04:49:36.876Z"
+    }
+  },
+  {
+    "model": "interactions.comment",
+    "pk": 47,
+    "fields": {
+      "user": 6,
+      "story": 78,
+      "parent": null,
+      "content": "연봉제라도 법정수당은 별도 지급 의무가 있습니다(포괄임금제 약정이 명확한 경우 예외). 노동청 진정으로 충분히 받을 수 있고, 진정 자체에 비용 안 듭니다.",
+      "is_deleted": false,
+      "deletion_reason": "",
+      "deleted_at": null,
+      "created_at": "2026-05-04T04:49:36.881Z",
+      "updated_at": "2026-05-04T04:49:36.881Z"
+    }
+  },
+  {
+    "model": "interactions.comment",
+    "pk": 48,
+    "fields": {
+      "user": 7,
+      "story": 78,
+      "parent": null,
+      "content": "저는 카톡으로 주말 출근 지시받은 캡처본 챙겨서 진정 넣었어요. 6개월치 미지급 수당 다 받았습니다.",
+      "is_deleted": false,
+      "deletion_reason": "",
+      "deleted_at": null,
+      "created_at": "2026-05-04T04:49:36.886Z",
+      "updated_at": "2026-05-04T04:49:36.886Z"
+    }
+  },
+  {
+    "model": "interactions.comment",
+    "pk": 49,
+    "fields": {
+      "user": 6,
+      "story": 79,
+      "parent": null,
+      "content": "근로기준법 제76조의3에 따라 직장 내 괴롭힘 신고자에 대한 불리한 처우는 금지됩니다. 따돌림도 정황 증거(메신저 배제, 회의 미참여 통보 등)로 입증 가능하면 같은 조항 적용됩니다.",
+      "is_deleted": false,
+      "deletion_reason": "",
+      "deleted_at": null,
+      "created_at": "2026-05-04T04:49:36.891Z",
+      "updated_at": "2026-05-04T04:49:36.891Z"
+    }
+  },
+  {
+    "model": "interactions.comment",
+    "pk": 50,
+    "fields": {
+      "user": 6,
+      "story": 82,
+      "parent": null,
+      "content": "송금 직후 신고하면 지급정지 조치가 가능합니다. 사기이용계좌 신고는 금융감독원 1332, 경찰청 사이버수사대 모두 접수 가능해요. 빠를수록 회수 가능성이 높습니다.",
+      "is_deleted": false,
+      "deletion_reason": "",
+      "deleted_at": null,
+      "created_at": "2026-05-04T04:49:36.895Z",
+      "updated_at": "2026-05-04T04:49:36.895Z"
+    }
+  },
+  {
+    "model": "interactions.comment",
+    "pk": 52,
+    "fields": {
+      "user": 6,
+      "story": 83,
+      "parent": null,
+      "content": "할부 거래라면 신용카드사 차지백(이의 제기) 신청 가능합니다. 폐업 사실 입증 (폐업 신고 자료, 매장 폐쇄 사진)을 첨부하면 잔여 기간만큼 환불됩니다.",
+      "is_deleted": false,
+      "deletion_reason": "",
+      "deleted_at": null,
+      "created_at": "2026-05-04T04:49:36.905Z",
+      "updated_at": "2026-05-04T04:49:36.905Z"
+    }
+  },
+  {
+    "model": "interactions.comment",
+    "pk": 53,
+    "fields": {
+      "user": 1,
+      "story": 83,
+      "parent": null,
+      "content": "한국소비자원 1372 소비자 상담도 함께 이용해보세요. 무료 분쟁 조정 진행됩니다.",
+      "is_deleted": false,
+      "deletion_reason": "",
+      "deleted_at": null,
+      "created_at": "2026-05-04T04:49:36.910Z",
+      "updated_at": "2026-05-04T04:49:36.910Z"
+    }
+  },
+  {
+    "model": "interactions.comment",
+    "pk": 54,
+    "fields": {
+      "user": 6,
+      "story": 84,
+      "parent": null,
+      "content": "전자상거래법상 디지털 콘텐츠도 일정 조건 하에 청약철회 가능합니다. '수강 시작 시 환불 불가' 약관은 약관규제법 제6조의 불공정약관으로 무효 소지 큽니다. 소비자분쟁조정위 신청 권장.",
+      "is_deleted": false,
+      "deletion_reason": "",
+      "deleted_at": null,
+      "created_at": "2026-05-04T04:49:36.914Z",
+      "updated_at": "2026-05-04T04:49:36.914Z"
+    }
+  },
+  {
+    "model": "interactions.comment",
+    "pk": 55,
+    "fields": {
+      "user": 6,
+      "story": 87,
+      "parent": null,
+      "content": "양육비 이행관리원 외에 가정법원에 양육비 직접지급명령(전 배우자의 회사 급여에서 공제)을 신청할 수 있어요. 미이행 시 감치까지 가능합니다.",
+      "is_deleted": false,
+      "deletion_reason": "",
+      "deleted_at": null,
+      "created_at": "2026-05-04T04:49:36.919Z",
+      "updated_at": "2026-05-04T04:49:36.919Z"
+    }
+  },
+  {
+    "model": "interactions.comment",
+    "pk": 57,
     "fields": {
       "user": 2,
-      "story": 62,
+      "story": 87,
       "parent": null,
-      "content": "서면통지 없는 해고는 그것 자체로 무효 사유가 될 수 있다고 들었어요. 통지서나 녹취 같은 증거 챙겨두세요.",
+      "content": "양육비 미지급은 신상 공개 제도(배드파더스 같은 공익 사이트)도 있긴 하지만 법적 절차부터 밟는 게 안전합니다.",
       "is_deleted": false,
+      "deletion_reason": "",
       "deleted_at": null,
-      "created_at": "2026-05-04T03:45:17.427Z",
-      "updated_at": "2026-05-04T03:45:17.427Z"
+      "created_at": "2026-05-04T04:49:36.929Z",
+      "updated_at": "2026-05-04T04:49:36.929Z"
     }
   },
   {
     "model": "interactions.comment",
-    "pk": 18,
+    "pk": 58,
     "fields": {
       "user": 6,
-      "story": 63,
+      "story": 88,
       "parent": null,
-      "content": "전자상거래법상 통신판매로 산 물건은 7일 이내 청약철회가 가능합니다. 파손 사진과 박스 상태 사진을 함께 남겨두시고, 한국소비자원 1372 상담을 권장드립니다.",
+      "content": "재산분할 회피 목적의 처분은 사해행위 취소 소송으로 되돌릴 수 있습니다. 다만 가까운 친족과의 거래라도 거래 시점·대가성 등 입증 자료가 핵심이에요. 가압류부터 빠르게 신청하시는 게 좋습니다.",
       "is_deleted": false,
+      "deletion_reason": "",
       "deleted_at": null,
-      "created_at": "2026-05-04T03:45:17.432Z",
-      "updated_at": "2026-05-04T03:45:17.432Z"
+      "created_at": "2026-05-04T04:49:36.934Z",
+      "updated_at": "2026-05-04T04:49:36.934Z"
     }
   },
   {
     "model": "interactions.comment",
-    "pk": 19,
+    "pk": 59,
     "fields": {
-      "user": 7,
-      "story": 63,
+      "user": 6,
+      "story": 89,
       "parent": null,
-      "content": "저는 카드사 차지백 신청해서 환불받았어요. 판매자가 안 들어주면 결제수단 쪽으로 한번 알아보세요.",
+      "content": "친권과 양육권 분리는 협의로 가능하지만, 실무에서는 분쟁 소지가 커서 보통 같이 갖는 걸 권장합니다. 분리 시 학교·의료 등 결정권 다툼이 생길 수 있어요.",
       "is_deleted": false,
+      "deletion_reason": "",
       "deleted_at": null,
-      "created_at": "2026-05-04T03:45:17.436Z",
-      "updated_at": "2026-05-04T03:45:17.436Z"
+      "created_at": "2026-05-04T04:49:36.939Z",
+      "updated_at": "2026-05-04T04:49:36.939Z"
     }
   },
   {
     "model": "interactions.comment",
-    "pk": 20,
+    "pk": 60,
+    "fields": {
+      "user": 6,
+      "story": 92,
+      "parent": null,
+      "content": "보행자 신호가 명확히 빨간불이었다면 보행자 과실이 인정될 수 있습니다. 블랙박스 영상을 손해보험협회 분쟁심의위원회에 제출해 과실비율 재산정 신청 가능해요.",
+      "is_deleted": false,
+      "deletion_reason": "",
+      "deleted_at": null,
+      "created_at": "2026-05-04T04:49:36.944Z",
+      "updated_at": "2026-05-04T04:49:36.944Z"
+    }
+  },
+  {
+    "model": "interactions.comment",
+    "pk": 62,
     "fields": {
       "user": 1,
-      "story": 63,
+      "story": 92,
       "parent": null,
-      "content": "받자마자 사진 찍어두신 게 잘하신 일이에요. 분쟁조정위에 그 자료 그대로 제출하면 통상 빠르게 처리되더라고요.",
+      "content": "보험사가 100% 운전자 과실로 가는 건 흔한 1차 판단인데, 분쟁심의위까지 가면 조정될 가능성이 꽤 있습니다.",
       "is_deleted": false,
+      "deletion_reason": "",
       "deleted_at": null,
-      "created_at": "2026-05-04T03:45:17.441Z",
-      "updated_at": "2026-05-04T03:45:17.441Z"
+      "created_at": "2026-05-04T04:49:36.954Z",
+      "updated_at": "2026-05-04T04:49:36.954Z"
     }
   },
   {
     "model": "interactions.comment",
-    "pk": 21,
+    "pk": 63,
     "fields": {
       "user": 6,
-      "story": 64,
+      "story": 93,
       "parent": null,
-      "content": "서울가정법원 양육비 산정표를 기준으로 부모 합산소득과 자녀 연령을 대입하면 표준 양육비가 나옵니다. 협의 안 되면 가정법원 양육비 청구로 결정됩니다.",
+      "content": "비접촉 사고도 인과관계가 입증되면 책임이 인정될 수 있지만, 실제로는 입증이 어려워 다툴 여지가 큽니다. 주변 CCTV·블랙박스 다 모으세요.",
       "is_deleted": false,
+      "deletion_reason": "",
       "deleted_at": null,
-      "created_at": "2026-05-04T03:45:17.446Z",
-      "updated_at": "2026-05-04T03:45:17.446Z"
+      "created_at": "2026-05-04T04:49:36.959Z",
+      "updated_at": "2026-05-04T04:49:36.959Z"
     }
   },
   {
     "model": "interactions.comment",
-    "pk": 22,
-    "fields": {
-      "user": 7,
-      "story": 64,
-      "parent": null,
-      "content": "저도 산정표 보고 협의 시도했는데 결국 법원 결정으로 갔어요. 한 번 정해도 사정이 바뀌면 양육비 변경심판 청구할 수 있어요.",
-      "is_deleted": false,
-      "deleted_at": null,
-      "created_at": "2026-05-04T03:45:17.451Z",
-      "updated_at": "2026-05-04T03:45:17.451Z"
-    }
-  },
-  {
-    "model": "interactions.comment",
-    "pk": 23,
+    "pk": 64,
     "fields": {
       "user": 6,
-      "story": 65,
+      "story": 94,
       "parent": null,
-      "content": "과실비율은 손해보험협회 「자동차사고 과실비율 인정기준」을 따릅니다. 보험사가 정한 비율이 부당하다면 금융감독원 분쟁조정 또는 소송으로 다툴 수 있어요.",
+      "content": "음주운전은 형사 처벌과 별개로 보험에서 사고부담금이 가중되고, 위자료도 통상보다 높게 산정됩니다. 보험사 제시안만 보지 마시고 한국교통연구원 자료 등을 참고해 협상하세요.",
       "is_deleted": false,
+      "deletion_reason": "",
       "deleted_at": null,
-      "created_at": "2026-05-04T03:45:17.455Z",
-      "updated_at": "2026-05-04T03:45:17.455Z"
+      "created_at": "2026-05-04T04:49:36.965Z",
+      "updated_at": "2026-05-04T04:49:36.965Z"
     }
   },
   {
     "model": "interactions.comment",
-    "pk": 24,
+    "pk": 65,
+    "fields": {
+      "user": 6,
+      "story": 97,
+      "parent": null,
+      "content": "사실 적시도 명예훼손이 됩니다(형법 제307조 제1항). 사생활 노출은 별도로 성폭력처벌법 또는 정보통신망법상 명예훼손 처벌 가능. 캡처와 게시 시점 기록 남겨두세요.",
+      "is_deleted": false,
+      "deletion_reason": "",
+      "deleted_at": null,
+      "created_at": "2026-05-04T04:49:36.971Z",
+      "updated_at": "2026-05-04T04:49:36.971Z"
+    }
+  },
+  {
+    "model": "interactions.comment",
+    "pk": 67,
     "fields": {
       "user": 1,
-      "story": 65,
+      "story": 97,
       "parent": null,
-      "content": "블랙박스 영상이 있으면 큰 무기예요. 손해보험협회 분쟁심의위원회에 영상 첨부해서 이의 제기 해보세요.",
+      "content": "변호사 통한 가처분(게시 금지)도 빠른 효과 있어요. 비용은 들지만 즉시 정지가 필요하면 고려해보세요.",
       "is_deleted": false,
+      "deletion_reason": "",
       "deleted_at": null,
-      "created_at": "2026-05-04T03:45:17.459Z",
-      "updated_at": "2026-05-04T03:45:17.459Z"
+      "created_at": "2026-05-04T04:49:36.981Z",
+      "updated_at": "2026-05-04T04:49:36.981Z"
     }
   },
   {
     "model": "interactions.comment",
-    "pk": 25,
-    "fields": {
-      "user": 7,
-      "story": 65,
-      "parent": null,
-      "content": "저는 6:4에서 4:6으로 뒤집었어요. 영상에서 상대방 진입 속도, 좌우 미확인이 명확히 찍혀 있으면 가능합니다.",
-      "is_deleted": false,
-      "deleted_at": null,
-      "created_at": "2026-05-04T03:45:17.464Z",
-      "updated_at": "2026-05-04T03:45:17.464Z"
-    }
-  },
-  {
-    "model": "interactions.comment",
-    "pk": 26,
+    "pk": 68,
     "fields": {
       "user": 6,
-      "story": 66,
+      "story": 98,
       "parent": null,
-      "content": "공연성(불특정 다수 인식 가능) + 사실 적시 + 명예 훼손 가능성, 세 요건이 인정되면 형법 제307조 명예훼손에 해당할 수 있습니다. 함께 들은 친구의 진술이 증거가 될 수 있어요.",
+      "content": "전기통신금융사기특별법상 30분 내 신고 시 지급정지 조치가 가능합니다. 지급정지된 금액은 환급 절차로 돌려받을 수 있어요. 경찰 신고와 별개로 송금 은행에도 즉시 통보 필수.",
       "is_deleted": false,
+      "deletion_reason": "",
       "deleted_at": null,
-      "created_at": "2026-05-04T03:45:17.469Z",
-      "updated_at": "2026-05-04T03:45:17.469Z"
+      "created_at": "2026-05-04T04:49:36.986Z",
+      "updated_at": "2026-05-04T04:49:36.986Z"
     }
   },
   {
     "model": "interactions.comment",
-    "pk": 27,
-    "fields": {
-      "user": 7,
-      "story": 66,
-      "parent": null,
-      "content": "저는 친구 진술서 받고 카페 CCTV 보존 요청까지 해놓고 고소 진행했어요. 시간 지나면 CCTV가 사라지니 빠르게 움직이는 게 좋아요.",
-      "is_deleted": false,
-      "deleted_at": null,
-      "created_at": "2026-05-04T03:45:17.473Z",
-      "updated_at": "2026-05-04T03:45:17.473Z"
-    }
-  },
-  {
-    "model": "interactions.comment",
-    "pk": 28,
+    "pk": 69,
     "fields": {
       "user": 6,
-      "story": 67,
+      "story": 99,
       "parent": null,
-      "content": "민법 제565조 해약금 규정상 이행 착수 전이면 매도인은 계약금의 배액 상환으로 해제할 수 있습니다. 다만 매수인이 이미 이행에 착수한 단계라면 다툼 여지가 있어요.",
+      "content": "비공개 글의 무단 캡처·공개는 정보통신망법상 명예훼손 또는 사생활 침해에 해당할 수 있어요. 해당 단톡방 화면, 캡처 시점 기록을 모두 보존하세요.",
       "is_deleted": false,
+      "deletion_reason": "",
       "deleted_at": null,
-      "created_at": "2026-05-04T03:45:17.477Z",
-      "updated_at": "2026-05-04T03:45:17.477Z"
+      "created_at": "2026-05-04T04:49:36.991Z",
+      "updated_at": "2026-05-04T04:49:36.991Z"
     }
   },
   {
     "model": "interactions.comment",
-    "pk": 30,
-    "fields": {
-      "user": 7,
-      "story": 67,
-      "parent": null,
-      "content": "저는 비슷한 케이스에서 이행이익 손해배상 청구로 갔습니다. 위약금만 받기보다 추가 청구도 가능한지 변호사에게 한 번 상담받아보세요.",
-      "is_deleted": false,
-      "deleted_at": null,
-      "created_at": "2026-05-04T03:45:17.487Z",
-      "updated_at": "2026-05-04T03:45:17.487Z"
-    }
-  },
-  {
-    "model": "interactions.comment",
-    "pk": 31,
+    "pk": 70,
     "fields": {
       "user": 6,
-      "story": 68,
+      "story": 102,
       "parent": null,
-      "content": "차용증이 없어도 카카오톡 메시지와 계좌이체 내역으로 금전소비대차계약의 성립을 입증할 수 있습니다. 민사상 채권 소멸시효는 10년이라 시효는 아직 충분합니다.",
+      "content": "가압류는 매수인이 알 수 없었던 사정 변화이므로 계약 해제 사유가 될 수 있습니다. 다만 매도인이 즉시 해제 시 손해배상 청구 가능. 계약 해제 vs 가압류 해소 후 잔금 중 어느 쪽이 유리한지 변호사 상담 권장.",
       "is_deleted": false,
+      "deletion_reason": "",
       "deleted_at": null,
-      "created_at": "2026-05-04T03:45:17.491Z",
-      "updated_at": "2026-05-04T03:45:17.491Z"
+      "created_at": "2026-05-04T04:49:36.995Z",
+      "updated_at": "2026-05-04T04:49:36.995Z"
     }
   },
   {
     "model": "interactions.comment",
-    "pk": 32,
-    "fields": {
-      "user": 7,
-      "story": 68,
-      "parent": null,
-      "content": "저는 카톡 백업본을 노트북으로 옮겨서 PDF로 출력해서 증거로 제출했어요. 화면 캡처 말고 백업본이 더 확실해요.",
-      "is_deleted": false,
-      "deleted_at": null,
-      "created_at": "2026-05-04T03:45:17.496Z",
-      "updated_at": "2026-05-04T03:45:17.496Z"
-    }
-  },
-  {
-    "model": "interactions.comment",
-    "pk": 33,
-    "fields": {
-      "user": 1,
-      "story": 68,
-      "parent": null,
-      "content": "지급명령 신청도 고려해보세요. 상대방이 이의 신청 안 하면 그대로 확정돼서 강제집행 가능합니다.",
-      "is_deleted": false,
-      "deleted_at": null,
-      "created_at": "2026-05-04T03:45:17.501Z",
-      "updated_at": "2026-05-04T03:45:17.501Z"
-    }
-  },
-  {
-    "model": "interactions.comment",
-    "pk": 34,
+    "pk": 72,
     "fields": {
       "user": 6,
-      "story": 69,
+      "story": 103,
       "parent": null,
-      "content": "전유부분(윗집 내부) 누수는 점유자(윗집 소유자/세입자)가 1차 책임을 집니다. 공용부분(공용 배관 등) 결함이라면 관리주체나 시공사에 청구할 수 있어요.",
+      "content": "매도인이 명도 책임을 부담하는 게 일반적입니다. 매매계약서 명도 조항 확인하시고, 조항이 없어도 계약상 의무 위반으로 해제·손해배상 청구 가능합니다.",
       "is_deleted": false,
+      "deletion_reason": "",
       "deleted_at": null,
-      "created_at": "2026-05-04T03:45:17.505Z",
-      "updated_at": "2026-05-04T03:45:17.505Z"
+      "created_at": "2026-05-04T04:49:37.006Z",
+      "updated_at": "2026-05-04T04:49:37.006Z"
     }
   },
   {
     "model": "interactions.comment",
-    "pk": 35,
+    "pk": 73,
     "fields": {
-      "user": 7,
-      "story": 69,
+      "user": 6,
+      "story": 107,
       "parent": null,
-      "content": "저도 비슷한 일 있었는데 아파트 관리사무소 통해서 누수 원인 진단부터 받았어요. 원인 파악이 책임 소재 가르는 핵심이에요.",
+      "content": "보증채무도 일반 채권 시효 10년 적용입니다. 다만 채권자가 청구·소송 등 시효 중단 행위를 하면 시효가 갱신돼요. 청구 받으신 시점이 시효 진행 중이었는지 확인 필요합니다.",
       "is_deleted": false,
+      "deletion_reason": "",
       "deleted_at": null,
-      "created_at": "2026-05-04T03:45:17.510Z",
-      "updated_at": "2026-05-04T03:45:17.510Z"
+      "created_at": "2026-05-04T04:49:37.011Z",
+      "updated_at": "2026-05-04T04:49:37.011Z"
     }
   },
   {
     "model": "interactions.comment",
-    "pk": 12,
+    "pk": 75,
+    "fields": {
+      "user": 6,
+      "story": 108,
+      "parent": null,
+      "content": "법정 최고 이자율(연 20%) 초과분은 무효이고 갚을 의무 없어요. 협박은 별도 형사 처벌(공갈죄)이고, 등록 안 된 대부업자라면 미등록 대부업으로 추가 처벌 대상입니다. 통화 녹음 보존하세요.",
+      "is_deleted": false,
+      "deletion_reason": "",
+      "deleted_at": null,
+      "created_at": "2026-05-04T04:49:37.047Z",
+      "updated_at": "2026-05-04T04:49:37.047Z"
+    }
+  },
+  {
+    "model": "interactions.comment",
+    "pk": 76,
+    "fields": {
+      "user": 6,
+      "story": 109,
+      "parent": null,
+      "content": "회생 절차의 면책 효력은 채무자 본인에 한정됩니다. 보증인의 보증채무는 별도로 남고요. 부모님 보증 부분은 주채무 이행 가능 여부와 별개로 다툴 수 있는 항변 사유가 있는지 검토 필요합니다.",
+      "is_deleted": false,
+      "deletion_reason": "",
+      "deleted_at": null,
+      "created_at": "2026-05-04T04:49:37.053Z",
+      "updated_at": "2026-05-04T04:49:37.053Z"
+    }
+  },
+  {
+    "model": "interactions.comment",
+    "pk": 77,
+    "fields": {
+      "user": 6,
+      "story": 112,
+      "parent": null,
+      "content": "환경분쟁조정위(중앙·지방)에 신청 가능하고, 조정 결과는 합의 시 법적 효력이 있습니다. 직접 민사로 가도 되지만 비용·시간 많이 들어 우선 조정 권장.",
+      "is_deleted": false,
+      "deletion_reason": "",
+      "deleted_at": null,
+      "created_at": "2026-05-04T04:49:37.058Z",
+      "updated_at": "2026-05-04T04:49:37.058Z"
+    }
+  },
+  {
+    "model": "interactions.comment",
+    "pk": 78,
+    "fields": {
+      "user": 6,
+      "story": 113,
+      "parent": null,
+      "content": "동물 점유자 책임(민법 제759조)에 따라 견주가 손해를 배상해야 합니다. 치료비는 당연히 인정되고, 정신적 위자료는 일반적으로 소액(20만원 내외) 인정 사례가 많습니다.",
+      "is_deleted": false,
+      "deletion_reason": "",
+      "deleted_at": null,
+      "created_at": "2026-05-04T04:49:37.063Z",
+      "updated_at": "2026-05-04T04:49:37.063Z"
+    }
+  },
+  {
+    "model": "interactions.comment",
+    "pk": 79,
+    "fields": {
+      "user": 8,
+      "story": 112,
+      "parent": null,
+      "content": "광고: 신비한 만능 약 판매 중! 카톡 문의 ★★★ (이 댓글은 시연용 신고 대상)",
+      "is_deleted": true,
+      "deletion_reason": "report",
+      "deleted_at": "2026-05-04T04:49:37.143Z",
+      "created_at": "2026-05-04T04:49:37.125Z",
+      "updated_at": "2026-05-04T04:49:37.125Z"
+    }
+  },
+  {
+    "model": "interactions.comment",
+    "pk": 80,
     "fields": {
       "user": 2,
-      "story": 1,
-      "parent": 11,
-      "content": "저는 내용증명부터 보내고 그래도 안 줘서 소액심판으로 갔습니다. 내용증명 단계에서 주는 경우도 있어요.",
+      "story": 114,
+      "parent": null,
+      "content": "댓글 감사합니다! 일단 환경분쟁조정위 문의해보고 결과 공유드릴게요.",
       "is_deleted": false,
+      "deletion_reason": "",
       "deleted_at": null,
-      "created_at": "2026-05-04T03:45:17.400Z",
-      "updated_at": "2026-05-04T03:45:17.400Z"
+      "created_at": "2026-05-04T04:52:51.905Z",
+      "updated_at": "2026-05-04T04:52:51.905Z"
     }
   },
   {
     "model": "interactions.comment",
-    "pk": 13,
+    "pk": 82,
     "fields": {
-      "user": 6,
-      "story": 1,
-      "parent": 11,
-      "content": "참고로 임차권등기명령은 임대차 종료 후 보증금을 돌려받지 못한 경우 신청할 수 있어요. 주민등록을 옮기더라도 대항력·우선변제권이 유지된다는 점이 핵심입니다.",
-      "is_deleted": false,
-      "deleted_at": null,
-      "created_at": "2026-05-04T03:45:17.406Z",
-      "updated_at": "2026-05-04T03:45:17.406Z"
+      "user": 8,
+      "story": 112,
+      "parent": null,
+      "content": "광고: 신비한 만능 약 판매 중! 카톡 문의 ★★★ (이 댓글은 시연용 신고 대상)",
+      "is_deleted": true,
+      "deletion_reason": "report",
+      "deleted_at": "2026-05-04T04:52:51.953Z",
+      "created_at": "2026-05-04T04:52:51.936Z",
+      "updated_at": "2026-05-04T04:52:51.936Z"
     }
   },
   {
     "model": "interactions.comment",
-    "pk": 16,
+    "pk": 37,
     "fields": {
       "user": 7,
-      "story": 62,
-      "parent": 15,
-      "content": "저도 같은 상황 겪었어요. 회사 사정 핑계는 정리해고 요건(긴박한 경영상 필요 등)을 갖춰야 인정되는데, 그게 안 되면 부당해고로 다툴 수 있어요.",
+      "story": 72,
+      "parent": 36,
+      "content": "저도 같은 상황 겪었는데 내용증명 한 번 보내니까 그제서야 연락 왔어요. 우체국에서 쉽게 보낼 수 있고 비용 5천원 안 됩니다.",
       "is_deleted": false,
+      "deletion_reason": "",
       "deleted_at": null,
-      "created_at": "2026-05-04T03:45:17.422Z",
-      "updated_at": "2026-05-04T03:45:17.422Z"
+      "created_at": "2026-05-04T04:49:36.829Z",
+      "updated_at": "2026-05-04T04:49:36.829Z"
     }
   },
   {
     "model": "interactions.comment",
-    "pk": 29,
+    "pk": 42,
+    "fields": {
+      "user": 2,
+      "story": 75,
+      "parent": 41,
+      "content": "5% 룰은 정말 든든한 보호망이에요. 저도 작년에 동일하게 거부했고 그대로 기존 임대료로 갱신했습니다.",
+      "is_deleted": false,
+      "deletion_reason": "",
+      "deleted_at": null,
+      "created_at": "2026-05-04T04:49:36.855Z",
+      "updated_at": "2026-05-04T04:49:36.855Z"
+    }
+  },
+  {
+    "model": "interactions.comment",
+    "pk": 45,
+    "fields": {
+      "user": 7,
+      "story": 77,
+      "parent": 44,
+      "content": "저도 비슷하게 수습 종료 통보받고 노동위원회 갔는데, 평가서 자료를 회사가 제대로 못 내서 제 손 들어줬습니다. 3개월 이내가 부당해고 구제신청 기한이니 빠르게 움직이세요.",
+      "is_deleted": false,
+      "deletion_reason": "",
+      "deleted_at": null,
+      "created_at": "2026-05-04T04:49:36.872Z",
+      "updated_at": "2026-05-04T04:49:36.872Z"
+    }
+  },
+  {
+    "model": "interactions.comment",
+    "pk": 51,
+    "fields": {
+      "user": 7,
+      "story": 82,
+      "parent": 50,
+      "content": "저는 100만원 사기당했는데 신고 30분 만에 지급정지로 80만원 회수했어요. 더치트 같은 사기 조회 사이트에 미리 계좌번호 검색하는 습관 들이세요.",
+      "is_deleted": false,
+      "deletion_reason": "",
+      "deleted_at": null,
+      "created_at": "2026-05-04T04:49:36.900Z",
+      "updated_at": "2026-05-04T04:49:36.900Z"
+    }
+  },
+  {
+    "model": "interactions.comment",
+    "pk": 56,
+    "fields": {
+      "user": 7,
+      "story": 87,
+      "parent": 55,
+      "content": "저는 직접지급명령 신청 후 두 달 만에 정상 입금되기 시작했어요. 회사도 알게 되니 전 배우자가 빠르게 움직이더라고요.",
+      "is_deleted": false,
+      "deletion_reason": "",
+      "deleted_at": null,
+      "created_at": "2026-05-04T04:49:36.924Z",
+      "updated_at": "2026-05-04T04:49:36.924Z"
+    }
+  },
+  {
+    "model": "interactions.comment",
+    "pk": 61,
+    "fields": {
+      "user": 7,
+      "story": 92,
+      "parent": 60,
+      "content": "저는 블랙박스에서 신호등 잘 안 보였는데, 인근 CCTV(편의점) 보존 요청해서 과실 비율 뒤집었습니다. 사고 직후 빠르게 움직여야 CCTV가 살아있어요.",
+      "is_deleted": false,
+      "deletion_reason": "",
+      "deleted_at": null,
+      "created_at": "2026-05-04T04:49:36.949Z",
+      "updated_at": "2026-05-04T04:49:36.949Z"
+    }
+  },
+  {
+    "model": "interactions.comment",
+    "pk": 66,
+    "fields": {
+      "user": 7,
+      "story": 97,
+      "parent": 65,
+      "content": "저는 SNS 신고 + 경찰 사이버수사대 동시 신고로 게시물 빠르게 내렸어요. 경찰 신고가 SNS 운영사 대응을 빠르게 만듭니다.",
+      "is_deleted": false,
+      "deletion_reason": "",
+      "deleted_at": null,
+      "created_at": "2026-05-04T04:49:36.976Z",
+      "updated_at": "2026-05-04T04:49:36.976Z"
+    }
+  },
+  {
+    "model": "interactions.comment",
+    "pk": 71,
+    "fields": {
+      "user": 2,
+      "story": 102,
+      "parent": 70,
+      "content": "저는 비슷한 케이스에서 잔금 일정 미루고 매도인이 가압류 해소할 때까지 보증금 공탁하는 방식으로 갔어요. 확실한 보호 장치 필요해요.",
+      "is_deleted": false,
+      "deletion_reason": "",
+      "deleted_at": null,
+      "created_at": "2026-05-04T04:49:37.001Z",
+      "updated_at": "2026-05-04T04:49:37.001Z"
+    }
+  },
+  {
+    "model": "interactions.comment",
+    "pk": 74,
+    "fields": {
+      "user": 7,
+      "story": 107,
+      "parent": 73,
+      "content": "저는 보증 책임 시효 항변으로 일부 면책됐어요. 시효 중단 사실 입증은 채권자가 해야 합니다.",
+      "is_deleted": false,
+      "deletion_reason": "",
+      "deleted_at": null,
+      "created_at": "2026-05-04T04:49:37.016Z",
+      "updated_at": "2026-05-04T04:49:37.016Z"
+    }
+  },
+  {
+    "model": "interactions.comment",
+    "pk": 81,
     "fields": {
       "user": 1,
-      "story": 67,
-      "parent": 28,
-      "content": "이사 준비도 다 하셨다니 이행착수로 인정될 가능성도 있겠네요. 해제 통보 받은 시점, 이사 준비 정황 등 시간순으로 자료 정리해두세요.",
+      "story": 113,
+      "parent": 78,
+      "content": "감사합니다. 동물 점유자 책임 조항으로 정리하면 협상 잘 풀릴 것 같아요.",
       "is_deleted": false,
+      "deletion_reason": "",
       "deleted_at": null,
-      "created_at": "2026-05-04T03:45:17.483Z",
-      "updated_at": "2026-05-04T03:45:17.483Z"
+      "created_at": "2026-05-04T04:52:51.914Z",
+      "updated_at": "2026-05-04T04:52:51.914Z"
     }
   }
 ]

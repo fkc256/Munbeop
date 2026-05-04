@@ -505,6 +505,119 @@
   gap: 8px;
 }
 
+/* ---------- Best comment (좋아요 ≥ 3) ---------- */
+.best-section {
+  background-color: #FFFBEB;
+  border: 1px solid #FCD34D;
+  border-radius: var(--radius-md);
+  padding: 12px;
+  margin-bottom: 16px;
+}
+.best-section-title {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 700;
+  color: #B45309;
+  margin-bottom: 8px;
+  font-size: 0.95rem;
+}
+.comment.best {
+  border-color: #FCD34D;
+  border-left: 3px solid #F59E0B;
+  background-color: #FFFEF7;
+}
+.comment-author-badges {
+  display: inline-flex;
+  gap: 4px;
+  margin-left: 6px;
+}
+.author-badge {
+  display: inline-block;
+  padding: 1px 6px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  border-radius: 3px;
+}
+.author-badge.author { background-color: #2563EB; color: #fff; }
+.author-badge.best { background-color: #F59E0B; color: #fff; }
+
+/* deletion 분기 */
+.comment.deleted-by-report {
+  background-color: #FEF2F2;
+  color: #991B1B;
+  border-color: #FECACA;
+}
+.comment.deleted-by-admin {
+  background-color: #F3F4F6;
+  color: #4B5563;
+  border-color: #D1D5DB;
+}
+
+/* like/report buttons inline */
+.comment-actions .icon-btn {
+  background: none;
+  border: 1px solid var(--color-border);
+  padding: 2px 8px;
+  border-radius: 9999px;
+  font-size: 0.8rem;
+  color: var(--color-muted);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+}
+.comment-actions .icon-btn:hover {
+  background-color: var(--color-surface);
+}
+.comment-actions .icon-btn.liked {
+  background-color: #FEE2E2;
+  color: #B91C1C;
+  border-color: #FCA5A5;
+}
+.comment-actions .icon-btn.reported {
+  background-color: #FEF3C7;
+  color: #B45309;
+  border-color: #FCD34D;
+}
+
+.comment-sort-tabs {
+  display: flex;
+  gap: 6px;
+  margin-bottom: 12px;
+  font-size: 0.85rem;
+}
+.comment-sort-tab {
+  padding: 4px 10px;
+  border-radius: 9999px;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  color: var(--color-muted);
+  cursor: pointer;
+}
+.comment-sort-tab.active {
+  background: var(--color-primary);
+  color: #fff;
+  border-color: var(--color-primary);
+}
+
+/* report modal */
+.report-modal-options {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin: 12px 0;
+}
+.report-modal-options label {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  cursor: pointer;
+  padding: 6px 8px;
+  border-radius: var(--radius-sm);
+}
+.report-modal-options label:hover { background: var(--color-surface); }
+
 /* ---------- Tabs (마이페이지) ---------- */
 .tabs {
   display: flex;

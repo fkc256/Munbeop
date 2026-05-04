@@ -19,7 +19,13 @@
 
   <section class="section" id="comments-section">
     <h2>댓글 <span id="comment-count" style="color:var(--color-muted);font-weight:400;font-size:0.95rem;"></span></h2>
+    <div class="comment-sort-tabs" id="comment-sort-tabs">
+      <a class="comment-sort-tab active" data-sort="best" href="#">베스트순</a>
+      <a class="comment-sort-tab" data-sort="latest" href="#">최신순</a>
+      <a class="comment-sort-tab" data-sort="oldest" href="#">오래된순</a>
+    </div>
     <div id="comment-form-area"></div>
+    <div id="best-comment-area"></div>
     <div id="comment-list" class="comment-list"></div>
     <div id="comment-pagination" class="pagination"></div>
   </section>
@@ -32,6 +38,26 @@
     <div class="modal-actions">
       <button class="btn-ghost btn-sm" id="confirm-cancel">취소</button>
       <button class="btn-danger btn-sm" id="confirm-ok">확인</button>
+    </div>
+  </div>
+</div>
+
+<div id="report-modal" class="modal-backdrop">
+  <div class="modal">
+    <h3>댓글 신고</h3>
+    <p style="color:var(--color-muted);font-size:0.9rem;">
+      신고가 누적되면 자동으로 가려집니다 (3건). 관리자가 검토합니다.
+    </p>
+    <div class="report-modal-options">
+      <label><input type="radio" name="report-reason" value="spam"> 스팸/광고</label>
+      <label><input type="radio" name="report-reason" value="abuse"> 욕설/비방</label>
+      <label><input type="radio" name="report-reason" value="misinfo"> 허위정보</label>
+      <label><input type="radio" name="report-reason" value="obscene"> 음란/혐오</label>
+      <label><input type="radio" name="report-reason" value="etc"> 기타</label>
+    </div>
+    <div class="modal-actions">
+      <button class="btn-ghost btn-sm" id="report-cancel">취소</button>
+      <button class="btn-danger btn-sm" id="report-submit">신고</button>
     </div>
   </div>
 </div>
@@ -51,6 +77,8 @@
   let currentStory = null;
   let currentUser = null;
   let commentPage = 1;
+  let commentSort = 'best';
+  let reportTargetCommentId = null;
 
   function showConfirm(message, onOk) {
     const m = document.getElementById('confirm-modal');
@@ -226,7 +254,7 @@
 
   // 댓글
   async function loadComments() {
-    const res = await fetch('/api/stories/' + storyId + '/comments/?page=' + commentPage);
+    const res = await fetch('/api/stories/' + storyId + '/comments/?page=' + commentPage + '&ordering=' + commentSort);
     if (!res.ok) return;
     const data = await res.json();
     document.getElementById('comment-count').textContent = '(' + data.count + ')';
@@ -234,29 +262,68 @@
   }
 
   function renderComment(c, isReply) {
+    const isAuthorOfStory = c.is_story_author;
+    const isBest = c.is_best;
     const ownerBtns = (currentUser && c.user_id === currentUser.id && !c.is_deleted)
-      ? '<button data-action="edit" data-id="' + c.id + '">수정</button>'
-      + '<button data-action="delete" data-id="' + c.id + '">삭제</button>' : '';
+      ? '<button class="icon-btn" data-action="edit" data-id="' + c.id + '">수정</button>'
+      + '<button class="icon-btn" data-action="delete" data-id="' + c.id + '">삭제</button>' : '';
     const replyBtn = (currentUser && !isReply && !c.is_deleted)
-      ? '<button data-action="reply" data-id="' + c.id + '">답글</button>' : '';
-    return '<div class="comment ' + (c.is_deleted ? 'deleted' : '') + '">'
-      + '<div class="comment-meta"><span class="author">' + window.escapeHtml(c.user_nickname || '(익명)') + '</span>'
+      ? '<button class="icon-btn" data-action="reply" data-id="' + c.id + '">답글</button>' : '';
+    const likeBtn = !c.is_deleted
+      ? '<button class="icon-btn ' + (c.is_liked ? 'liked' : '') + '" data-action="like" data-id="' + c.id + '">'
+        + '<span>♡</span><span>' + (c.like_count || 0) + '</span></button>'
+      : '';
+    const reportBtn = (currentUser && !c.is_deleted && c.user_id !== currentUser.id)
+      ? '<button class="icon-btn ' + (c.is_reported_by_me ? 'reported' : '') + '" data-action="report" data-id="' + c.id + '">'
+        + (c.is_reported_by_me ? '신고됨' : '신고') + '</button>'
+      : '';
+
+    let badges = '';
+    if (isAuthorOfStory) badges += '<span class="author-badge author">작성자</span>';
+    if (isBest) badges += '<span class="author-badge best">BEST</span>';
+
+    let deletedClass = '';
+    if (c.is_deleted) {
+      deletedClass = c.deletion_label === 'report' ? 'deleted-by-report'
+                  : c.deletion_label === 'admin' ? 'deleted-by-admin' : 'deleted';
+    }
+
+    return '<div class="comment ' + deletedClass + (isBest && !c.is_deleted ? ' best' : '') + '">'
+      + '<div class="comment-meta"><span class="author">'
+      +   window.escapeHtml(c.user_nickname || '(익명)')
+      +   '<span class="comment-author-badges">' + badges + '</span>'
+      + '</span>'
       + '<span>' + new Date(c.created_at).toLocaleDateString('ko-KR') + '</span></div>'
       + '<div>' + window.escapeHtml(c.content) + '</div>'
-      + (c.is_deleted ? '' : '<div class="comment-actions">' + replyBtn + ownerBtns + '</div>')
+      + (c.is_deleted ? '' : '<div class="comment-actions" style="margin-top:8px;">'
+          + likeBtn + reportBtn + replyBtn + ownerBtns + '</div>')
       + (c.replies && c.replies.length
         ? '<div class="replies">' + c.replies.map(r => renderComment(r, true)).join('') + '</div>'
         : '');
   }
 
   function renderComments(data) {
+    const bestArea = document.getElementById('best-comment-area');
     const list = document.getElementById('comment-list');
-    if (!data.results.length) {
+
+    // 베스트 댓글 별도 섹션
+    if (data.best && data.best.length) {
+      bestArea.innerHTML = '<div class="best-section">'
+        + '<div class="best-section-title">★ 베스트 댓글</div>'
+        + data.best.map(c => renderComment(c, false)).join('')
+        + '</div>';
+    } else {
+      bestArea.innerHTML = '';
+    }
+
+    if (!data.results.length && !(data.best && data.best.length)) {
       list.innerHTML = '<div class="empty-state" style="padding:24px;"><p>아직 댓글이 없습니다.</p></div>';
+    } else if (!data.results.length) {
+      list.innerHTML = '';
     } else {
       list.innerHTML = data.results.map(c => renderComment(c, false)).join('');
     }
-    list.querySelectorAll('button[data-action]').forEach(btn => {
+    document.querySelectorAll('#best-comment-area button[data-action], #comment-list button[data-action]').forEach(btn => {
       btn.addEventListener('click', () => onCommentAction(btn.dataset.action, parseInt(btn.dataset.id, 10)));
     });
     renderCommentPagination(data);
@@ -332,8 +399,56 @@
         if (res.ok) { window.showToast('삭제됨', 'success'); loadComments(); }
         else window.showToast('실패', 'error');
       });
+    } else if (action === 'like') {
+      if (!currentUser) { window.showToast('로그인이 필요합니다.', 'error'); return; }
+      const res = await window.api.post('/likes/toggle/', { target_type: 'comment', target_id: commentId });
+      if (res.ok) loadComments();
+    } else if (action === 'report') {
+      if (!currentUser) { window.showToast('로그인이 필요합니다.', 'error'); return; }
+      reportTargetCommentId = commentId;
+      document.querySelectorAll('input[name="report-reason"]').forEach(r => r.checked = false);
+      document.getElementById('report-modal').classList.add('show');
     }
   }
+
+  // 신고 모달
+  document.getElementById('report-cancel').addEventListener('click', () => {
+    document.getElementById('report-modal').classList.remove('show');
+    reportTargetCommentId = null;
+  });
+  document.getElementById('report-submit').addEventListener('click', async () => {
+    if (!reportTargetCommentId) return;
+    const sel = document.querySelector('input[name="report-reason"]:checked');
+    if (!sel) { window.showToast('신고 사유를 선택해주세요.', 'error'); return; }
+    const res = await window.api.post(
+      '/comments/' + reportTargetCommentId + '/report/',
+      { reason: sel.value }
+    );
+    document.getElementById('report-modal').classList.remove('show');
+    if (res.ok || res.status === 201) {
+      const data = await res.json();
+      const msg = data.auto_deleted
+        ? '신고 누적으로 댓글이 자동 삭제되었습니다.'
+        : ('신고 접수됨 (현재 ' + data.report_count + '건)');
+      window.showToast(msg, 'success');
+      loadComments();
+    } else {
+      window.showToast('신고 실패', 'error');
+    }
+    reportTargetCommentId = null;
+  });
+
+  // 정렬 탭
+  document.querySelectorAll('#comment-sort-tabs .comment-sort-tab').forEach(t => {
+    t.addEventListener('click', e => {
+      e.preventDefault();
+      document.querySelectorAll('#comment-sort-tabs .comment-sort-tab').forEach(x => x.classList.remove('active'));
+      t.classList.add('active');
+      commentSort = t.dataset.sort;
+      commentPage = 1;
+      loadComments();
+    });
+  });
 
   (async function init() {
     currentUser = await window.auth.fetchCurrentUser();
