@@ -91,17 +91,24 @@ def search_stories(
     category: Optional[str] = None,
     limit: int = 5,
     exclude_id: Optional[int] = None,
+    boost_category: Optional[str] = None,
 ) -> list[Story]:
-    """유사 사연 추천 — 키워드 매칭 + engagement(view/like/comment) 가중 합산.
+    """유사 사연 추천 — 키워드 매칭 + engagement(view/like/comment) 가중 합산
+    + 같은 카테고리 보너스.
 
-    3차 알고리즘 (의도적으로 단순):
+    3차 알고리즘 (핀터레스트/유튜브식 단순 모방):
       composite = 키워드 매칭 점수 × 3
+                + (5.0 if 카테고리 일치 else 0)   ← boost_category
                 + log10(view_count + 1)
                 + 0.5 × like_count
                 + 1.0 × comment_count
 
-    핀터레스트/유튜브식 의미적 유사도(임베딩 + 협업필터링)는 4차 영역 — search_stories
-    함수 시그니처는 동일하게 유지해서 4차에서 swap만 하면 ViewSet 변경 없음.
+    - ``category`` (필터): 응답 결과를 특정 카테고리로 한정. 검색창 등에서 사용.
+    - ``boost_category`` (가중치): 결과는 다 노출하되 같은 카테고리 사연이 위로 가도록.
+      사연 상세 페이지의 "비슷한 사연" 추천에서 사용 (자기 카테고리 우선 + 다른
+      카테고리도 다양성으로 노출).
+
+    4차에서 임베딩 + 협업필터링으로 swap 시 동일 시그니처 유지 → ViewSet 변경 없음.
     """
     import math
 
@@ -137,15 +144,21 @@ def search_stories(
         matched = [kw for kw in keywords if _kw_in_any(kw, s.title, s.content)]
         like_n = like_counts.get(s.id, 0)
         comment_n = comment_counts.get(s.id, 0)
+        same_cat_bonus = (
+            5.0
+            if boost_category and s.category and s.category.slug == boost_category
+            else 0.0
+        )
         composite = (
             len(matched) * 3.0
+            + same_cat_bonus
             + math.log10((s.view_count or 0) + 1)
             + 0.5 * like_n
             + 1.0 * comment_n
         )
         s._matched_keywords = matched
         s._score = len(matched)        # 표시용 (UI에 매칭 키워드 개수)
-        s._composite_score = composite # 정렬용 (engagement 가중)
+        s._composite_score = composite # 정렬용 (engagement + 카테고리 가중)
         s._engagement = {"likes": like_n, "comments": comment_n, "views": s.view_count}
         scored.append(s)
     scored.sort(key=lambda s: (s._composite_score, s.view_count), reverse=True)

@@ -433,7 +433,7 @@
       "is_anonymous": false,
       "is_deleted": false,
       "deleted_at": null,
-      "view_count": 30,
+      "view_count": 31,
       "created_at": "2026-05-04T04:47:11.589Z",
       "updated_at": "2026-05-04T04:47:11.589Z"
     }
@@ -465,7 +465,7 @@
       "is_anonymous": true,
       "is_deleted": false,
       "deleted_at": null,
-      "view_count": 18,
+      "view_count": 19,
       "created_at": "2026-05-04T04:47:11.600Z",
       "updated_at": "2026-05-04T04:47:11.600Z"
     }
@@ -497,7 +497,7 @@
       "is_anonymous": false,
       "is_deleted": false,
       "deleted_at": null,
-      "view_count": 8,
+      "view_count": 9,
       "created_at": "2026-05-04T04:47:11.609Z",
       "updated_at": "2026-05-04T04:47:11.609Z"
     }
@@ -513,7 +513,7 @@
       "is_anonymous": false,
       "is_deleted": false,
       "deleted_at": null,
-      "view_count": 45,
+      "view_count": 46,
       "created_at": "2026-05-04T04:47:11.614Z",
       "updated_at": "2026-05-04T04:47:11.614Z"
     }
@@ -609,7 +609,7 @@
       "is_anonymous": false,
       "is_deleted": false,
       "deleted_at": null,
-      "view_count": 24,
+      "view_count": 25,
       "created_at": "2026-05-04T04:47:11.641Z",
       "updated_at": "2026-05-04T04:47:11.641Z"
     }
@@ -673,7 +673,7 @@
       "is_anonymous": true,
       "is_deleted": false,
       "deleted_at": null,
-      "view_count": 40,
+      "view_count": 41,
       "created_at": "2026-05-04T04:47:11.659Z",
       "updated_at": "2026-05-04T04:47:11.659Z"
     }
@@ -785,7 +785,7 @@
       "is_anonymous": false,
       "is_deleted": false,
       "deleted_at": null,
-      "view_count": 10,
+      "view_count": 11,
       "created_at": "2026-05-04T04:47:11.690Z",
       "updated_at": "2026-05-04T04:47:11.690Z"
     }
@@ -833,7 +833,7 @@
       "is_anonymous": true,
       "is_deleted": false,
       "deleted_at": null,
-      "view_count": 42,
+      "view_count": 44,
       "created_at": "2026-05-04T04:47:11.703Z",
       "updated_at": "2026-05-04T04:47:11.703Z"
     }
@@ -913,7 +913,7 @@
       "is_anonymous": false,
       "is_deleted": false,
       "deleted_at": null,
-      "view_count": 35,
+      "view_count": 36,
       "created_at": "2026-05-04T04:47:11.725Z",
       "updated_at": "2026-05-04T04:47:11.725Z"
     }
@@ -993,7 +993,7 @@
       "is_anonymous": true,
       "is_deleted": false,
       "deleted_at": null,
-      "view_count": 31,
+      "view_count": 33,
       "created_at": "2026-05-04T04:47:11.748Z",
       "updated_at": "2026-05-04T04:47:11.748Z"
     }
@@ -1009,7 +1009,7 @@
       "is_anonymous": false,
       "is_deleted": false,
       "deleted_at": null,
-      "view_count": 23,
+      "view_count": 24,
       "created_at": "2026-05-04T04:47:11.752Z",
       "updated_at": "2026-05-04T04:47:11.752Z"
     }
@@ -1041,7 +1041,7 @@
       "is_anonymous": true,
       "is_deleted": false,
       "deleted_at": null,
-      "view_count": 5,
+      "view_count": 6,
       "created_at": "2026-05-04T04:47:11.762Z",
       "updated_at": "2026-05-04T04:47:11.762Z"
     }
@@ -1089,7 +1089,7 @@
       "is_anonymous": false,
       "is_deleted": false,
       "deleted_at": null,
-      "view_count": 17,
+      "view_count": 18,
       "created_at": "2026-05-04T04:47:11.778Z",
       "updated_at": "2026-05-04T04:47:11.778Z"
     }
@@ -1706,6 +1706,1286 @@
     }
   },
   {
+    "model": "interactions.like",
+    "pk": 19,
+    "fields": {
+      "user": 1,
+      "target_type": "comment",
+      "target_id": 39,
+      "created_at": "2026-05-04T05:31:42.131Z"
+    }
+  },
+  {
+    "model": "interactions.like",
+    "pk": 20,
+    "fields": {
+      "user": 2,
+      "target_type": "comment",
+      "target_id": 39,
+      "created_at": "2026-05-04T05:31:42.136Z"
+    }
+  },
+  {
+    "model": "interactions.like",
+    "pk": 21,
+    "fields": {
+      "user": 7,
+      "target_type": "comment",
+      "target_id": 39,
+      "created_at": "2026-05-04T05:31:42.139Z"
+    }
+  },
+  {
+    "model": "interactions.like",
+    "pk": 22,
+    "fields": {
+      "user": 1,
+      "target_type": "comment",
+      "target_id": 83,
+      "created_at": "2026-05-04T05:31:42.145Z"
+    }
+  },
+  {
+    "model": "interactions.like",
+    "pk": 23,
+    "fields": {
+      "user": 2,
+      "target_type": "comment",
+      "target_id": 83,
+      "created_at": "2026-05-04T05:31:42.149Z"
+    }
+  },
+  {
+    "model": "interactions.like",
+    "pk": 24,
+    "fields": {
+      "user": 7,
+      "target_type": "comment",
+      "target_id": 83,
+      "created_at": "2026-05-04T05:31:42.153Z"
+    }
+  },
+  {
+    "model": "interactions.like",
+    "pk": 25,
+    "fields": {
+      "user": 8,
+      "target_type": "comment",
+      "target_id": 83,
+      "created_at": "2026-05-04T05:31:42.157Z"
+    }
+  },
+  {
+    "model": "interactions.like",
+    "pk": 26,
+    "fields": {
+      "user": 7,
+      "target_type": "comment",
+      "target_id": 41,
+      "created_at": "2026-05-04T05:31:42.163Z"
+    }
+  },
+  {
+    "model": "interactions.like",
+    "pk": 27,
+    "fields": {
+      "user": 8,
+      "target_type": "comment",
+      "target_id": 41,
+      "created_at": "2026-05-04T05:31:42.167Z"
+    }
+  },
+  {
+    "model": "interactions.like",
+    "pk": 28,
+    "fields": {
+      "user": 9,
+      "target_type": "comment",
+      "target_id": 41,
+      "created_at": "2026-05-04T05:31:42.171Z"
+    }
+  },
+  {
+    "model": "interactions.like",
+    "pk": 29,
+    "fields": {
+      "user": 1,
+      "target_type": "comment",
+      "target_id": 43,
+      "created_at": "2026-05-04T05:31:42.177Z"
+    }
+  },
+  {
+    "model": "interactions.like",
+    "pk": 30,
+    "fields": {
+      "user": 2,
+      "target_type": "comment",
+      "target_id": 43,
+      "created_at": "2026-05-04T05:31:42.181Z"
+    }
+  },
+  {
+    "model": "interactions.like",
+    "pk": 31,
+    "fields": {
+      "user": 7,
+      "target_type": "comment",
+      "target_id": 43,
+      "created_at": "2026-05-04T05:31:42.184Z"
+    }
+  },
+  {
+    "model": "interactions.like",
+    "pk": 32,
+    "fields": {
+      "user": 1,
+      "target_type": "comment",
+      "target_id": 47,
+      "created_at": "2026-05-04T05:31:42.190Z"
+    }
+  },
+  {
+    "model": "interactions.like",
+    "pk": 33,
+    "fields": {
+      "user": 7,
+      "target_type": "comment",
+      "target_id": 47,
+      "created_at": "2026-05-04T05:31:42.194Z"
+    }
+  },
+  {
+    "model": "interactions.like",
+    "pk": 34,
+    "fields": {
+      "user": 8,
+      "target_type": "comment",
+      "target_id": 47,
+      "created_at": "2026-05-04T05:31:42.198Z"
+    }
+  },
+  {
+    "model": "interactions.like",
+    "pk": 35,
+    "fields": {
+      "user": 1,
+      "target_type": "comment",
+      "target_id": 49,
+      "created_at": "2026-05-04T05:31:42.204Z"
+    }
+  },
+  {
+    "model": "interactions.like",
+    "pk": 36,
+    "fields": {
+      "user": 2,
+      "target_type": "comment",
+      "target_id": 49,
+      "created_at": "2026-05-04T05:31:42.208Z"
+    }
+  },
+  {
+    "model": "interactions.like",
+    "pk": 37,
+    "fields": {
+      "user": 9,
+      "target_type": "comment",
+      "target_id": 49,
+      "created_at": "2026-05-04T05:31:42.212Z"
+    }
+  },
+  {
+    "model": "interactions.like",
+    "pk": 38,
+    "fields": {
+      "user": 7,
+      "target_type": "comment",
+      "target_id": 90,
+      "created_at": "2026-05-04T05:31:42.218Z"
+    }
+  },
+  {
+    "model": "interactions.like",
+    "pk": 39,
+    "fields": {
+      "user": 8,
+      "target_type": "comment",
+      "target_id": 90,
+      "created_at": "2026-05-04T05:31:42.222Z"
+    }
+  },
+  {
+    "model": "interactions.like",
+    "pk": 40,
+    "fields": {
+      "user": 9,
+      "target_type": "comment",
+      "target_id": 90,
+      "created_at": "2026-05-04T05:31:42.226Z"
+    }
+  },
+  {
+    "model": "interactions.like",
+    "pk": 41,
+    "fields": {
+      "user": 1,
+      "target_type": "comment",
+      "target_id": 93,
+      "created_at": "2026-05-04T05:31:42.231Z"
+    }
+  },
+  {
+    "model": "interactions.like",
+    "pk": 42,
+    "fields": {
+      "user": 7,
+      "target_type": "comment",
+      "target_id": 93,
+      "created_at": "2026-05-04T05:31:42.235Z"
+    }
+  },
+  {
+    "model": "interactions.like",
+    "pk": 43,
+    "fields": {
+      "user": 8,
+      "target_type": "comment",
+      "target_id": 93,
+      "created_at": "2026-05-04T05:31:42.240Z"
+    }
+  },
+  {
+    "model": "interactions.like",
+    "pk": 44,
+    "fields": {
+      "user": 2,
+      "target_type": "comment",
+      "target_id": 50,
+      "created_at": "2026-05-04T05:31:42.245Z"
+    }
+  },
+  {
+    "model": "interactions.like",
+    "pk": 45,
+    "fields": {
+      "user": 7,
+      "target_type": "comment",
+      "target_id": 50,
+      "created_at": "2026-05-04T05:31:42.250Z"
+    }
+  },
+  {
+    "model": "interactions.like",
+    "pk": 46,
+    "fields": {
+      "user": 8,
+      "target_type": "comment",
+      "target_id": 50,
+      "created_at": "2026-05-04T05:31:42.254Z"
+    }
+  },
+  {
+    "model": "interactions.like",
+    "pk": 47,
+    "fields": {
+      "user": 1,
+      "target_type": "comment",
+      "target_id": 52,
+      "created_at": "2026-05-04T05:31:42.260Z"
+    }
+  },
+  {
+    "model": "interactions.like",
+    "pk": 48,
+    "fields": {
+      "user": 7,
+      "target_type": "comment",
+      "target_id": 52,
+      "created_at": "2026-05-04T05:31:42.264Z"
+    }
+  },
+  {
+    "model": "interactions.like",
+    "pk": 49,
+    "fields": {
+      "user": 9,
+      "target_type": "comment",
+      "target_id": 52,
+      "created_at": "2026-05-04T05:31:42.268Z"
+    }
+  },
+  {
+    "model": "interactions.like",
+    "pk": 50,
+    "fields": {
+      "user": 2,
+      "target_type": "comment",
+      "target_id": 54,
+      "created_at": "2026-05-04T05:31:42.274Z"
+    }
+  },
+  {
+    "model": "interactions.like",
+    "pk": 51,
+    "fields": {
+      "user": 7,
+      "target_type": "comment",
+      "target_id": 54,
+      "created_at": "2026-05-04T05:31:42.279Z"
+    }
+  },
+  {
+    "model": "interactions.like",
+    "pk": 52,
+    "fields": {
+      "user": 8,
+      "target_type": "comment",
+      "target_id": 54,
+      "created_at": "2026-05-04T05:31:42.283Z"
+    }
+  },
+  {
+    "model": "interactions.like",
+    "pk": 53,
+    "fields": {
+      "user": 1,
+      "target_type": "comment",
+      "target_id": 98,
+      "created_at": "2026-05-04T05:31:42.288Z"
+    }
+  },
+  {
+    "model": "interactions.like",
+    "pk": 54,
+    "fields": {
+      "user": 8,
+      "target_type": "comment",
+      "target_id": 98,
+      "created_at": "2026-05-04T05:31:42.292Z"
+    }
+  },
+  {
+    "model": "interactions.like",
+    "pk": 55,
+    "fields": {
+      "user": 9,
+      "target_type": "comment",
+      "target_id": 98,
+      "created_at": "2026-05-04T05:31:42.296Z"
+    }
+  },
+  {
+    "model": "interactions.like",
+    "pk": 56,
+    "fields": {
+      "user": 2,
+      "target_type": "comment",
+      "target_id": 101,
+      "created_at": "2026-05-04T05:31:42.301Z"
+    }
+  },
+  {
+    "model": "interactions.like",
+    "pk": 57,
+    "fields": {
+      "user": 7,
+      "target_type": "comment",
+      "target_id": 101,
+      "created_at": "2026-05-04T05:31:42.306Z"
+    }
+  },
+  {
+    "model": "interactions.like",
+    "pk": 58,
+    "fields": {
+      "user": 8,
+      "target_type": "comment",
+      "target_id": 101,
+      "created_at": "2026-05-04T05:31:42.310Z"
+    }
+  },
+  {
+    "model": "interactions.like",
+    "pk": 59,
+    "fields": {
+      "user": 1,
+      "target_type": "comment",
+      "target_id": 55,
+      "created_at": "2026-05-04T05:31:42.318Z"
+    }
+  },
+  {
+    "model": "interactions.like",
+    "pk": 60,
+    "fields": {
+      "user": 2,
+      "target_type": "comment",
+      "target_id": 55,
+      "created_at": "2026-05-04T05:31:42.323Z"
+    }
+  },
+  {
+    "model": "interactions.like",
+    "pk": 61,
+    "fields": {
+      "user": 8,
+      "target_type": "comment",
+      "target_id": 55,
+      "created_at": "2026-05-04T05:31:42.329Z"
+    }
+  },
+  {
+    "model": "interactions.like",
+    "pk": 62,
+    "fields": {
+      "user": 7,
+      "target_type": "comment",
+      "target_id": 58,
+      "created_at": "2026-05-04T05:31:42.337Z"
+    }
+  },
+  {
+    "model": "interactions.like",
+    "pk": 63,
+    "fields": {
+      "user": 8,
+      "target_type": "comment",
+      "target_id": 58,
+      "created_at": "2026-05-04T05:31:42.342Z"
+    }
+  },
+  {
+    "model": "interactions.like",
+    "pk": 64,
+    "fields": {
+      "user": 9,
+      "target_type": "comment",
+      "target_id": 58,
+      "created_at": "2026-05-04T05:31:42.348Z"
+    }
+  },
+  {
+    "model": "interactions.like",
+    "pk": 65,
+    "fields": {
+      "user": 2,
+      "target_type": "comment",
+      "target_id": 59,
+      "created_at": "2026-05-04T05:31:42.355Z"
+    }
+  },
+  {
+    "model": "interactions.like",
+    "pk": 66,
+    "fields": {
+      "user": 7,
+      "target_type": "comment",
+      "target_id": 59,
+      "created_at": "2026-05-04T05:31:42.361Z"
+    }
+  },
+  {
+    "model": "interactions.like",
+    "pk": 67,
+    "fields": {
+      "user": 8,
+      "target_type": "comment",
+      "target_id": 59,
+      "created_at": "2026-05-04T05:31:42.367Z"
+    }
+  },
+  {
+    "model": "interactions.like",
+    "pk": 68,
+    "fields": {
+      "user": 1,
+      "target_type": "comment",
+      "target_id": 108,
+      "created_at": "2026-05-04T05:31:42.376Z"
+    }
+  },
+  {
+    "model": "interactions.like",
+    "pk": 69,
+    "fields": {
+      "user": 7,
+      "target_type": "comment",
+      "target_id": 108,
+      "created_at": "2026-05-04T05:31:42.381Z"
+    }
+  },
+  {
+    "model": "interactions.like",
+    "pk": 70,
+    "fields": {
+      "user": 8,
+      "target_type": "comment",
+      "target_id": 108,
+      "created_at": "2026-05-04T05:31:42.386Z"
+    }
+  },
+  {
+    "model": "interactions.like",
+    "pk": 71,
+    "fields": {
+      "user": 2,
+      "target_type": "comment",
+      "target_id": 111,
+      "created_at": "2026-05-04T05:31:42.394Z"
+    }
+  },
+  {
+    "model": "interactions.like",
+    "pk": 72,
+    "fields": {
+      "user": 7,
+      "target_type": "comment",
+      "target_id": 111,
+      "created_at": "2026-05-04T05:31:42.399Z"
+    }
+  },
+  {
+    "model": "interactions.like",
+    "pk": 73,
+    "fields": {
+      "user": 9,
+      "target_type": "comment",
+      "target_id": 111,
+      "created_at": "2026-05-04T05:31:42.404Z"
+    }
+  },
+  {
+    "model": "interactions.like",
+    "pk": 74,
+    "fields": {
+      "user": 1,
+      "target_type": "comment",
+      "target_id": 63,
+      "created_at": "2026-05-04T05:31:42.410Z"
+    }
+  },
+  {
+    "model": "interactions.like",
+    "pk": 75,
+    "fields": {
+      "user": 7,
+      "target_type": "comment",
+      "target_id": 63,
+      "created_at": "2026-05-04T05:31:42.415Z"
+    }
+  },
+  {
+    "model": "interactions.like",
+    "pk": 76,
+    "fields": {
+      "user": 8,
+      "target_type": "comment",
+      "target_id": 63,
+      "created_at": "2026-05-04T05:31:42.420Z"
+    }
+  },
+  {
+    "model": "interactions.like",
+    "pk": 77,
+    "fields": {
+      "user": 2,
+      "target_type": "comment",
+      "target_id": 64,
+      "created_at": "2026-05-04T05:31:42.426Z"
+    }
+  },
+  {
+    "model": "interactions.like",
+    "pk": 78,
+    "fields": {
+      "user": 7,
+      "target_type": "comment",
+      "target_id": 64,
+      "created_at": "2026-05-04T05:31:42.431Z"
+    }
+  },
+  {
+    "model": "interactions.like",
+    "pk": 79,
+    "fields": {
+      "user": 9,
+      "target_type": "comment",
+      "target_id": 64,
+      "created_at": "2026-05-04T05:31:42.436Z"
+    }
+  },
+  {
+    "model": "interactions.like",
+    "pk": 80,
+    "fields": {
+      "user": 1,
+      "target_type": "comment",
+      "target_id": 118,
+      "created_at": "2026-05-04T05:31:42.442Z"
+    }
+  },
+  {
+    "model": "interactions.like",
+    "pk": 81,
+    "fields": {
+      "user": 7,
+      "target_type": "comment",
+      "target_id": 118,
+      "created_at": "2026-05-04T05:31:42.447Z"
+    }
+  },
+  {
+    "model": "interactions.like",
+    "pk": 82,
+    "fields": {
+      "user": 8,
+      "target_type": "comment",
+      "target_id": 118,
+      "created_at": "2026-05-04T05:31:42.451Z"
+    }
+  },
+  {
+    "model": "interactions.like",
+    "pk": 83,
+    "fields": {
+      "user": 2,
+      "target_type": "comment",
+      "target_id": 121,
+      "created_at": "2026-05-04T05:31:42.458Z"
+    }
+  },
+  {
+    "model": "interactions.like",
+    "pk": 84,
+    "fields": {
+      "user": 8,
+      "target_type": "comment",
+      "target_id": 121,
+      "created_at": "2026-05-04T05:31:42.462Z"
+    }
+  },
+  {
+    "model": "interactions.like",
+    "pk": 85,
+    "fields": {
+      "user": 9,
+      "target_type": "comment",
+      "target_id": 121,
+      "created_at": "2026-05-04T05:31:42.467Z"
+    }
+  },
+  {
+    "model": "interactions.like",
+    "pk": 86,
+    "fields": {
+      "user": 2,
+      "target_type": "comment",
+      "target_id": 68,
+      "created_at": "2026-05-04T05:31:42.473Z"
+    }
+  },
+  {
+    "model": "interactions.like",
+    "pk": 87,
+    "fields": {
+      "user": 7,
+      "target_type": "comment",
+      "target_id": 68,
+      "created_at": "2026-05-04T05:31:42.478Z"
+    }
+  },
+  {
+    "model": "interactions.like",
+    "pk": 88,
+    "fields": {
+      "user": 8,
+      "target_type": "comment",
+      "target_id": 68,
+      "created_at": "2026-05-04T05:31:42.483Z"
+    }
+  },
+  {
+    "model": "interactions.like",
+    "pk": 89,
+    "fields": {
+      "user": 1,
+      "target_type": "comment",
+      "target_id": 69,
+      "created_at": "2026-05-04T05:31:42.489Z"
+    }
+  },
+  {
+    "model": "interactions.like",
+    "pk": 90,
+    "fields": {
+      "user": 7,
+      "target_type": "comment",
+      "target_id": 69,
+      "created_at": "2026-05-04T05:31:42.494Z"
+    }
+  },
+  {
+    "model": "interactions.like",
+    "pk": 91,
+    "fields": {
+      "user": 9,
+      "target_type": "comment",
+      "target_id": 69,
+      "created_at": "2026-05-04T05:31:42.499Z"
+    }
+  },
+  {
+    "model": "interactions.like",
+    "pk": 92,
+    "fields": {
+      "user": 1,
+      "target_type": "comment",
+      "target_id": 128,
+      "created_at": "2026-05-04T05:31:42.506Z"
+    }
+  },
+  {
+    "model": "interactions.like",
+    "pk": 93,
+    "fields": {
+      "user": 2,
+      "target_type": "comment",
+      "target_id": 128,
+      "created_at": "2026-05-04T05:31:42.511Z"
+    }
+  },
+  {
+    "model": "interactions.like",
+    "pk": 94,
+    "fields": {
+      "user": 8,
+      "target_type": "comment",
+      "target_id": 128,
+      "created_at": "2026-05-04T05:31:42.515Z"
+    }
+  },
+  {
+    "model": "interactions.like",
+    "pk": 95,
+    "fields": {
+      "user": 7,
+      "target_type": "comment",
+      "target_id": 131,
+      "created_at": "2026-05-04T05:31:42.524Z"
+    }
+  },
+  {
+    "model": "interactions.like",
+    "pk": 96,
+    "fields": {
+      "user": 8,
+      "target_type": "comment",
+      "target_id": 131,
+      "created_at": "2026-05-04T05:31:42.530Z"
+    }
+  },
+  {
+    "model": "interactions.like",
+    "pk": 97,
+    "fields": {
+      "user": 9,
+      "target_type": "comment",
+      "target_id": 131,
+      "created_at": "2026-05-04T05:31:42.536Z"
+    }
+  },
+  {
+    "model": "interactions.like",
+    "pk": 98,
+    "fields": {
+      "user": 2,
+      "target_type": "comment",
+      "target_id": 70,
+      "created_at": "2026-05-04T05:31:42.543Z"
+    }
+  },
+  {
+    "model": "interactions.like",
+    "pk": 99,
+    "fields": {
+      "user": 7,
+      "target_type": "comment",
+      "target_id": 70,
+      "created_at": "2026-05-04T05:31:42.554Z"
+    }
+  },
+  {
+    "model": "interactions.like",
+    "pk": 100,
+    "fields": {
+      "user": 8,
+      "target_type": "comment",
+      "target_id": 70,
+      "created_at": "2026-05-04T05:31:42.559Z"
+    }
+  },
+  {
+    "model": "interactions.like",
+    "pk": 101,
+    "fields": {
+      "user": 1,
+      "target_type": "comment",
+      "target_id": 72,
+      "created_at": "2026-05-04T05:31:42.565Z"
+    }
+  },
+  {
+    "model": "interactions.like",
+    "pk": 102,
+    "fields": {
+      "user": 7,
+      "target_type": "comment",
+      "target_id": 72,
+      "created_at": "2026-05-04T05:31:42.570Z"
+    }
+  },
+  {
+    "model": "interactions.like",
+    "pk": 103,
+    "fields": {
+      "user": 9,
+      "target_type": "comment",
+      "target_id": 72,
+      "created_at": "2026-05-04T05:31:42.576Z"
+    }
+  },
+  {
+    "model": "interactions.like",
+    "pk": 104,
+    "fields": {
+      "user": 2,
+      "target_type": "comment",
+      "target_id": 136,
+      "created_at": "2026-05-04T05:31:42.583Z"
+    }
+  },
+  {
+    "model": "interactions.like",
+    "pk": 105,
+    "fields": {
+      "user": 7,
+      "target_type": "comment",
+      "target_id": 136,
+      "created_at": "2026-05-04T05:31:42.589Z"
+    }
+  },
+  {
+    "model": "interactions.like",
+    "pk": 106,
+    "fields": {
+      "user": 8,
+      "target_type": "comment",
+      "target_id": 136,
+      "created_at": "2026-05-04T05:31:42.594Z"
+    }
+  },
+  {
+    "model": "interactions.like",
+    "pk": 107,
+    "fields": {
+      "user": 1,
+      "target_type": "comment",
+      "target_id": 139,
+      "created_at": "2026-05-04T05:31:42.600Z"
+    }
+  },
+  {
+    "model": "interactions.like",
+    "pk": 108,
+    "fields": {
+      "user": 7,
+      "target_type": "comment",
+      "target_id": 139,
+      "created_at": "2026-05-04T05:31:42.604Z"
+    }
+  },
+  {
+    "model": "interactions.like",
+    "pk": 109,
+    "fields": {
+      "user": 9,
+      "target_type": "comment",
+      "target_id": 139,
+      "created_at": "2026-05-04T05:31:42.609Z"
+    }
+  },
+  {
+    "model": "interactions.like",
+    "pk": 110,
+    "fields": {
+      "user": 2,
+      "target_type": "comment",
+      "target_id": 142,
+      "created_at": "2026-05-04T05:31:42.615Z"
+    }
+  },
+  {
+    "model": "interactions.like",
+    "pk": 111,
+    "fields": {
+      "user": 8,
+      "target_type": "comment",
+      "target_id": 142,
+      "created_at": "2026-05-04T05:31:42.619Z"
+    }
+  },
+  {
+    "model": "interactions.like",
+    "pk": 112,
+    "fields": {
+      "user": 9,
+      "target_type": "comment",
+      "target_id": 142,
+      "created_at": "2026-05-04T05:31:42.624Z"
+    }
+  },
+  {
+    "model": "interactions.like",
+    "pk": 113,
+    "fields": {
+      "user": 2,
+      "target_type": "comment",
+      "target_id": 73,
+      "created_at": "2026-05-04T05:31:42.630Z"
+    }
+  },
+  {
+    "model": "interactions.like",
+    "pk": 114,
+    "fields": {
+      "user": 7,
+      "target_type": "comment",
+      "target_id": 73,
+      "created_at": "2026-05-04T05:31:42.634Z"
+    }
+  },
+  {
+    "model": "interactions.like",
+    "pk": 115,
+    "fields": {
+      "user": 8,
+      "target_type": "comment",
+      "target_id": 73,
+      "created_at": "2026-05-04T05:31:42.638Z"
+    }
+  },
+  {
+    "model": "interactions.like",
+    "pk": 116,
+    "fields": {
+      "user": 1,
+      "target_type": "comment",
+      "target_id": 75,
+      "created_at": "2026-05-04T05:31:42.644Z"
+    }
+  },
+  {
+    "model": "interactions.like",
+    "pk": 117,
+    "fields": {
+      "user": 7,
+      "target_type": "comment",
+      "target_id": 75,
+      "created_at": "2026-05-04T05:31:42.648Z"
+    }
+  },
+  {
+    "model": "interactions.like",
+    "pk": 118,
+    "fields": {
+      "user": 9,
+      "target_type": "comment",
+      "target_id": 75,
+      "created_at": "2026-05-04T05:31:42.652Z"
+    }
+  },
+  {
+    "model": "interactions.like",
+    "pk": 119,
+    "fields": {
+      "user": 2,
+      "target_type": "comment",
+      "target_id": 76,
+      "created_at": "2026-05-04T05:31:42.658Z"
+    }
+  },
+  {
+    "model": "interactions.like",
+    "pk": 120,
+    "fields": {
+      "user": 7,
+      "target_type": "comment",
+      "target_id": 76,
+      "created_at": "2026-05-04T05:31:42.663Z"
+    }
+  },
+  {
+    "model": "interactions.like",
+    "pk": 121,
+    "fields": {
+      "user": 8,
+      "target_type": "comment",
+      "target_id": 76,
+      "created_at": "2026-05-04T05:31:42.668Z"
+    }
+  },
+  {
+    "model": "interactions.like",
+    "pk": 122,
+    "fields": {
+      "user": 1,
+      "target_type": "comment",
+      "target_id": 149,
+      "created_at": "2026-05-04T05:31:42.674Z"
+    }
+  },
+  {
+    "model": "interactions.like",
+    "pk": 123,
+    "fields": {
+      "user": 7,
+      "target_type": "comment",
+      "target_id": 149,
+      "created_at": "2026-05-04T05:31:42.678Z"
+    }
+  },
+  {
+    "model": "interactions.like",
+    "pk": 124,
+    "fields": {
+      "user": 9,
+      "target_type": "comment",
+      "target_id": 149,
+      "created_at": "2026-05-04T05:31:42.683Z"
+    }
+  },
+  {
+    "model": "interactions.like",
+    "pk": 125,
+    "fields": {
+      "user": 2,
+      "target_type": "comment",
+      "target_id": 152,
+      "created_at": "2026-05-04T05:31:42.688Z"
+    }
+  },
+  {
+    "model": "interactions.like",
+    "pk": 126,
+    "fields": {
+      "user": 7,
+      "target_type": "comment",
+      "target_id": 152,
+      "created_at": "2026-05-04T05:31:42.692Z"
+    }
+  },
+  {
+    "model": "interactions.like",
+    "pk": 127,
+    "fields": {
+      "user": 8,
+      "target_type": "comment",
+      "target_id": 152,
+      "created_at": "2026-05-04T05:31:42.697Z"
+    }
+  },
+  {
+    "model": "interactions.like",
+    "pk": 128,
+    "fields": {
+      "user": 1,
+      "target_type": "comment",
+      "target_id": 77,
+      "created_at": "2026-05-04T05:31:42.703Z"
+    }
+  },
+  {
+    "model": "interactions.like",
+    "pk": 129,
+    "fields": {
+      "user": 2,
+      "target_type": "comment",
+      "target_id": 77,
+      "created_at": "2026-05-04T05:31:42.707Z"
+    }
+  },
+  {
+    "model": "interactions.like",
+    "pk": 130,
+    "fields": {
+      "user": 8,
+      "target_type": "comment",
+      "target_id": 77,
+      "created_at": "2026-05-04T05:31:42.711Z"
+    }
+  },
+  {
+    "model": "interactions.like",
+    "pk": 131,
+    "fields": {
+      "user": 7,
+      "target_type": "comment",
+      "target_id": 78,
+      "created_at": "2026-05-04T05:31:42.717Z"
+    }
+  },
+  {
+    "model": "interactions.like",
+    "pk": 132,
+    "fields": {
+      "user": 8,
+      "target_type": "comment",
+      "target_id": 78,
+      "created_at": "2026-05-04T05:31:42.721Z"
+    }
+  },
+  {
+    "model": "interactions.like",
+    "pk": 133,
+    "fields": {
+      "user": 9,
+      "target_type": "comment",
+      "target_id": 78,
+      "created_at": "2026-05-04T05:31:42.725Z"
+    }
+  },
+  {
+    "model": "interactions.like",
+    "pk": 134,
+    "fields": {
+      "user": 1,
+      "target_type": "comment",
+      "target_id": 158,
+      "created_at": "2026-05-04T05:31:42.730Z"
+    }
+  },
+  {
+    "model": "interactions.like",
+    "pk": 135,
+    "fields": {
+      "user": 7,
+      "target_type": "comment",
+      "target_id": 158,
+      "created_at": "2026-05-04T05:31:42.734Z"
+    }
+  },
+  {
+    "model": "interactions.like",
+    "pk": 136,
+    "fields": {
+      "user": 8,
+      "target_type": "comment",
+      "target_id": 158,
+      "created_at": "2026-05-04T05:31:42.739Z"
+    }
+  },
+  {
+    "model": "interactions.like",
+    "pk": 137,
+    "fields": {
+      "user": 2,
+      "target_type": "comment",
+      "target_id": 160,
+      "created_at": "2026-05-04T05:31:42.745Z"
+    }
+  },
+  {
+    "model": "interactions.like",
+    "pk": 138,
+    "fields": {
+      "user": 7,
+      "target_type": "comment",
+      "target_id": 160,
+      "created_at": "2026-05-04T05:31:42.749Z"
+    }
+  },
+  {
+    "model": "interactions.like",
+    "pk": 139,
+    "fields": {
+      "user": 8,
+      "target_type": "comment",
+      "target_id": 160,
+      "created_at": "2026-05-04T05:31:42.754Z"
+    }
+  },
+  {
+    "model": "interactions.like",
+    "pk": 140,
+    "fields": {
+      "user": 1,
+      "target_type": "comment",
+      "target_id": 163,
+      "created_at": "2026-05-04T05:31:42.759Z"
+    }
+  },
+  {
+    "model": "interactions.like",
+    "pk": 141,
+    "fields": {
+      "user": 7,
+      "target_type": "comment",
+      "target_id": 163,
+      "created_at": "2026-05-04T05:31:42.764Z"
+    }
+  },
+  {
+    "model": "interactions.like",
+    "pk": 142,
+    "fields": {
+      "user": 9,
+      "target_type": "comment",
+      "target_id": 163,
+      "created_at": "2026-05-04T05:31:42.768Z"
+    }
+  },
+  {
+    "model": "interactions.like",
+    "pk": 143,
+    "fields": {
+      "user": 1,
+      "target_type": "comment",
+      "target_id": 60,
+      "created_at": "2026-05-04T05:32:20.298Z"
+    }
+  },
+  {
+    "model": "interactions.like",
+    "pk": 144,
+    "fields": {
+      "user": 2,
+      "target_type": "comment",
+      "target_id": 60,
+      "created_at": "2026-05-04T05:32:20.305Z"
+    }
+  },
+  {
+    "model": "interactions.like",
+    "pk": 145,
+    "fields": {
+      "user": 7,
+      "target_type": "comment",
+      "target_id": 60,
+      "created_at": "2026-05-04T05:32:20.309Z"
+    }
+  },
+  {
+    "model": "interactions.like",
+    "pk": 146,
+    "fields": {
+      "user": 8,
+      "target_type": "comment",
+      "target_id": 60,
+      "created_at": "2026-05-04T05:32:20.314Z"
+    }
+  },
+  {
     "model": "interactions.report",
     "pk": 1,
     "fields": {
@@ -1769,6 +3049,72 @@
       "reason": "spam",
       "detail": "",
       "created_at": "2026-05-04T04:52:51.949Z"
+    }
+  },
+  {
+    "model": "interactions.report",
+    "pk": 7,
+    "fields": {
+      "user": 1,
+      "comment": 173,
+      "reason": "spam",
+      "detail": "",
+      "created_at": "2026-05-04T05:31:42.777Z"
+    }
+  },
+  {
+    "model": "interactions.report",
+    "pk": 8,
+    "fields": {
+      "user": 2,
+      "comment": 173,
+      "reason": "spam",
+      "detail": "",
+      "created_at": "2026-05-04T05:31:42.782Z"
+    }
+  },
+  {
+    "model": "interactions.report",
+    "pk": 9,
+    "fields": {
+      "user": 7,
+      "comment": 173,
+      "reason": "spam",
+      "detail": "",
+      "created_at": "2026-05-04T05:31:42.786Z"
+    }
+  },
+  {
+    "model": "interactions.report",
+    "pk": 10,
+    "fields": {
+      "user": 1,
+      "comment": 174,
+      "reason": "spam",
+      "detail": "",
+      "created_at": "2026-05-04T05:32:20.423Z"
+    }
+  },
+  {
+    "model": "interactions.report",
+    "pk": 11,
+    "fields": {
+      "user": 2,
+      "comment": 174,
+      "reason": "spam",
+      "detail": "",
+      "created_at": "2026-05-04T05:32:20.427Z"
+    }
+  },
+  {
+    "model": "interactions.report",
+    "pk": 12,
+    "fields": {
+      "user": 7,
+      "comment": 174,
+      "reason": "spam",
+      "detail": "",
+      "created_at": "2026-05-04T05:32:20.430Z"
     }
   },
   {
@@ -2354,6 +3700,1386 @@
       "deleted_at": "2026-05-04T04:52:51.953Z",
       "created_at": "2026-05-04T04:52:51.936Z",
       "updated_at": "2026-05-04T04:52:51.936Z"
+    }
+  },
+  {
+    "model": "interactions.comment",
+    "pk": 83,
+    "fields": {
+      "user": 6,
+      "story": 74,
+      "parent": null,
+      "content": "결로·단열 부실은 임대인의 수선의무(민법 제623조) 영역입니다. 입주 후 한 달 내 발생이라면 원래 하자였을 가능성이 높아요. 사진·동영상 시기별로 보존하세요.",
+      "is_deleted": false,
+      "deletion_reason": "",
+      "deleted_at": null,
+      "created_at": "2026-05-04T05:31:41.670Z",
+      "updated_at": "2026-05-04T05:31:41.670Z"
+    }
+  },
+  {
+    "model": "interactions.comment",
+    "pk": 84,
+    "fields": {
+      "user": 7,
+      "story": 74,
+      "parent": null,
+      "content": "저도 같은 일 겪었어요. 곰팡이 검출업체 검사 받고 결과지를 임대인에게 내밀었더니 그제서야 도배·단열 공사 해줬습니다.",
+      "is_deleted": false,
+      "deletion_reason": "",
+      "deleted_at": null,
+      "created_at": "2026-05-04T05:31:41.681Z",
+      "updated_at": "2026-05-04T05:31:41.681Z"
+    }
+  },
+  {
+    "model": "interactions.comment",
+    "pk": 85,
+    "fields": {
+      "user": 1,
+      "story": 74,
+      "parent": null,
+      "content": "환기는 일반인이 할 수 있는 수준이고, 구조적 단열 결함은 임대인 책임이라는 게 일관된 판례 입장입니다.",
+      "is_deleted": false,
+      "deletion_reason": "",
+      "deleted_at": null,
+      "created_at": "2026-05-04T05:31:41.687Z",
+      "updated_at": "2026-05-04T05:31:41.687Z"
+    }
+  },
+  {
+    "model": "interactions.comment",
+    "pk": 86,
+    "fields": {
+      "user": 7,
+      "story": 76,
+      "parent": null,
+      "content": "저는 그 매물 포기했어요. 보험 가입 안 되는 매물은 위험 신호예요. 시간이 좀 걸려도 안전한 매물 찾는 게 낫습니다.",
+      "is_deleted": false,
+      "deletion_reason": "",
+      "deleted_at": null,
+      "created_at": "2026-05-04T05:31:41.693Z",
+      "updated_at": "2026-05-04T05:31:41.693Z"
+    }
+  },
+  {
+    "model": "interactions.comment",
+    "pk": 87,
+    "fields": {
+      "user": 2,
+      "story": 76,
+      "parent": null,
+      "content": "공인중개사가 '문제없다'는 말 자체가 위험합니다. 본인이 보증서지 않는 한 책임 안 져요.",
+      "is_deleted": false,
+      "deletion_reason": "",
+      "deleted_at": null,
+      "created_at": "2026-05-04T05:31:41.699Z",
+      "updated_at": "2026-05-04T05:31:41.699Z"
+    }
+  },
+  {
+    "model": "interactions.comment",
+    "pk": 88,
+    "fields": {
+      "user": 7,
+      "story": 79,
+      "parent": null,
+      "content": "저는 따돌림 정황 카톡 캡처와 회의 배제 메일 보존해서 노동위원회 갔어요. 시간 걸리지만 인정받았습니다.",
+      "is_deleted": false,
+      "deletion_reason": "",
+      "deleted_at": null,
+      "created_at": "2026-05-04T05:31:41.704Z",
+      "updated_at": "2026-05-04T05:31:41.704Z"
+    }
+  },
+  {
+    "model": "interactions.comment",
+    "pk": 89,
+    "fields": {
+      "user": 1,
+      "story": 79,
+      "parent": null,
+      "content": "사내 신고 절차 진행과 별개로 외부 상담(고용노동부 1350) 병행하시면 좋아요.",
+      "is_deleted": false,
+      "deletion_reason": "",
+      "deleted_at": null,
+      "created_at": "2026-05-04T05:31:41.709Z",
+      "updated_at": "2026-05-04T05:31:41.709Z"
+    }
+  },
+  {
+    "model": "interactions.comment",
+    "pk": 90,
+    "fields": {
+      "user": 6,
+      "story": 80,
+      "parent": null,
+      "content": "근로기준법 제36조상 퇴직 후 14일 이내 지급이 원칙이고, 지연이자(연 20%)도 청구 가능합니다. 노동청 진정으로 빠르게 해결됩니다.",
+      "is_deleted": false,
+      "deletion_reason": "",
+      "deleted_at": null,
+      "created_at": "2026-05-04T05:31:41.713Z",
+      "updated_at": "2026-05-04T05:31:41.713Z"
+    }
+  },
+  {
+    "model": "interactions.comment",
+    "pk": 91,
+    "fields": {
+      "user": 7,
+      "story": 80,
+      "parent": null,
+      "content": "저는 노동청 진정 넣고 일주일 만에 회사가 입금했어요. 진정만 들어가도 회사들 빠르게 움직입니다.",
+      "is_deleted": false,
+      "deletion_reason": "",
+      "deleted_at": null,
+      "created_at": "2026-05-04T05:31:41.720Z",
+      "updated_at": "2026-05-04T05:31:41.720Z"
+    }
+  },
+  {
+    "model": "interactions.comment",
+    "pk": 92,
+    "fields": {
+      "user": 2,
+      "story": 80,
+      "parent": null,
+      "content": "임금체불·퇴직금 미지급은 형사처벌 대상이라 회사가 부담스러워합니다.",
+      "is_deleted": false,
+      "deletion_reason": "",
+      "deleted_at": null,
+      "created_at": "2026-05-04T05:31:41.725Z",
+      "updated_at": "2026-05-04T05:31:41.725Z"
+    }
+  },
+  {
+    "model": "interactions.comment",
+    "pk": 93,
+    "fields": {
+      "user": 6,
+      "story": 81,
+      "parent": null,
+      "content": "재택근무도 근로 시간·업무 관련성 입증 시 산재 인정됩니다(고용노동부 지침). 회사가 거부해도 근로복지공단에 직접 신청 가능합니다.",
+      "is_deleted": false,
+      "deletion_reason": "",
+      "deleted_at": null,
+      "created_at": "2026-05-04T05:31:41.730Z",
+      "updated_at": "2026-05-04T05:31:41.730Z"
+    }
+  },
+  {
+    "model": "interactions.comment",
+    "pk": 94,
+    "fields": {
+      "user": 7,
+      "story": 81,
+      "parent": null,
+      "content": "저도 재택 중 다친 적 있는데 공단에 직접 신청해서 인정받았어요. 회사 거부와 별개로 진행 가능합니다.",
+      "is_deleted": false,
+      "deletion_reason": "",
+      "deleted_at": null,
+      "created_at": "2026-05-04T05:31:41.735Z",
+      "updated_at": "2026-05-04T05:31:41.735Z"
+    }
+  },
+  {
+    "model": "interactions.comment",
+    "pk": 95,
+    "fields": {
+      "user": 1,
+      "story": 81,
+      "parent": null,
+      "content": "근무 시간·장소·업무 관련성 입증 자료(업무 PC 로그, 미팅 시간 등) 미리 챙기시면 도움돼요.",
+      "is_deleted": false,
+      "deletion_reason": "",
+      "deleted_at": null,
+      "created_at": "2026-05-04T05:31:41.740Z",
+      "updated_at": "2026-05-04T05:31:41.740Z"
+    }
+  },
+  {
+    "model": "interactions.comment",
+    "pk": 96,
+    "fields": {
+      "user": 7,
+      "story": 84,
+      "parent": null,
+      "content": "저는 같은 케이스 분쟁조정위 신청해서 80% 환불받았어요. 무료 절차고 보통 1~2개월 걸립니다.",
+      "is_deleted": false,
+      "deletion_reason": "",
+      "deleted_at": null,
+      "created_at": "2026-05-04T05:31:41.744Z",
+      "updated_at": "2026-05-04T05:31:41.744Z"
+    }
+  },
+  {
+    "model": "interactions.comment",
+    "pk": 97,
+    "fields": {
+      "user": 2,
+      "story": 84,
+      "parent": null,
+      "content": "전자상거래법상 7일 내 청약철회 권리는 약관으로 배제 못 합니다. 강하게 주장하세요.",
+      "is_deleted": false,
+      "deletion_reason": "",
+      "deleted_at": null,
+      "created_at": "2026-05-04T05:31:41.749Z",
+      "updated_at": "2026-05-04T05:31:41.749Z"
+    }
+  },
+  {
+    "model": "interactions.comment",
+    "pk": 98,
+    "fields": {
+      "user": 6,
+      "story": 85,
+      "parent": null,
+      "content": "택시 부당요금은 다산콜(120) 또는 관할 시·도청 교통 민원실에 영수증·결제내역 첨부해서 신고하면 환불 처리됩니다.",
+      "is_deleted": false,
+      "deletion_reason": "",
+      "deleted_at": null,
+      "created_at": "2026-05-04T05:31:41.753Z",
+      "updated_at": "2026-05-04T05:31:41.753Z"
+    }
+  },
+  {
+    "model": "interactions.comment",
+    "pk": 99,
+    "fields": {
+      "user": 7,
+      "story": 85,
+      "parent": null,
+      "content": "저는 다산콜 신고 후 일주일 만에 환불받았어요. 카드 결제면 추적 쉬워서 빠릅니다.",
+      "is_deleted": false,
+      "deletion_reason": "",
+      "deleted_at": null,
+      "created_at": "2026-05-04T05:31:41.758Z",
+      "updated_at": "2026-05-04T05:31:41.758Z"
+    }
+  },
+  {
+    "model": "interactions.comment",
+    "pk": 100,
+    "fields": {
+      "user": 1,
+      "story": 85,
+      "parent": null,
+      "content": "택시 영수증의 차량 번호와 시간대 기록이 핵심이에요. GPS 경로 데이터 요청도 가능합니다.",
+      "is_deleted": false,
+      "deletion_reason": "",
+      "deleted_at": null,
+      "created_at": "2026-05-04T05:31:41.763Z",
+      "updated_at": "2026-05-04T05:31:41.763Z"
+    }
+  },
+  {
+    "model": "interactions.comment",
+    "pk": 101,
+    "fields": {
+      "user": 6,
+      "story": 86,
+      "parent": null,
+      "content": "전자상거래법상 정기결제 해지는 가입과 동등한 수준의 절차로 가능해야 합니다. 일부러 어렵게 만든 약관은 불공정약관으로 무효 소지 있어요.",
+      "is_deleted": false,
+      "deletion_reason": "",
+      "deleted_at": null,
+      "created_at": "2026-05-04T05:31:41.767Z",
+      "updated_at": "2026-05-04T05:31:41.767Z"
+    }
+  },
+  {
+    "model": "interactions.comment",
+    "pk": 102,
+    "fields": {
+      "user": 7,
+      "story": 86,
+      "parent": null,
+      "content": "카드사에 정기결제 차단 요청도 한 방법이에요. 카드사 콜센터에 사업자명 알려주면 막아줍니다.",
+      "is_deleted": false,
+      "deletion_reason": "",
+      "deleted_at": null,
+      "created_at": "2026-05-04T05:31:41.772Z",
+      "updated_at": "2026-05-04T05:31:41.772Z"
+    }
+  },
+  {
+    "model": "interactions.comment",
+    "pk": 103,
+    "fields": {
+      "user": 2,
+      "story": 86,
+      "parent": null,
+      "content": "한국소비자원에 신고하면 사업자한테 시정 권고 들어갑니다. 구독 해지 어렵게 한 사례 많이 처리됐어요.",
+      "is_deleted": false,
+      "deletion_reason": "",
+      "deleted_at": null,
+      "created_at": "2026-05-04T05:31:41.777Z",
+      "updated_at": "2026-05-04T05:31:41.777Z"
+    }
+  },
+  {
+    "model": "interactions.comment",
+    "pk": 104,
+    "fields": {
+      "user": 7,
+      "story": 88,
+      "parent": null,
+      "content": "저는 가압류 신청한 후 협상이 빨라졌어요. 재산 처분이 더 어려워지면 합의 가능성도 올라갑니다.",
+      "is_deleted": false,
+      "deletion_reason": "",
+      "deleted_at": null,
+      "created_at": "2026-05-04T05:31:41.782Z",
+      "updated_at": "2026-05-04T05:31:41.782Z"
+    }
+  },
+  {
+    "model": "interactions.comment",
+    "pk": 105,
+    "fields": {
+      "user": 1,
+      "story": 88,
+      "parent": null,
+      "content": "최근 5년 이내 가족 명의 이전 내역은 사해행위로 의심받기 쉽습니다. 등기 이력 다 모아두세요.",
+      "is_deleted": false,
+      "deletion_reason": "",
+      "deleted_at": null,
+      "created_at": "2026-05-04T05:31:41.787Z",
+      "updated_at": "2026-05-04T05:31:41.787Z"
+    }
+  },
+  {
+    "model": "interactions.comment",
+    "pk": 106,
+    "fields": {
+      "user": 7,
+      "story": 89,
+      "parent": null,
+      "content": "저는 분리하지 말라는 변호사 조언 받아서 양쪽 다 가져왔어요. 분리하면 학교 동의서마다 갈등 생깁니다.",
+      "is_deleted": false,
+      "deletion_reason": "",
+      "deleted_at": null,
+      "created_at": "2026-05-04T05:31:41.792Z",
+      "updated_at": "2026-05-04T05:31:41.792Z"
+    }
+  },
+  {
+    "model": "interactions.comment",
+    "pk": 107,
+    "fields": {
+      "user": 2,
+      "story": 89,
+      "parent": null,
+      "content": "상대방이 양육에 무관심하면 양쪽 다 가져오는 게 일반적입니다. 분리는 특수한 사정이 있을 때만.",
+      "is_deleted": false,
+      "deletion_reason": "",
+      "deleted_at": null,
+      "created_at": "2026-05-04T05:31:41.797Z",
+      "updated_at": "2026-05-04T05:31:41.797Z"
+    }
+  },
+  {
+    "model": "interactions.comment",
+    "pk": 108,
+    "fields": {
+      "user": 6,
+      "story": 90,
+      "parent": null,
+      "content": "사실혼은 혼인의사 + 공동생활 + 사회적 인식이 있으면 인정됩니다. 친지·이웃 진술서, 공동 통장, 결혼식 사진 등이 입증 자료가 됩니다.",
+      "is_deleted": false,
+      "deletion_reason": "",
+      "deleted_at": null,
+      "created_at": "2026-05-04T05:31:41.802Z",
+      "updated_at": "2026-05-04T05:31:41.802Z"
+    }
+  },
+  {
+    "model": "interactions.comment",
+    "pk": 109,
+    "fields": {
+      "user": 7,
+      "story": 90,
+      "parent": null,
+      "content": "저는 사실혼 인정받고 재산분할 50% 받았어요. 공동 명의 부동산이 있으면 더 명확해집니다.",
+      "is_deleted": false,
+      "deletion_reason": "",
+      "deleted_at": null,
+      "created_at": "2026-05-04T05:31:41.807Z",
+      "updated_at": "2026-05-04T05:31:41.808Z"
+    }
+  },
+  {
+    "model": "interactions.comment",
+    "pk": 110,
+    "fields": {
+      "user": 1,
+      "story": 90,
+      "parent": null,
+      "content": "사실혼도 법률혼과 같이 재산분할·위자료 청구 가능합니다. 다만 상속권은 인정 안 돼요.",
+      "is_deleted": false,
+      "deletion_reason": "",
+      "deleted_at": null,
+      "created_at": "2026-05-04T05:31:41.812Z",
+      "updated_at": "2026-05-04T05:31:41.812Z"
+    }
+  },
+  {
+    "model": "interactions.comment",
+    "pk": 111,
+    "fields": {
+      "user": 6,
+      "story": 91,
+      "parent": null,
+      "content": "민법 개정(2017)으로 조부모도 면접교섭권 청구 가능합니다. 가정법원에 청구하시고 자녀의 복리에 부합하면 인정됩니다.",
+      "is_deleted": false,
+      "deletion_reason": "",
+      "deleted_at": null,
+      "created_at": "2026-05-04T05:31:41.816Z",
+      "updated_at": "2026-05-04T05:31:41.816Z"
+    }
+  },
+  {
+    "model": "interactions.comment",
+    "pk": 112,
+    "fields": {
+      "user": 7,
+      "story": 91,
+      "parent": null,
+      "content": "저희 부모님도 청구해서 한 달에 한 번 만나기로 결정 받으셨어요. 시간이 오래 걸렸지만 결과는 좋았습니다.",
+      "is_deleted": false,
+      "deletion_reason": "",
+      "deleted_at": null,
+      "created_at": "2026-05-04T05:31:41.821Z",
+      "updated_at": "2026-05-04T05:31:41.821Z"
+    }
+  },
+  {
+    "model": "interactions.comment",
+    "pk": 113,
+    "fields": {
+      "user": 2,
+      "story": 91,
+      "parent": null,
+      "content": "자녀 의사도 중요해서 손자 나이가 어느 정도 있으면 의견 들어요.",
+      "is_deleted": false,
+      "deletion_reason": "",
+      "deleted_at": null,
+      "created_at": "2026-05-04T05:31:41.825Z",
+      "updated_at": "2026-05-04T05:31:41.825Z"
+    }
+  },
+  {
+    "model": "interactions.comment",
+    "pk": 114,
+    "fields": {
+      "user": 7,
+      "story": 93,
+      "parent": null,
+      "content": "저도 비슷한 일 있었는데 블랙박스 영상으로 인과관계 입증 어렵다는 보험사 의견 받고 책임 면제됐어요.",
+      "is_deleted": false,
+      "deletion_reason": "",
+      "deleted_at": null,
+      "created_at": "2026-05-04T05:31:41.829Z",
+      "updated_at": "2026-05-04T05:31:41.829Z"
+    }
+  },
+  {
+    "model": "interactions.comment",
+    "pk": 115,
+    "fields": {
+      "user": 1,
+      "story": 93,
+      "parent": null,
+      "content": "비접촉 사고는 입증 책임이 청구하는 쪽에 있습니다. 적극적으로 부인하세요.",
+      "is_deleted": false,
+      "deletion_reason": "",
+      "deleted_at": null,
+      "created_at": "2026-05-04T05:31:41.833Z",
+      "updated_at": "2026-05-04T05:31:41.833Z"
+    }
+  },
+  {
+    "model": "interactions.comment",
+    "pk": 116,
+    "fields": {
+      "user": 7,
+      "story": 94,
+      "parent": null,
+      "content": "저도 음주차량에 받혔는데 합의금이 보통의 1.5배 정도 나왔어요. 위자료 가중 청구 가능합니다.",
+      "is_deleted": false,
+      "deletion_reason": "",
+      "deleted_at": null,
+      "created_at": "2026-05-04T05:31:41.838Z",
+      "updated_at": "2026-05-04T05:31:41.838Z"
+    }
+  },
+  {
+    "model": "interactions.comment",
+    "pk": 117,
+    "fields": {
+      "user": 2,
+      "story": 94,
+      "parent": null,
+      "content": "보험사 제시안 수락 전에 손해사정사 무료 상담 한 번 받아보시면 좋아요. 누락된 항목 잡아줍니다.",
+      "is_deleted": false,
+      "deletion_reason": "",
+      "deleted_at": null,
+      "created_at": "2026-05-04T05:31:41.843Z",
+      "updated_at": "2026-05-04T05:31:41.843Z"
+    }
+  },
+  {
+    "model": "interactions.comment",
+    "pk": 118,
+    "fields": {
+      "user": 6,
+      "story": 95,
+      "parent": null,
+      "content": "전동킥보드는 도로교통법상 원동기장치자전거에 해당해 보험 가입 의무가 있습니다(공유 킥보드는 업체가 가입). 자동차 운전자 과실이 명확하면 자동차보험으로 보상됩니다.",
+      "is_deleted": false,
+      "deletion_reason": "",
+      "deleted_at": null,
+      "created_at": "2026-05-04T05:31:41.848Z",
+      "updated_at": "2026-05-04T05:31:41.848Z"
+    }
+  },
+  {
+    "model": "interactions.comment",
+    "pk": 119,
+    "fields": {
+      "user": 7,
+      "story": 95,
+      "parent": null,
+      "content": "저는 공유킥보드 타다 비슷한 사고 났는데 업체 보험 + 상대 차량 보험 동시 적용으로 보상받았어요.",
+      "is_deleted": false,
+      "deletion_reason": "",
+      "deleted_at": null,
+      "created_at": "2026-05-04T05:31:41.852Z",
+      "updated_at": "2026-05-04T05:31:41.852Z"
+    }
+  },
+  {
+    "model": "interactions.comment",
+    "pk": 120,
+    "fields": {
+      "user": 1,
+      "story": 95,
+      "parent": null,
+      "content": "치료비·휴업손해·위자료 모두 청구 가능. 진단서·영수증 다 모으세요.",
+      "is_deleted": false,
+      "deletion_reason": "",
+      "deleted_at": null,
+      "created_at": "2026-05-04T05:31:41.857Z",
+      "updated_at": "2026-05-04T05:31:41.857Z"
+    }
+  },
+  {
+    "model": "interactions.comment",
+    "pk": 121,
+    "fields": {
+      "user": 6,
+      "story": 96,
+      "parent": null,
+      "content": "도로교통법 위반(인도 주행)이라 자전거 운전자 책임이 큽니다. 다만 일상생활배상책임보험에 가입돼 있으면 보상 가능해요(주택종합보험에 통상 포함).",
+      "is_deleted": false,
+      "deletion_reason": "",
+      "deleted_at": null,
+      "created_at": "2026-05-04T05:31:41.862Z",
+      "updated_at": "2026-05-04T05:31:41.862Z"
+    }
+  },
+  {
+    "model": "interactions.comment",
+    "pk": 122,
+    "fields": {
+      "user": 7,
+      "story": 96,
+      "parent": null,
+      "content": "저도 일상배상책임보험으로 처리한 적 있어요. 부모님 보험에 자녀까지 포함돼 있는 경우도 많으니 확인해보세요.",
+      "is_deleted": false,
+      "deletion_reason": "",
+      "deleted_at": null,
+      "created_at": "2026-05-04T05:31:41.866Z",
+      "updated_at": "2026-05-04T05:31:41.866Z"
+    }
+  },
+  {
+    "model": "interactions.comment",
+    "pk": 123,
+    "fields": {
+      "user": 2,
+      "story": 96,
+      "parent": null,
+      "content": "중상해라면 형사 처벌(과실치상) 가능성도 있어 합의 시도가 중요합니다.",
+      "is_deleted": false,
+      "deletion_reason": "",
+      "deleted_at": null,
+      "created_at": "2026-05-04T05:31:41.871Z",
+      "updated_at": "2026-05-04T05:31:41.871Z"
+    }
+  },
+  {
+    "model": "interactions.comment",
+    "pk": 124,
+    "fields": {
+      "user": 7,
+      "story": 98,
+      "parent": null,
+      "content": "저도 비슷한 케이스인데 신고 빨라서 200만원 회수했어요. 30분 안이면 가능성 있습니다.",
+      "is_deleted": false,
+      "deletion_reason": "",
+      "deleted_at": null,
+      "created_at": "2026-05-04T05:31:41.875Z",
+      "updated_at": "2026-05-04T05:31:41.875Z"
+    }
+  },
+  {
+    "model": "interactions.comment",
+    "pk": 125,
+    "fields": {
+      "user": 1,
+      "story": 98,
+      "parent": null,
+      "content": "신고 후에도 통신사·신용카드사에 명의도용 차단 요청해놓으세요. 2차 피해 예방 차원입니다.",
+      "is_deleted": false,
+      "deletion_reason": "",
+      "deleted_at": null,
+      "created_at": "2026-05-04T05:31:41.879Z",
+      "updated_at": "2026-05-04T05:31:41.879Z"
+    }
+  },
+  {
+    "model": "interactions.comment",
+    "pk": 126,
+    "fields": {
+      "user": 7,
+      "story": 99,
+      "parent": null,
+      "content": "저는 같은 일로 회사에 공식 항의했고 동료가 사과·삭제했어요. 형사 신고까지 안 가도 해결될 수 있습니다.",
+      "is_deleted": false,
+      "deletion_reason": "",
+      "deleted_at": null,
+      "created_at": "2026-05-04T05:31:41.884Z",
+      "updated_at": "2026-05-04T05:31:41.884Z"
+    }
+  },
+  {
+    "model": "interactions.comment",
+    "pk": 127,
+    "fields": {
+      "user": 2,
+      "story": 99,
+      "parent": null,
+      "content": "단톡방 내용도 캡처해두세요. 회사 내 징계 절차에서 증거가 됩니다.",
+      "is_deleted": false,
+      "deletion_reason": "",
+      "deleted_at": null,
+      "created_at": "2026-05-04T05:31:41.889Z",
+      "updated_at": "2026-05-04T05:31:41.889Z"
+    }
+  },
+  {
+    "model": "interactions.comment",
+    "pk": 128,
+    "fields": {
+      "user": 6,
+      "story": 100,
+      "parent": null,
+      "content": "임차인 동의 없는 출입은 주거침입(형법 제319조)에 해당합니다. CCTV·도어록 출입 기록 보존하세요.",
+      "is_deleted": false,
+      "deletion_reason": "",
+      "deleted_at": null,
+      "created_at": "2026-05-04T05:31:41.893Z",
+      "updated_at": "2026-05-04T05:31:41.893Z"
+    }
+  },
+  {
+    "model": "interactions.comment",
+    "pk": 129,
+    "fields": {
+      "user": 7,
+      "story": 100,
+      "parent": null,
+      "content": "저도 비슷한 일로 경찰 신고 후 건물주가 사과·향후 출입 자제 각서 받았어요.",
+      "is_deleted": false,
+      "deletion_reason": "",
+      "deleted_at": null,
+      "created_at": "2026-05-04T05:31:41.898Z",
+      "updated_at": "2026-05-04T05:31:41.898Z"
+    }
+  },
+  {
+    "model": "interactions.comment",
+    "pk": 130,
+    "fields": {
+      "user": 1,
+      "story": 100,
+      "parent": null,
+      "content": "도어록 비밀번호도 즉시 변경하시고 임대차 계약서에 출입 동의 조항 확인하세요.",
+      "is_deleted": false,
+      "deletion_reason": "",
+      "deleted_at": null,
+      "created_at": "2026-05-04T05:31:41.904Z",
+      "updated_at": "2026-05-04T05:31:41.904Z"
+    }
+  },
+  {
+    "model": "interactions.comment",
+    "pk": 131,
+    "fields": {
+      "user": 6,
+      "story": 101,
+      "parent": null,
+      "content": "고의적 소음·욕설은 경범죄처벌법(인근소란) 또는 정보통신망법(욕설이 메시지로 갔다면)으로 처벌 가능합니다. 소음 측정·녹취 기록 보존 필수.",
+      "is_deleted": false,
+      "deletion_reason": "",
+      "deleted_at": null,
+      "created_at": "2026-05-04T05:31:41.909Z",
+      "updated_at": "2026-05-04T05:31:41.909Z"
+    }
+  },
+  {
+    "model": "interactions.comment",
+    "pk": 132,
+    "fields": {
+      "user": 7,
+      "story": 101,
+      "parent": null,
+      "content": "저는 층간소음 이웃사이센터(국가소음정보시스템)에 신청해서 중재받았어요. 무료에 효과 좋습니다.",
+      "is_deleted": false,
+      "deletion_reason": "",
+      "deleted_at": null,
+      "created_at": "2026-05-04T05:31:41.913Z",
+      "updated_at": "2026-05-04T05:31:41.913Z"
+    }
+  },
+  {
+    "model": "interactions.comment",
+    "pk": 133,
+    "fields": {
+      "user": 2,
+      "story": 101,
+      "parent": null,
+      "content": "112 신고도 가능합니다. 야간 시간대(밤 10시~새벽 6시)에 반복되면 더 강하게 다룹니다.",
+      "is_deleted": false,
+      "deletion_reason": "",
+      "deleted_at": null,
+      "created_at": "2026-05-04T05:31:41.918Z",
+      "updated_at": "2026-05-04T05:31:41.918Z"
+    }
+  },
+  {
+    "model": "interactions.comment",
+    "pk": 134,
+    "fields": {
+      "user": 7,
+      "story": 103,
+      "parent": null,
+      "content": "저는 명도소송 + 강제집행까지 갔는데 5개월 걸렸어요. 매도인이 약속한 명도 책임 안 지면 매매대금에서 공제하는 조건도 협상 가능합니다.",
+      "is_deleted": false,
+      "deletion_reason": "",
+      "deleted_at": null,
+      "created_at": "2026-05-04T05:31:41.924Z",
+      "updated_at": "2026-05-04T05:31:41.924Z"
+    }
+  },
+  {
+    "model": "interactions.comment",
+    "pk": 135,
+    "fields": {
+      "user": 1,
+      "story": 103,
+      "parent": null,
+      "content": "잔금 일부를 명도 완료 시까지 보류하는 조건을 미리 계약서에 넣었으면 좋았겠네요.",
+      "is_deleted": false,
+      "deletion_reason": "",
+      "deleted_at": null,
+      "created_at": "2026-05-04T05:31:41.929Z",
+      "updated_at": "2026-05-04T05:31:41.929Z"
+    }
+  },
+  {
+    "model": "interactions.comment",
+    "pk": 136,
+    "fields": {
+      "user": 6,
+      "story": 104,
+      "parent": null,
+      "content": "매도인이 알면서 숨긴 하자는 사기 또는 하자담보책임(민법 제580조)으로 다툴 수 있습니다. 중개사도 설명의무 위반으로 책임 가능. 하자 발견 즉시 사진·영상 보존하세요.",
+      "is_deleted": false,
+      "deletion_reason": "",
+      "deleted_at": null,
+      "created_at": "2026-05-04T05:31:41.934Z",
+      "updated_at": "2026-05-04T05:31:41.934Z"
+    }
+  },
+  {
+    "model": "interactions.comment",
+    "pk": 137,
+    "fields": {
+      "user": 7,
+      "story": 104,
+      "parent": null,
+      "content": "저는 매도인·중개사 둘 다 상대로 손해배상 받았어요. 중개사보험으로 일부 보상됩니다.",
+      "is_deleted": false,
+      "deletion_reason": "",
+      "deleted_at": null,
+      "created_at": "2026-05-04T05:31:41.939Z",
+      "updated_at": "2026-05-04T05:31:41.939Z"
+    }
+  },
+  {
+    "model": "interactions.comment",
+    "pk": 138,
+    "fields": {
+      "user": 2,
+      "story": 104,
+      "parent": null,
+      "content": "한국공인중개사협회에 진정 넣으면 자체 조사도 진행됩니다.",
+      "is_deleted": false,
+      "deletion_reason": "",
+      "deleted_at": null,
+      "created_at": "2026-05-04T05:31:41.943Z",
+      "updated_at": "2026-05-04T05:31:41.943Z"
+    }
+  },
+  {
+    "model": "interactions.comment",
+    "pk": 139,
+    "fields": {
+      "user": 6,
+      "story": 105,
+      "parent": null,
+      "content": "다운계약은 매수인도 처벌 대상입니다(부동산 거래신고법 위반, 과태료). 양도세 추징도 매도인뿐 아니라 매수인 보유 기간에 영향 줍니다. 거부하시는 게 맞습니다.",
+      "is_deleted": false,
+      "deletion_reason": "",
+      "deleted_at": null,
+      "created_at": "2026-05-04T05:31:41.948Z",
+      "updated_at": "2026-05-04T05:31:41.948Z"
+    }
+  },
+  {
+    "model": "interactions.comment",
+    "pk": 140,
+    "fields": {
+      "user": 7,
+      "story": 105,
+      "parent": null,
+      "content": "저는 거부했더니 매도인이 다른 매수자 찾는다고 했지만, 결국 다시 와서 정상 계약했어요. 강요는 협상 카드일 뿐입니다.",
+      "is_deleted": false,
+      "deletion_reason": "",
+      "deleted_at": null,
+      "created_at": "2026-05-04T05:31:41.953Z",
+      "updated_at": "2026-05-04T05:31:41.953Z"
+    }
+  },
+  {
+    "model": "interactions.comment",
+    "pk": 141,
+    "fields": {
+      "user": 1,
+      "story": 105,
+      "parent": null,
+      "content": "정상 신고한 매수인은 추후 양도세 절감 효과가 있어요. 손해 보는 거 아닙니다.",
+      "is_deleted": false,
+      "deletion_reason": "",
+      "deleted_at": null,
+      "created_at": "2026-05-04T05:31:41.957Z",
+      "updated_at": "2026-05-04T05:31:41.957Z"
+    }
+  },
+  {
+    "model": "interactions.comment",
+    "pk": 142,
+    "fields": {
+      "user": 6,
+      "story": 106,
+      "parent": null,
+      "content": "재개발 입주권 자격은 조합 정관·관리처분계획에 따라 다양합니다. 중개사 설명과 다르면 설명의무 위반·기망에 의한 계약취소 가능성이 있어요.",
+      "is_deleted": false,
+      "deletion_reason": "",
+      "deleted_at": null,
+      "created_at": "2026-05-04T05:31:41.962Z",
+      "updated_at": "2026-05-04T05:31:41.962Z"
+    }
+  },
+  {
+    "model": "interactions.comment",
+    "pk": 143,
+    "fields": {
+      "user": 7,
+      "story": 106,
+      "parent": null,
+      "content": "저도 비슷한 케이스로 매도인·중개사 상대 손해배상 청구해서 일부 받았어요. 매도인의 인지 여부 입증이 핵심.",
+      "is_deleted": false,
+      "deletion_reason": "",
+      "deleted_at": null,
+      "created_at": "2026-05-04T05:31:41.968Z",
+      "updated_at": "2026-05-04T05:31:41.968Z"
+    }
+  },
+  {
+    "model": "interactions.comment",
+    "pk": 144,
+    "fields": {
+      "user": 2,
+      "story": 106,
+      "parent": null,
+      "content": "조합 정관 + 관리처분계획서 보고 자격 확인하셨어야 했어요. 지금이라도 조합에 정확한 사유서 받으시고 변호사 상담 권장.",
+      "is_deleted": false,
+      "deletion_reason": "",
+      "deleted_at": null,
+      "created_at": "2026-05-04T05:31:41.972Z",
+      "updated_at": "2026-05-04T05:31:41.972Z"
+    }
+  },
+  {
+    "model": "interactions.comment",
+    "pk": 145,
+    "fields": {
+      "user": 7,
+      "story": 108,
+      "parent": null,
+      "content": "저는 미등록 사채라 모든 통화 녹음하고 경찰 신고했어요. 사채업자 본인이 처벌받고 초과 이자도 안 갚았습니다.",
+      "is_deleted": false,
+      "deletion_reason": "",
+      "deleted_at": null,
+      "created_at": "2026-05-04T05:31:41.977Z",
+      "updated_at": "2026-05-04T05:31:41.977Z"
+    }
+  },
+  {
+    "model": "interactions.comment",
+    "pk": 146,
+    "fields": {
+      "user": 2,
+      "story": 108,
+      "parent": null,
+      "content": "금융감독원 불법사금융 신고센터(1332)에도 함께 신고하세요. 더 빠르게 움직입니다.",
+      "is_deleted": false,
+      "deletion_reason": "",
+      "deleted_at": null,
+      "created_at": "2026-05-04T05:31:41.982Z",
+      "updated_at": "2026-05-04T05:31:41.982Z"
+    }
+  },
+  {
+    "model": "interactions.comment",
+    "pk": 147,
+    "fields": {
+      "user": 7,
+      "story": 109,
+      "parent": null,
+      "content": "저희 케이스에선 부모님이 별도로 채권자와 분할 합의 봤어요. 회생 후엔 채권자도 강하게 못 나오는 경우가 많습니다.",
+      "is_deleted": false,
+      "deletion_reason": "",
+      "deleted_at": null,
+      "created_at": "2026-05-04T05:31:41.986Z",
+      "updated_at": "2026-05-04T05:31:41.986Z"
+    }
+  },
+  {
+    "model": "interactions.comment",
+    "pk": 148,
+    "fields": {
+      "user": 1,
+      "story": 109,
+      "parent": null,
+      "content": "보증인 입장에서도 개인회생 신청 가능하니 부담이 크면 함께 검토하세요.",
+      "is_deleted": false,
+      "deletion_reason": "",
+      "deleted_at": null,
+      "created_at": "2026-05-04T05:31:41.990Z",
+      "updated_at": "2026-05-04T05:31:41.990Z"
+    }
+  },
+  {
+    "model": "interactions.comment",
+    "pk": 149,
+    "fields": {
+      "user": 6,
+      "story": 110,
+      "parent": null,
+      "content": "동업 자금의 사적 사용은 횡령(형법 제356조 또는 제355조)에 해당합니다. 거래 영수증·카드 명세서 보존 후 형사 고소 + 민사 청구 병행 가능합니다.",
+      "is_deleted": false,
+      "deletion_reason": "",
+      "deleted_at": null,
+      "created_at": "2026-05-04T05:31:41.995Z",
+      "updated_at": "2026-05-04T05:31:41.995Z"
+    }
+  },
+  {
+    "model": "interactions.comment",
+    "pk": 150,
+    "fields": {
+      "user": 7,
+      "story": 110,
+      "parent": null,
+      "content": "저는 동업 정산 분쟁에서 카드 명세를 1년치 분석해서 형사·민사 동시 진행했어요. 시간 걸리지만 회수했습니다.",
+      "is_deleted": false,
+      "deletion_reason": "",
+      "deleted_at": null,
+      "created_at": "2026-05-04T05:31:42.000Z",
+      "updated_at": "2026-05-04T05:31:42.000Z"
+    }
+  },
+  {
+    "model": "interactions.comment",
+    "pk": 151,
+    "fields": {
+      "user": 2,
+      "story": 110,
+      "parent": null,
+      "content": "동업계약서에 정산 조항 있으면 그게 1차 기준이에요. 없어도 사실관계로 청구 가능합니다.",
+      "is_deleted": false,
+      "deletion_reason": "",
+      "deleted_at": null,
+      "created_at": "2026-05-04T05:31:42.005Z",
+      "updated_at": "2026-05-04T05:31:42.005Z"
+    }
+  },
+  {
+    "model": "interactions.comment",
+    "pk": 152,
+    "fields": {
+      "user": 6,
+      "story": 111,
+      "parent": null,
+      "content": "여신전문금융업법상 부정사용으로 의심되면 카드사가 조사 의무가 있습니다. 거부 시 금융감독원 분쟁조정 신청 가능. 본인 인증이 정상이라도 명의도용 정황을 입증하면 책임 면제됩니다.",
+      "is_deleted": false,
+      "deletion_reason": "",
+      "deleted_at": null,
+      "created_at": "2026-05-04T05:31:42.010Z",
+      "updated_at": "2026-05-04T05:31:42.010Z"
+    }
+  },
+  {
+    "model": "interactions.comment",
+    "pk": 153,
+    "fields": {
+      "user": 7,
+      "story": 111,
+      "parent": null,
+      "content": "저는 카드사 거부 후 금감원 분쟁조정으로 100% 환불받았어요. 시간은 좀 걸렸지만 결과 좋았습니다.",
+      "is_deleted": false,
+      "deletion_reason": "",
+      "deleted_at": null,
+      "created_at": "2026-05-04T05:31:42.015Z",
+      "updated_at": "2026-05-04T05:31:42.015Z"
+    }
+  },
+  {
+    "model": "interactions.comment",
+    "pk": 154,
+    "fields": {
+      "user": 1,
+      "story": 111,
+      "parent": null,
+      "content": "결제 시점·장소 본인 알리바이 자료 챙기시고 결제 알림 안 받은 정황도 입증하시면 도움됩니다.",
+      "is_deleted": false,
+      "deletion_reason": "",
+      "deleted_at": null,
+      "created_at": "2026-05-04T05:31:42.020Z",
+      "updated_at": "2026-05-04T05:31:42.020Z"
+    }
+  },
+  {
+    "model": "interactions.comment",
+    "pk": 155,
+    "fields": {
+      "user": 7,
+      "story": 112,
+      "parent": null,
+      "content": "저는 환경분쟁조정위 신청 후 위층이 매트 깔고 활동시간 조정해서 해결됐어요. 무료고 효과 있었습니다.",
+      "is_deleted": false,
+      "deletion_reason": "",
+      "deleted_at": null,
+      "created_at": "2026-05-04T05:31:42.025Z",
+      "updated_at": "2026-05-04T05:31:42.025Z"
+    }
+  },
+  {
+    "model": "interactions.comment",
+    "pk": 156,
+    "fields": {
+      "user": 1,
+      "story": 112,
+      "parent": null,
+      "content": "공동주택관리법 개정으로 관리사무소 중재 의무가 강화됐어요. 관리사무소 응대 기록도 챙기시면 후속 절차에서 도움됩니다.",
+      "is_deleted": false,
+      "deletion_reason": "",
+      "deleted_at": null,
+      "created_at": "2026-05-04T05:31:42.030Z",
+      "updated_at": "2026-05-04T05:31:42.030Z"
+    }
+  },
+  {
+    "model": "interactions.comment",
+    "pk": 157,
+    "fields": {
+      "user": 2,
+      "story": 113,
+      "parent": null,
+      "content": "동물병원 진단서·치료비 영수증 모으고, 정신적 위자료는 통상 10~30만원 선이라 너무 과도하면 거절도 가능합니다.",
+      "is_deleted": false,
+      "deletion_reason": "",
+      "deleted_at": null,
+      "created_at": "2026-05-04T05:31:42.035Z",
+      "updated_at": "2026-05-04T05:31:42.035Z"
+    }
+  },
+  {
+    "model": "interactions.comment",
+    "pk": 158,
+    "fields": {
+      "user": 6,
+      "story": 114,
+      "parent": null,
+      "content": "주거지역에서도 일정 규모·소음 기준 내라면 가내 사업 가능합니다. 다만 이웃 민원 누적 시 행정처분 가능성이 있어 사전에 관할 구청 문의하시는 게 안전.",
+      "is_deleted": false,
+      "deletion_reason": "",
+      "deleted_at": null,
+      "created_at": "2026-05-04T05:31:42.040Z",
+      "updated_at": "2026-05-04T05:31:42.040Z"
+    }
+  },
+  {
+    "model": "interactions.comment",
+    "pk": 159,
+    "fields": {
+      "user": 7,
+      "story": 114,
+      "parent": null,
+      "content": "저도 같은 케이스로 구청 상담받았는데 실제로 영업 중단 명령까지 가는 경우는 드물어요. 이웃과 시간대 협의로 푸는 게 일반적.",
+      "is_deleted": false,
+      "deletion_reason": "",
+      "deleted_at": null,
+      "created_at": "2026-05-04T05:31:42.045Z",
+      "updated_at": "2026-05-04T05:31:42.045Z"
+    }
+  },
+  {
+    "model": "interactions.comment",
+    "pk": 160,
+    "fields": {
+      "user": 6,
+      "story": 115,
+      "parent": null,
+      "content": "공동소송 또는 공동고소로 진행 가능합니다. 변호사 한 명이 다수 의뢰인을 대리하는 형태로 비용 부담을 나누는 케이스가 많아요. 법무법인에 단체 상담 요청해보세요.",
+      "is_deleted": false,
+      "deletion_reason": "",
+      "deleted_at": null,
+      "created_at": "2026-05-04T05:31:42.049Z",
+      "updated_at": "2026-05-04T05:31:42.049Z"
+    }
+  },
+  {
+    "model": "interactions.comment",
+    "pk": 161,
+    "fields": {
+      "user": 7,
+      "story": 115,
+      "parent": null,
+      "content": "저도 비슷한 모임에서 공동 고소 진행했어요. 30명 정도 모이니 변호사 비용이 1인당 부담 가능한 수준이 됐습니다.",
+      "is_deleted": false,
+      "deletion_reason": "",
+      "deleted_at": null,
+      "created_at": "2026-05-04T05:31:42.054Z",
+      "updated_at": "2026-05-04T05:31:42.054Z"
+    }
+  },
+  {
+    "model": "interactions.comment",
+    "pk": 162,
+    "fields": {
+      "user": 2,
+      "story": 115,
+      "parent": null,
+      "content": "경찰 신고도 동시에 들어가야 효과 좋아요. 피해자 다수 신고는 수사 우선순위가 올라갑니다.",
+      "is_deleted": false,
+      "deletion_reason": "",
+      "deleted_at": null,
+      "created_at": "2026-05-04T05:31:42.059Z",
+      "updated_at": "2026-05-04T05:31:42.059Z"
+    }
+  },
+  {
+    "model": "interactions.comment",
+    "pk": 163,
+    "fields": {
+      "user": 6,
+      "story": 116,
+      "parent": null,
+      "content": "유튜브 자체 저작권 신고(Copyright Strike)로 1차 대응하시고, 손해배상은 별도 민사 청구 필요. 조회수 기반 추정 수익 + 명예회복 비용까지 청구 가능해요.",
+      "is_deleted": false,
+      "deletion_reason": "",
+      "deleted_at": null,
+      "created_at": "2026-05-04T05:31:42.064Z",
+      "updated_at": "2026-05-04T05:31:42.064Z"
+    }
+  },
+  {
+    "model": "interactions.comment",
+    "pk": 164,
+    "fields": {
+      "user": 7,
+      "story": 116,
+      "parent": null,
+      "content": "저는 신고 한 번에 채널 영상 내려졌어요. 같은 채널이 반복 도용하면 채널 자체 폭파됩니다.",
+      "is_deleted": false,
+      "deletion_reason": "",
+      "deleted_at": null,
+      "created_at": "2026-05-04T05:31:42.068Z",
+      "updated_at": "2026-05-04T05:31:42.068Z"
+    }
+  },
+  {
+    "model": "interactions.comment",
+    "pk": 165,
+    "fields": {
+      "user": 1,
+      "story": 116,
+      "parent": null,
+      "content": "한국저작권위원회 분쟁조정 신청도 좋은 방법이에요. 무료고 빠릅니다.",
+      "is_deleted": false,
+      "deletion_reason": "",
+      "deleted_at": null,
+      "created_at": "2026-05-04T05:31:42.073Z",
+      "updated_at": "2026-05-04T05:31:42.073Z"
+    }
+  },
+  {
+    "model": "interactions.comment",
+    "pk": 166,
+    "fields": {
+      "user": 1,
+      "story": 73,
+      "parent": null,
+      "content": "1년 미만 거주면 도배 비용 거의 없는 게 정상이에요. 영수증 없이 청구하는 건 위법 소지.",
+      "is_deleted": false,
+      "deletion_reason": "",
+      "deleted_at": null,
+      "created_at": "2026-05-04T05:31:42.078Z",
+      "updated_at": "2026-05-04T05:31:42.078Z"
+    }
+  },
+  {
+    "model": "interactions.comment",
+    "pk": 167,
+    "fields": {
+      "user": 7,
+      "story": 75,
+      "parent": null,
+      "content": "5%룰 거부했더니 집주인이 1년만 더 살라고 했어요. 결국 그렇게 합의 봤고요.",
+      "is_deleted": false,
+      "deletion_reason": "",
+      "deleted_at": null,
+      "created_at": "2026-05-04T05:31:42.083Z",
+      "updated_at": "2026-05-04T05:31:42.083Z"
+    }
+  },
+  {
+    "model": "interactions.comment",
+    "pk": 168,
+    "fields": {
+      "user": 1,
+      "story": 78,
+      "parent": null,
+      "content": "근로계약서에 포괄임금제 명시 안 됐다면 별도 수당 받을 권리 있어요.",
+      "is_deleted": false,
+      "deletion_reason": "",
+      "deleted_at": null,
+      "created_at": "2026-05-04T05:31:42.088Z",
+      "updated_at": "2026-05-04T05:31:42.088Z"
+    }
+  },
+  {
+    "model": "interactions.comment",
+    "pk": 169,
+    "fields": {
+      "user": 1,
+      "story": 82,
+      "parent": null,
+      "content": "더치트 등록도 도움됩니다. 다른 피해자들 모이면 공동 고소도 진행되더라고요.",
+      "is_deleted": false,
+      "deletion_reason": "",
+      "deleted_at": null,
+      "created_at": "2026-05-04T05:31:42.093Z",
+      "updated_at": "2026-05-04T05:31:42.093Z"
+    }
+  },
+  {
+    "model": "interactions.comment",
+    "pk": 170,
+    "fields": {
+      "user": 7,
+      "story": 83,
+      "parent": null,
+      "content": "한국체육시설협회에 신고하면 폐업 정보 공유돼서 다른 피해자 보호에도 도움됩니다.",
+      "is_deleted": false,
+      "deletion_reason": "",
+      "deleted_at": null,
+      "created_at": "2026-05-04T05:31:42.099Z",
+      "updated_at": "2026-05-04T05:31:42.099Z"
+    }
+  },
+  {
+    "model": "interactions.comment",
+    "pk": 171,
+    "fields": {
+      "user": 6,
+      "story": 102,
+      "parent": null,
+      "content": "가압류 해소 전에 잔금 치르면 위험하니 반드시 등기 다시 확인 후 진행하세요.",
+      "is_deleted": false,
+      "deletion_reason": "",
+      "deleted_at": null,
+      "created_at": "2026-05-04T05:31:42.104Z",
+      "updated_at": "2026-05-04T05:31:42.104Z"
+    }
+  },
+  {
+    "model": "interactions.comment",
+    "pk": 172,
+    "fields": {
+      "user": 2,
+      "story": 107,
+      "parent": null,
+      "content": "시효 항변 외에 보증 의사 표시의 흠결(강박·기망)도 다툴 수 있어요. 당시 정황 자료 모으세요.",
+      "is_deleted": false,
+      "deletion_reason": "",
+      "deleted_at": null,
+      "created_at": "2026-05-04T05:31:42.109Z",
+      "updated_at": "2026-05-04T05:31:42.109Z"
+    }
+  },
+  {
+    "model": "interactions.comment",
+    "pk": 173,
+    "fields": {
+      "user": 8,
+      "story": 112,
+      "parent": null,
+      "content": "광고: 신비한 만능 약 판매 중! 카톡 문의 ★★★ (이 댓글은 시연용 신고 대상)",
+      "is_deleted": true,
+      "deletion_reason": "report",
+      "deleted_at": "2026-05-04T05:31:42.790Z",
+      "created_at": "2026-05-04T05:31:42.772Z",
+      "updated_at": "2026-05-04T05:31:42.772Z"
+    }
+  },
+  {
+    "model": "interactions.comment",
+    "pk": 174,
+    "fields": {
+      "user": 8,
+      "story": 112,
+      "parent": null,
+      "content": "광고: 신비한 만능 약 판매 중! 카톡 문의 ★★★ (이 댓글은 시연용 신고 대상)",
+      "is_deleted": true,
+      "deletion_reason": "report",
+      "deleted_at": "2026-05-04T05:32:20.434Z",
+      "created_at": "2026-05-04T05:32:20.418Z",
+      "updated_at": "2026-05-04T05:32:20.418Z"
     }
   },
   {

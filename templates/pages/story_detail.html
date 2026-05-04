@@ -181,13 +181,15 @@
       const query = (s.title || '') + ' ' + (s.content || '');
       const cat = s.category && s.category.slug;
       const [r1, r2] = await Promise.all([
+        // laws/precedents: 사연 카테고리 필터 ON (정확 매칭)
         fetch('/api/search/', {
           method: 'POST', headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ query, exclude_story_id: s.id, category: cat })
         }),
+        // stories: 카테고리 필터 OFF + 같은 카테고리 보너스 점수 (다양성 + 자기 카테고리 우선)
         fetch('/api/search/', {
           method: 'POST', headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ query, exclude_story_id: s.id })
+          body: JSON.stringify({ query, exclude_story_id: s.id, boost_category: cat })
         })
       ]);
       if (!r1.ok || !r2.ok) return;

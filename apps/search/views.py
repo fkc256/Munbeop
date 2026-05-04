@@ -36,6 +36,7 @@ class UnifiedSearchView(APIView):
             query=request.data.get("query", ""),
             category=request.data.get("category"),
             exclude_story_id=request.data.get("exclude_story_id"),
+            boost_category=request.data.get("boost_category"),
         )
 
     def get(self, request):
@@ -43,11 +44,14 @@ class UnifiedSearchView(APIView):
             query=request.query_params.get("q", ""),
             category=request.query_params.get("category"),
             exclude_story_id=request.query_params.get("exclude_story_id"),
+            boost_category=request.query_params.get("boost_category"),
         )
 
-    def _search(self, query: str, category: str | None, exclude_story_id):
+    def _search(self, query: str, category: str | None, exclude_story_id,
+                boost_category: str | None = None):
         query = query or ""
         category = category or None
+        boost_category = boost_category or None
         exclude_id = _coerce_int(exclude_story_id)
 
         keywords = extract_keywords(query)
@@ -65,7 +69,10 @@ class UnifiedSearchView(APIView):
 
         laws = search_laws(keywords, category=category)
         precedents = search_precedents(keywords, category=category)
-        stories = search_stories(keywords, category=category, exclude_id=exclude_id)
+        stories = search_stories(
+            keywords, category=category, exclude_id=exclude_id,
+            boost_category=boost_category,
+        )
 
         ctx = {"request": self.request}
         return Response(
