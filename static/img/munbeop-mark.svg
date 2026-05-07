@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80" fill="none" role="img" aria-label="문법 로고">
+  <!-- 배지 -->
+  <rect width="80" height="80" rx="16" fill="#1E293B"/>
+
+  <!-- 상단 골드 글로우 라인 -->
+  <rect width="80" height="4" fill="#A88E54"/>
+
+  <!-- 저울 기둥 -->
+  <line x1="40" y1="22" x2="40" y2="58" stroke="#A88E54" stroke-width="2.5" stroke-linecap="round"/>
+
+  <!-- 저울 가로대 -->
+  <line x1="18" y1="26" x2="62" y2="26" stroke="#A88E54" stroke-width="2.5" stroke-linecap="round"/>
+
+  <!-- 가로대 중앙 결합 점 -->
+  <circle cx="40" cy="20" r="2.5" fill="#A88E54"/>
+
+  <!-- 좌측 접시 -->
+  <line x1="20" y1="26" x2="20" y2="29" stroke="#A88E54" stroke-width="1.5" stroke-linecap="round"/>
+  <path d="M 13 29 Q 13 38 20 38 Q 27 38 27 29 Z" stroke="#A88E54" stroke-width="2" fill="none" stroke-linejoin="round"/>
+
+  <!-- 우측 접시 -->
+  <line x1="60" y1="26" x2="60" y2="29" stroke="#A88E54" stroke-width="1.5" stroke-linecap="round"/>
+  <path d="M 53 29 Q 53 38 60 38 Q 67 38 67 29 Z" stroke="#A88E54" stroke-width="2" fill="none" stroke-linejoin="round"/>
+
+  <!-- 받침대 -->
+  <rect x="32" y="58" width="16" height="3" rx="1" fill="#A88E54"/>
+  <rect x="27" y="62" width="26" height="2.5" rx="1" fill="#A88E54" opacity="0.65"/>
+
+  <!-- 우상단 액센트 점 -->
+  <circle cx="68" cy="14" r="2" fill="#A88E54" opacity="0.8"/>
+</svg>

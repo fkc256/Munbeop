@@ -695,6 +695,23 @@
 /* ============================================================
    브랜드 헤드라인 — "문제를 해결하는 법" 줄임말 강조
    ============================================================ */
+.brand-mark {
+  display: block;
+  width: 64px;
+  height: 64px;
+  margin: 0 auto 18px;
+  border-radius: 16px;
+  box-shadow:
+    0 4px 12px rgba(15, 23, 42, 0.18),
+    0 1px 3px rgba(15, 23, 42, 0.12);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.brand-mark:hover {
+  transform: translateY(-2px) rotate(-2deg);
+  box-shadow:
+    0 8px 18px rgba(15, 23, 42, 0.22),
+    0 2px 4px rgba(15, 23, 42, 0.14);
+}
 .brand-headline {
   font-size: 2.6rem;
   font-weight: 900;
@@ -715,9 +732,11 @@
 }
 @media (max-width: 768px) {
   .brand-headline { font-size: 1.85rem; letter-spacing: -0.025em; }
+  .brand-mark { width: 56px; height: 56px; margin-bottom: 14px; }
 }
 @media (max-width: 480px) {
   .brand-headline { font-size: 1.55rem; }
+  .brand-mark { width: 48px; height: 48px; margin-bottom: 12px; }
 }
 
 /* ============================================================
