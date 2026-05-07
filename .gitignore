@@ -68,3 +68,8 @@ coverage.xml
 
 # STEP 7.5 backups (DB dumps, SQLite snapshot)
 /backups/
+
+# 외부 평가 자료 (커밋 X)
+*평가*.md
+*evaluation*.md
+*채점*.md
