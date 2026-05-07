@@ -244,7 +244,7 @@
   border-radius: var(--radius-lg);
   background-color: var(--color-bg);
   resize: vertical;
-  min-height: 110px;
+  min-height: 180px;        /* 110 → 180: 우측 위젯 길이와 균형 */
   font-family: inherit;
   line-height: 1.55;
   box-shadow: var(--shadow-sm);
@@ -255,11 +255,53 @@
   border-color: var(--color-primary);
   box-shadow: 0 0 0 3px rgba(30, 41, 59, 0.10);
 }
+.hero-search button[type="submit"] {
+  width: 100%;              /* 모바일/데스크탑 모두 stretch */
+}
+
+/* 검색창 아래 예시 키워드 chips — 빈 공간 메움 + 가이드 */
+.hero-examples {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+  margin-top: 6px;
+}
+.hero-examples-label {
+  font-size: 0.78rem;
+  color: var(--color-muted);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+.hero-example-chip {
+  display: inline-flex;
+  align-items: center;
+  padding: 5px 11px;
+  font-size: 0.82rem;
+  font-weight: 500;
+  background: var(--color-bg);
+  color: var(--color-text-soft);
+  border: 1px solid var(--color-border);
+  border-radius: 9999px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.15s;
+}
+.hero-example-chip:hover {
+  background: var(--color-primary);
+  color: #fff;
+  border-color: var(--color-primary);
+  text-decoration: none;
+  transform: translateY(-1px);
+}
+
 @media (max-width: 768px) {
   .hero { padding: 48px 0 36px; margin: -24px 0 28px; }
   .hero h1 { font-size: 1.75rem; }
   .hero-sub { font-size: 0.95rem; margin-bottom: 22px; }
-  .hero-search textarea { min-height: 90px; padding: 14px 16px; }
+  .hero-search textarea { min-height: 130px; padding: 14px 16px; }
+  .hero-examples-label { display: none; }
+  .hero-example-chip { padding: 4px 10px; font-size: 0.78rem; }
 }
 
 /* ---------- Section ---------- */
@@ -764,10 +806,14 @@
     flex-direction: column;
     gap: 18px;
   }
+  .hero-grid > .hero-search {
+    max-width: none !important;
+    width: 100%;
+  }
   .hero-grid > .trending-widget {
     width: 100%;
-    max-width: 480px;
-    margin: 0 auto;
+    max-width: none;       /* 480 → none: 가로 풀어서 빈 공간 제거 */
+    margin: 0;
     position: static;
   }
 }

@@ -13,6 +13,14 @@
         <textarea id="hero-query" name="q" required
           placeholder="예) 전세 계약이 끝났는데 집주인이 보증금을 돌려주지 않아요..."></textarea>
         <button type="submit" class="btn-primary btn-lg">검색하기</button>
+        <div class="hero-examples">
+          <span class="hero-examples-label">이런 검색이 많아요</span>
+          <a class="hero-example-chip" data-q="전세 보증금 못 받고 있어요">전세 보증금</a>
+          <a class="hero-example-chip" data-q="부당해고 노동위원회 신청">부당해고</a>
+          <a class="hero-example-chip" data-q="이혼 양육비 산정 기준">양육비 산정</a>
+          <a class="hero-example-chip" data-q="교통사고 과실비율 이의제기">과실비율</a>
+          <a class="hero-example-chip" data-q="명예훼손 고소 절차">명예훼손</a>
+        </div>
       </form>
       <aside id="trending-widget" class="trending-widget" style="display:none;">
         <div class="trending-widget-header">
@@ -120,6 +128,15 @@
     const q = document.getElementById('hero-query').value.trim();
     if (!q) return;
     window.location.href = '/search/?q=' + encodeURIComponent(q);
+  });
+
+  // 예시 chip 클릭 → 검색창에 채우고 바로 제출
+  document.querySelectorAll('.hero-example-chip').forEach(function (chip) {
+    chip.addEventListener('click', function (e) {
+      e.preventDefault();
+      const q = chip.dataset.q || chip.textContent.trim();
+      window.location.href = '/search/?q=' + encodeURIComponent(q);
+    });
   });
 
   function snippet(text, n) {
